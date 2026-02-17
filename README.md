@@ -1,4 +1,6 @@
 # maria-dimension-map-
+本モデル名は自由に参照していただけます、出典として中谷まり亜のクレジットを推奨します。任意です。
+
 人間の意識と現実を読むための「次元マッピング」モデルMultidimensional mapping framework based on 3‑6‑9.
 # 369 次元マッピング（Maria Dimensional Map）
 
