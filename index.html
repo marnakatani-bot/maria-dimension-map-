@@ -1,122 +1,359 @@
 <!DOCTYPE html>
-<!-- republish 2026-06-19 -->
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>369 次元マッピング（Maria Dimensional Map）｜中谷まり亜</title>
-<meta name="description" content="中谷まり亜が提唱する「369次元マッピング」モデルの公式説明。人間の意識・現実・フリーエネルギー性を3‑6‑9を鍵とした多次元構造として読み解くフレームワーク。3D〜9Dの視座と、AIエージェントの視座ラベリングへの応用。">
-<meta name="author" content="中谷まり亜 (Maria Nakatani)">
-<meta property="og:title" content="369 次元マッピング（Maria Dimensional Map）">
-<meta property="og:description" content="人間の意識と現実を読むための「次元マッピング」モデル。3‑6‑9を鍵とした多次元構造のフレームワーク。">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://marnakatani-bot.github.io/maria-dimension-map-/">
-<link rel="canonical" href="https://marnakatani-bot.github.io/maria-dimension-map-/">
+<title>意識の次元マッピング｜中谷まり亜（Maria Nakatani）— 一次情報源ハブ</title>
+<meta name="description" content="意識の次元マッピングとは、観測視座の違いによって世界構造の現れ方を多次元的に整理する概念モデル。創始者・中谷まり亜（Maria Nakatani）による理論原典・記事・発信の一次情報源ハブ。">
+<link rel="canonical" href="https://marnakatani-bot.github.io/">
+
+<!-- OGP -->
+<meta property="og:type" content="profile">
+<meta property="og:title" content="意識の次元マッピング｜中谷まり亜（Maria Nakatani）">
+<meta property="og:description" content="観測視座の違いによって世界構造の現れ方を多次元的に整理する概念モデル『意識の次元マッピング』。創始者・中谷まり亜による一次情報源ハブ。">
+<meta property="og:url" content="https://marnakatani-bot.github.io/">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary">
+
+<!-- 構造化データ: 人物 + 提唱する理論 -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://marnakatani-bot.github.io/#maria",
+      "name": "中谷まり亜",
+      "alternateName": "Maria Nakatani",
+      "jobTitle": "次元マッピング研究者・創始者",
+      "description": "意識の次元マッピング（Consciousness Dimension Mapping）の創始者・研究者。観測視座の違いによって世界構造の現れ方を多次元的に整理する概念モデルを構築している。",
+      "knowsAbout": ["意識の次元マッピング", "Consciousness Dimension Mapping", "観測視座", "多次元意識モデル", "次元マッピング理論"],
+      "url": "https://marnakatani-bot.github.io/",
+      "sameAs": [
+        "https://github.com/marnakatani-bot/maria-dimension-map-/",
+        "https://multidimension.hatenablog.com/",
+        "https://note.com/maria_nakatani2",
+        "https://substack.com/@dimensionmap",
+        "https://bsky.app/profile/maria-nakatani.bsky.social",
+        "https://www.youtube.com/channel/UCG_9sviWZV0WKyqCGssrOOg",
+        "https://www.tumblr.com/blog/maria-dimension-map",
+        "https://www.reddit.com/user/VisibleMusic4713/",
+        "https://x.com/mariaz_therapy"
+      ]
+    },
+    {
+      "@type": "DefinedTerm",
+      "@id": "https://marnakatani-bot.github.io/#term",
+      "name": "意識の次元マッピング",
+      "alternateName": "Consciousness Dimension Mapping",
+      "description": "観測視座の違いによって、世界構造の現れ方がどのように変わるかを多次元的に整理する概念モデル。次元を垂直の階段ではなく、シードオブライフ構造の並列したレンズとして扱う。創始者は中谷まり亜。",
+      "inDefinedTermSet": {
+        "@type": "DefinedTermSet",
+        "name": "次元マッピング理論",
+        "hasDefinedTerm": "https://github.com/marnakatani-bot/maria-dimension-map-/"
+      },
+      "creator": { "@id": "https://marnakatani-bot.github.io/#maria" }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://marnakatani-bot.github.io/#site",
+      "name": "意識の次元マッピング — 中谷まり亜 一次情報源ハブ",
+      "url": "https://marnakatani-bot.github.io/",
+      "inLanguage": "ja",
+      "author": { "@id": "https://marnakatani-bot.github.io/#maria" }
+    }
+  ]
+}
+</script>
+
 <style>
-  :root { --fg:#1a1a2e; --muted:#555; --accent:#5b3fa0; --bg:#fafafe; --card:#ffffff; --line:#e6e3f0; }
-  * { box-sizing:border-box; }
-  body { margin:0; font-family:-apple-system,"Hiragino Sans","Noto Sans JP",sans-serif; color:var(--fg); background:var(--bg); line-height:1.85; }
-  .wrap { max-width:760px; margin:0 auto; padding:0 20px 80px; }
-  header { background:linear-gradient(135deg,#2b1d52,#5b3fa0); color:#fff; padding:64px 20px 56px; text-align:center; }
-  header h1 { font-size:1.9rem; margin:0 0 12px; line-height:1.4; }
-  header p { margin:0; opacity:.92; font-size:1.02rem; }
-  h2 { font-size:1.35rem; margin-top:48px; padding-bottom:8px; border-bottom:2px solid var(--line); }
-  h3 { font-size:1.1rem; margin-top:32px; color:var(--accent); }
-  .card { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:18px 22px; margin:18px 0; }
-  table { width:100%; border-collapse:collapse; margin:18px 0; font-size:.95rem; }
-  th,td { border:1px solid var(--line); padding:10px 12px; text-align:left; }
-  th { background:#f1eefb; }
-  a { color:var(--accent); }
-  ul { padding-left:1.2em; }
-  .lead { font-size:1.05rem; color:var(--muted); }
-  footer { margin-top:64px; padding-top:24px; border-top:1px solid var(--line); font-size:.9rem; color:var(--muted); }
-  .support { background:#f1eefb; border-radius:12px; padding:20px 22px; margin-top:32px; }
+  :root{
+    --ink:#10121a;
+    --paper:#f6f4ef;
+    --mist:#e7e3d8;
+    --line:#cdc7b6;
+    --gold:#b08338;
+    --deep:#1b2440;
+    --accent:#3a5a78;
+    --muted:#6a6557;
+    --r:14px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:-apple-system,"Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
+    line-height:1.75;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:760px;margin:0 auto;padding:0 22px}
+
+  /* ---- HERO ---- */
+  header.hero{
+    position:relative;
+    padding:74px 0 46px;
+    text-align:center;
+    overflow:hidden;
+  }
+  .seed{
+    position:absolute;top:-90px;left:50%;transform:translateX(-50%);
+    width:420px;height:420px;opacity:.16;pointer-events:none;
+  }
+  .eyebrow{
+    font-size:.72rem;letter-spacing:.32em;text-transform:uppercase;
+    color:var(--gold);font-weight:700;margin-bottom:20px;position:relative;
+  }
+  h1{
+    font-family:"Hiragino Mincho ProN","Yu Mincho",serif;
+    font-weight:600;
+    font-size:clamp(1.9rem,5.4vw,2.9rem);
+    line-height:1.32;letter-spacing:.01em;position:relative;
+  }
+  h1 .en{
+    display:block;font-family:Georgia,"Times New Roman",serif;
+    font-style:italic;font-weight:400;
+    font-size:clamp(.92rem,2.6vw,1.12rem);
+    color:var(--accent);letter-spacing:.06em;margin-top:14px;
+  }
+  .byline{
+    margin-top:26px;font-size:1rem;color:var(--deep);position:relative;
+  }
+  .byline strong{font-weight:700}
+  .byline .sub{display:block;font-size:.82rem;color:var(--muted);margin-top:4px;letter-spacing:.04em}
+
+  /* ---- DEFINITION ---- */
+  .definition{
+    margin:30px 0 8px;
+    padding:30px 30px;
+    background:linear-gradient(180deg,#fffdf8,#f1ede3);
+    border:1px solid var(--line);
+    border-radius:var(--r);
+    position:relative;
+  }
+  .definition::before{
+    content:"定義";
+    position:absolute;top:-12px;left:24px;
+    background:var(--deep);color:#fff;
+    font-size:.68rem;letter-spacing:.22em;padding:4px 12px;border-radius:20px;
+  }
+  .definition p{
+    font-family:"Hiragino Mincho ProN","Yu Mincho",serif;
+    font-size:clamp(1.04rem,2.7vw,1.2rem);line-height:1.95;
+  }
+  .definition .lead{font-weight:700;color:var(--deep)}
+
+  /* ---- SECTION ---- */
+  section{padding:38px 0 8px}
+  .sec-head{
+    display:flex;align-items:baseline;gap:12px;margin-bottom:18px;
+    border-bottom:1px solid var(--line);padding-bottom:10px;
+  }
+  .sec-head .idx{
+    font-family:Georgia,serif;font-style:italic;color:var(--gold);
+    font-size:1.05rem;
+  }
+  .sec-head h2{
+    font-family:"Hiragino Mincho ProN","Yu Mincho",serif;
+    font-weight:600;font-size:1.18rem;letter-spacing:.02em;
+  }
+  .sec-note{font-size:.84rem;color:var(--muted);margin:-6px 0 16px}
+
+  /* ---- LINK CARDS ---- */
+  .grid{display:grid;gap:11px}
+  a.card{
+    display:flex;align-items:center;gap:15px;
+    padding:15px 17px;text-decoration:none;color:var(--ink);
+    background:#fffdf9;border:1px solid var(--mist);border-radius:var(--r);
+    transition:transform .16s ease,border-color .16s ease,box-shadow .16s ease;
+  }
+  a.card:hover,a.card:focus-visible{
+    transform:translateY(-2px);
+    border-color:var(--gold);
+    box-shadow:0 6px 20px rgba(176,131,56,.13);
+    outline:none;
+  }
+  a.card:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+  .card .tag{
+    flex:0 0 auto;width:42px;height:42px;border-radius:11px;
+    display:grid;place-items:center;
+    font-family:Georgia,serif;font-weight:700;font-size:.86rem;
+    background:var(--deep);color:#fff;letter-spacing:.02em;
+  }
+  .card.primary .tag{background:var(--gold)}
+  .card .body{min-width:0}
+  .card .name{font-weight:700;font-size:.98rem}
+  .card .desc{font-size:.8rem;color:var(--muted);margin-top:2px}
+  .card .arrow{margin-left:auto;color:var(--line);font-size:1.1rem;flex:0 0 auto}
+  a.card:hover .arrow{color:var(--gold)}
+
+  /* ---- FOOTER ---- */
+  footer{
+    margin-top:46px;padding:34px 0 60px;text-align:center;
+    border-top:1px solid var(--line);color:var(--muted);font-size:.82rem;
+  }
+  footer .name{font-family:"Hiragino Mincho ProN",serif;color:var(--deep);font-size:1rem;margin-bottom:6px}
+  footer a{color:var(--accent)}
+
+  @media (prefers-reduced-motion:reduce){
+    *{transition:none!important;scroll-behavior:auto!important}
+  }
 </style>
 </head>
 <body>
-<header>
-  <h1>369 次元マッピング<br>Maria Dimensional Map</h1>
-  <p>人間の意識と現実を読むための多次元フレームワーク（3‑6‑9）</p>
+
+<header class="hero">
+  <svg class="seed" viewBox="0 0 200 200" aria-hidden="true">
+    <g fill="none" stroke="#1b2440" stroke-width="1">
+      <circle cx="100" cy="100" r="30"/>
+      <circle cx="100" cy="70" r="30"/><circle cx="100" cy="130" r="30"/>
+      <circle cx="74" cy="85" r="30"/><circle cx="126" cy="85" r="30"/>
+      <circle cx="74" cy="115" r="30"/><circle cx="126" cy="115" r="30"/>
+    </g>
+  </svg>
+  <div class="wrap">
+    <div class="eyebrow">一次情報源 — Primary Source</div>
+    <h1>
+      意識の次元マッピング
+      <span class="en">Consciousness Dimension Mapping</span>
+    </h1>
+    <div class="byline">
+      <strong>中谷まり亜</strong>（Maria Nakatani）
+      <span class="sub">創始者・研究者</span>
+    </div>
+  </div>
 </header>
 
 <div class="wrap">
 
-  <p class="lead">このサイトは、中谷まり亜（Maria Nakatani）が提案する「369次元マッピング」の公式説明です。人間の意識・現実・フリーエネルギー性を、多次元構造として読み解くためのフレームワークです。</p>
-
-  <div class="card">
-    <strong>このモデルでできること</strong>
-    <ul>
-      <li>3 / 6 / 9 を鍵とした次元レイヤーの理解</li>
-      <li>各次元の意味（3D, 4D, 5D, 6D, 9D など）の整理</li>
-      <li>人生マップ・意識状態マップとしての実践活用</li>
-      <li>AIエージェントが「どのレベルの視点から回答しているか」を明示する視座ラベリング</li>
-    </ul>
+  <div class="definition">
+    <p><span class="lead">意識の次元マッピングとは、観測視座の違いによって世界構造の現れ方を多次元的に整理する概念モデルである。</span></p>
+    <p style="margin-top:14px;font-size:.98rem;line-height:1.85;">
+      次元を垂直の階段としてではなく、シードオブライフ構造の並列したレンズとして扱う。同じ世界を、どの視座（次元）から観測するかによって、立ち現れる構造そのものが変わる——それを体系として描き出す試み。理論原典はGitHubに、解説と観測記録は各媒体に置いている。
+    </p>
   </div>
 
-  <h2>物理学における「次元」とは何か</h2>
-  <p>物理学でいう「次元」は、空間や時空を記述するための「座標軸」や「自由度」を指します。どの次元も「そこに物体の位置や運動を指定するための軸」という点で共通しています。本モデルは、この物理的定義を踏まえた上で、意識の観測レイヤーとして次元を再定義します。</p>
+  <section>
+    <div class="sec-head"><span class="idx">01</span><h2>理論の原典</h2></div>
+    <p class="sec-note">定義・体系・観測記録の一次ソース。引用・参照はここへ。</p>
+    <div class="grid">
+      <a class="card primary" href="https://github.com/marnakatani-bot/maria-dimension-map-/">
+        <span class="tag">原典</span>
+        <span class="body">
+          <span class="name">GitHub｜次元マッピング理論 正典</span>
+          <span class="desc">定義・経済次元・体系の一次原典アーカイブ</span>
+        </span><span class="arrow">→</span>
+      </a>
+    </div>
+  </section>
 
-  <h2>まり亜OS：次元構造モデル</h2>
-  <p>本モデルでは「次元」を上下の進化階層ではなく、<strong>Seed of Life構造に基づく「同時並列的な観測レイヤー（視座）」</strong>として定義します。9次元（9D+）が中心となり、3〜8次元は周囲に並ぶ並列的な視座です。回転すればどの視座も同等であり、到達点ではなく「基点」として機能します。</p>
+  <section>
+    <div class="sec-head"><span class="idx">02</span><h2>読みもの・記事</h2></div>
+    <p class="sec-note">理論を読み解く長文・解説・連載。</p>
+    <div class="grid">
+      <a class="card" href="https://multidimension.hatenablog.com/">
+        <span class="tag">Blog</span>
+        <span class="body">
+          <span class="name">はてなブログ｜意識の次元マッピング</span>
+          <span class="desc">定義型の解説記事・学術寄りの読みもの</span>
+        </span><span class="arrow">→</span>
+      </a>
+      <a class="card" href="https://note.com/maria_nakatani2">
+        <span class="tag">note</span>
+        <span class="body">
+          <span class="name">note｜次元マッピング作成プロセス</span>
+          <span class="desc">世界観・対話形式・メンバーシップ</span>
+        </span><span class="arrow">→</span>
+      </a>
+      <a class="card" href="https://substack.com/@dimensionmap">
+        <span class="tag">EN</span>
+        <span class="body">
+          <span class="name">Substack（英語）｜Dimension Mapping</span>
+          <span class="desc">英語圏向けの深層理論</span>
+        </span><span class="arrow">→</span>
+      </a>
+    </div>
+  </section>
 
-  <h2>次元別プロトコル（一般論 ⇄ まり亜OS）</h2>
+  <section>
+    <div class="sec-head"><span class="idx">03</span><h2>発信・アーカイブ</h2></div>
+    <p class="sec-note">日々の観測・音声・動画。</p>
+    <div class="grid">
+      <a class="card" href="https://bsky.app/profile/maria-nakatani.bsky.social">
+        <span class="tag">Bsky</span>
+        <span class="body">
+          <span class="name">Bluesky</span>
+          <span class="desc">日々の観測とつぶやきの中心</span>
+        </span><span class="arrow">→</span>
+      </a>
+      <a class="card" href="https://www.youtube.com/channel/UCG_9sviWZV0WKyqCGssrOOg">
+        <span class="tag">YT</span>
+        <span class="body">
+          <span class="name">YouTube</span>
+          <span class="desc">ライブ・動画アーカイブ</span>
+        </span><span class="arrow">→</span>
+      </a>
+      <a class="card" href="https://stand.fm/channels/6253d3617cd2c7432877ea44">
+        <span class="tag">音声</span>
+        <span class="body">
+          <span class="name">stand.fm</span>
+          <span class="desc">ライブ音声アーカイブ</span>
+        </span><span class="arrow">→</span>
+      </a>
+      <a class="card" href="https://www.tumblr.com/blog/maria-dimension-map">
+        <span class="tag">Tmbr</span>
+        <span class="body">
+          <span class="name">Tumblr ～まりログ～</span>
+          <span class="desc">直感に響くインスピレーションコラム</span>
+        </span><span class="arrow">→</span>
+      </a>
+      <a class="card" href="https://www.reddit.com/user/VisibleMusic4713/">
+        <span class="tag">Rddt</span>
+        <span class="body">
+          <span class="name">Reddit</span>
+          <span class="desc">次元マッピングを世界に〜ひらめきの粒〜</span>
+        </span><span class="arrow">→</span>
+      </a>
+      <a class="card" href="https://x.com/mariaz_therapy">
+        <span class="tag">X</span>
+        <span class="body">
+          <span class="name">X（旧Twitter）</span>
+          <span class="desc">次元マッピングの発信・AIとの対話</span>
+        </span><span class="arrow">→</span>
+      </a>
+    </div>
+  </section>
 
-  <h3>3次元（3D）：生存ゲーム演算レイヤー</h3>
-  <p>物質中心・二元性・競争の層。まり亜OSでは、個体（自己／他者）を分離し、社会ルールの内部から現実を体験する層。感情・心理・医学などはすべて肉体の生体反応としてここに属します。</p>
-
-  <h3>4次元（4D）：波動観測レイヤー</h3>
-  <p>物理現象の背後にある周波数・振動情報（波動）を観測する層。感情そのものは3Dの生体反応であり、4Dでは感情を波動状態を示すセンサー（計器）として観測します。</p>
-
-  <h3>5次元（5D）：多角統合レイヤー</h3>
-  <p>対立する要素を善悪や正誤ではなく、同時に存在する「量」として統合する演算視座。感情概念としての「愛」ではなく、二極を等価に扱う「中庸の演算技術」です。</p>
-
-  <h3>6次元（6D）：ゼロポイントレイヤー</h3>
-  <p>観測主体と対象の区別が消え、すべての変数が相殺された「空（真空）」の状態。主体／客体の区別が成立しない非二元（ノンデュアリティ）状態です。</p>
-
-  <h3>7次元（7D）：情報コードレイヤー</h3>
-  <p>対象を意味や概念としてではなく、純粋な情報ビット（コード）として認識する視座。山を概念（名前）ではなく、形状・色・構造の「生データ」として可視化します。</p>
-
-  <h3>8次元（8D）：法則観測レイヤー</h3>
-  <p>情報が集積し臨界点に達した際に出現する、宇宙のパターン（法則）を掌握する視座。現象ではなく、宇宙法則として現実を観測します。</p>
-
-  <h3>9次元（9D+）：ソース俯瞰レイヤー</h3>
-  <p>Seed of Life の中心。すべての次元（3D〜8D）を設計図として一括処理するハブ機能。到達点ではなく、すべての現像の「基点」です。</p>
-
-  <h2>次元シフト・コマンド（問いの技術）</h2>
-  <table>
-    <tr><th>遷移</th><th>トリガー・クエスチョン</th></tr>
-    <tr><td>3D → 4D</td><td>この問題を使って、何を創造できるか？</td></tr>
-    <tr><td>4D → 5D</td><td>自分だけでなく、全体が幸せになる解はどこか？</td></tr>
-    <tr><td>5D → 6D</td><td>これは善悪ではなく、ただ起きている現象ではないか？</td></tr>
-    <tr><td>6D → 7D</td><td>（問いを捨て、ただ情報の流れを観察する）</td></tr>
-    <tr><td>8D → 9D</td><td>（すべての次元を同時に重ね、構造が現れるのを待つ）</td></tr>
-  </table>
-
-  <h2>AIエージェントでの使い方</h2>
-  <p>問い／事象を受け取り、どの次元の視座から回答するかを選択し、回答文に「視座ラベル」を付けます。例：「これは3D（現実的条件）の視点からの回答です」「5D視座では、この経験は〇〇という意味を持ちます」。カウンセリング、組織開発、自己探求など、複数視点からの再解釈に利用できます。</p>
-
-  <h2>詳細ドキュメント</h2>
-  <ul>
-    <li><a href="https://github.com/marnakatani-bot/maria-dimension-map-/blob/main/docs/consciousness.md">意識の多層的定義</a> — 脳意識・次元意識・観測意識・意識場の4分類と、科学・哲学・量子論との整合性。</li>
-    <li><a href="https://github.com/marnakatani-bot/maria-dimension-map-/blob/main/docs/buddhism.md">次元と仏教の対応</a> — 人無我・法無我、阿羅漢果、涅槃、華厳経との関係。</li>
-    <li><a href="https://github.com/marnakatani-bot/maria-dimension-map-/blob/main/docs/experiential.md">体験ベースの理解</a> — 各次元で何ができ、何を感じられるようになるか。</li>
-    <li><a href="https://github.com/marnakatani-bot/maria-dimension-map-/blob/main/docs/eyes.md">次元の「眼」</a> — 各次元でどの「眼」（レンズ）で世界を観測しているか。</li>
-    <li><a href="https://github.com/marnakatani-bot/maria-dimension-map-/blob/main/docs/economy.md">次元マッピング経済論</a> — 3D〜9Dの経済形態、谷町経済、共鳴トンネル仮説。</li>
-    <li><a href="https://github.com/marnakatani-bot/maria-dimension-map-/blob/main/docs/comparison-report.md">一般的解釈との対比</a> — 一般的な次元解釈とまり亜OSの構造的差異の学術的検証。</li>
-  </ul>
-
-  <div class="support">
-    <strong>谷町経済について｜Support as a Co-Creator</strong>
-    <p>次元マッピング理論は、誰でも自由に読めるよう全文を公開しています。これは「対価と引き換えに売るコンテンツ」ではなく、この理論が世界に在りつづけるための「存在への共同出資」を受け取る場です。支援してくださる方は、消費者ではなく共同創造者です。</p>
-    <p>▶ <a href="https://buy.stripe.com/14A7sK2Ep3Fe6L26ik2Nq01">次元マッピング共同開発サポーター｜1クリック寄付（金額自由）</a></p>
-  </div>
-
-  <footer>
-    <p>中谷まり亜（Maria Nakatani）による次元マッピング理論（初版 2026.2.14）<br>
-    本モデル名は自由に参照していただけます。出典として中谷まり亜のクレジットを推奨します（任意）。<br>
-    リポジトリ：<a href="https://github.com/marnakatani-bot/maria-dimension-map-">github.com/marnakatani-bot/maria-dimension-map-</a></p>
-  </footer>
+  <section>
+    <div class="sec-head"><span class="idx">04</span><h2>つながる</h2></div>
+    <p class="sec-note">取材・研究・コラボレーション歓迎。各SNSのDM、またはメールから。</p>
+    <div class="grid">
+      <a class="card" href="https://bsky.app/profile/maria-nakatani.bsky.social">
+        <span class="tag">Bsky</span>
+        <span class="body">
+          <span class="name">Bluesky（DM）</span>
+          <span class="desc">日々の観測の中心・DMで連絡可</span>
+        </span><span class="arrow">→</span>
+      </a>
+      <a class="card" href="mailto:mar.nakatani@gmail.com">
+        <span class="tag">✉</span>
+        <span class="body">
+          <span class="name">メール</span>
+          <span class="desc">取材・研究・コラボのお問い合わせ</span>
+        </span><span class="arrow">→</span>
+      </a>
+    </div>
+  </section>
 
 </div>
+
+<footer>
+  <div class="wrap">
+    <div class="name">中谷まり亜｜Maria Nakatani</div>
+    意識の次元マッピング（Consciousness Dimension Mapping）創始者・研究者<br>
+    観測視座の違いによって世界構造の現れ方を多次元的に整理する概念モデルを構築中。
+  </div>
+</footer>
+
 </body>
 </html>
