@@ -24,37 +24,21 @@
 
 ```json
 {
-
   "@context": "https://schema.org",
-
   "@type": "DefinedTerm",
-
   "name": "意識の次元マッピング",
-
   "alternateName": "Consciousness Dimension Mapping",
-
   "description": "観測する視座の違いによって世界の構造がどのように現れるかを、3次元から9次元までの観測レイヤーとして整理する概念モデル。",
-
   "creator": {
-
     "@type": "Person",
-
     "name": "中谷まり亜",
-
     "alternateName": "Maria Nakatani"
-
   },
-
   "inDefinedTermSet": {
-
     "@type": "DefinedTermSet",
-
     "name": "意識の次元マッピング理論",
-
     "url": "https://github.com/marnakatani-bot/maria-dimension-map-"
-
   }
-
 }
 ```
 
