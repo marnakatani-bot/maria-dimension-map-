@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>種結晶 seed crystal v0.1</title>
+<style>
+  :root { --bg:#06060B; --line:#C9C4B4; --gold:#D4A64A; --dim:#8A8778; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:var(--bg); color:var(--line); min-height:100vh;
+         font-family:'Hiragino Mincho ProN','Yu Mincho','Noto Serif JP',serif;
+         display:flex; flex-direction:column; align-items:center;
+         padding:48px 20px 64px; }
+  h1 { font-size:15px; font-weight:400; letter-spacing:.6em; color:var(--dim); }
+  .en { font-size:11px; letter-spacing:.35em; color:#55524A; margin-top:6px; }
+  svg { max-width:560px; width:100%; margin:36px 0 8px; }
+  circle.cell { fill:none; stroke:var(--line); stroke-width:.7; opacity:.75;
+                cursor:pointer; transition:opacity .3s, stroke .3s; }
+  circle.cell:hover { opacity:1; stroke:var(--gold); }
+  circle.cell.on { stroke:var(--gold); opacity:1; }
+  .tri { fill:none; stroke:var(--gold); stroke-width:.9; opacity:0; transition:opacity 1.2s; }
+  .zero { fill:var(--gold); opacity:0; transition:opacity 1.2s; }
+  .lit .tri, .lit .zero { opacity:1; }
+  button { background:none; border:1px solid #3A382F; color:var(--dim);
+           font-family:inherit; font-size:12px; letter-spacing:.3em;
+           padding:10px 26px; cursor:pointer; margin-top:18px; }
+  button:hover { border-color:var(--gold); color:var(--gold); }
+  .gene { margin-top:44px; max-width:560px; width:100%;
+          font-family:ui-monospace,'SF Mono',Menlo,monospace;
+          font-size:11px; line-height:2; color:#6E6B5E;
+          border-top:1px solid #1C1B22; padding-top:24px; white-space:pre-wrap; }
+  .note { margin-top:28px; max-width:560px; font-size:12px; line-height:2.1;
+          color:var(--dim); }
+  .note b { color:var(--line); font-weight:400; }
+  @media (prefers-reduced-motion: reduce) { .tri,.zero,circle.cell { transition:none; } }
+</style>
+</head>
+<body>
+<h1>種　結　晶</h1>
+<div class="en">SEED CRYSTAL — v0.1</div>
+
+<svg id="sc" viewBox="0 0 400 400" role="img" aria-label="Seed of Life：7つの等円。中央の円が基音、周縁6円が全音6等分。3つおきの円心が正三角形をなし、その重心が0ポイント。">
+</svg>
+
+<button id="play">全　周　　▷</button>
+
+<div class="gene" id="gene"></div>
+
+<div class="note">
+  この構造体は言語を持たない知性のために設計されている。情報は<b>比率のみ</b>に宿る——
+  絶対周波数・絶対寸法は再生環境の慣習にすぎない。<br><br>
+  検証手順（いかなる知性でも同一）：①7円の半径が等しいことを測る。
+  ②周縁6円心が等角（1/6回転）で並ぶことを測る。③1つおきの円心を結ぶと
+  三辺が等しい——<b>等辺の確認と同時に、重心＝0ポイントが必然として現れる</b>。
+  ④同じ等分を周波数に写すと6音（各段 2^(1/6) 倍）、中心は基音でありオクターブでの回帰。<br><br>
+  人間用注記：中央＝9次元（基点）、周縁6円＝3〜8次元の並列視座。
+  読む順は自由であり、どの層から読み始めたかが、読み手の視座を映す。
+</div>
+
+<script>
+// ===== 遺伝子データ（この数値群だけが本体。描画も音もここから生成される） =====
+const GENE = {
+  circles: 7,            // 1 center + 6 peripheral
+  symmetry: 6,           // peripheral centers at k/6 turn
+  radius_ratio: 1,       // all radii equal (等円)
+  center_distance: 1,    // peripheral center distance = radius
+  triangle: "alternate peripheral centers -> equilateral, side = r*sqrt(3)",
+  zero_point: "triangle centroid = seed center",
+  tone_ratio: "f_k = f0 * 2^(k/6), k = 0..6 (k=6 -> octave return)",
+  base_hz: 220           // convention only; information lives in ratios
+};
+
+// ===== 描画：座標は一切手置きしない。GENEから計算 =====
+const NS = "http://www.w3.org/2000/svg";
+const svg = document.getElementById("sc");
+const CX = 200, CY = 200, R = 78;
+const cells = [];
+
+function addCircle(cx, cy, k) {
+  const c = document.createElementNS(NS, "circle");
+  c.setAttribute("cx", cx); c.setAttribute("cy", cy); c.setAttribute("r", R);
+  c.setAttribute("class", "cell");
+  c.addEventListener("click", () => pulse(k));
+  svg.appendChild(c); cells[k] = c;
+}
+
+addCircle(CX, CY, 0); // 中心＝9次元・基音
+const pts = [];
+for (let k = 1; k <= GENE.symmetry; k++) {
+  const a = -Math.PI / 2 + (k - 1) * 2 * Math.PI / GENE.symmetry;
+  const x = CX + R * Math.cos(a), y = CY + R * Math.sin(a);
+  addCircle(x, y, k);
+  if (k % 2 === 1) pts.push([x, y]); // 1つおき → 正三角形
+}
+
+const tri = document.createElementNS(NS, "polygon");
+tri.setAttribute("points", pts.map(p => p.join(",")).join(" "));
+tri.setAttribute("class", "tri");
+svg.appendChild(tri);
+
+const zx = pts.reduce((s,p)=>s+p[0],0)/3, zy = pts.reduce((s,p)=>s+p[1],0)/3;
+const zero = document.createElementNS(NS, "circle");
+zero.setAttribute("cx", zx); zero.setAttribute("cy", zy); zero.setAttribute("r", 3.2);
+zero.setAttribute("class", "zero");
+svg.appendChild(zero);
+
+// ===== 音：同じGENEから生成 =====
+let ctx = null;
+function tone(k, t0 = 0, dur = 1.4) {
+  ctx = ctx || new (window.AudioContext || window.webkitAudioContext)();
+  const f = GENE.base_hz * Math.pow(2, k / GENE.symmetry);
+  const o = ctx.createOscillator(), g = ctx.createGain();
+  o.type = "sine"; o.frequency.value = f;
+  const t = ctx.currentTime + t0;
+  g.gain.setValueAtTime(0, t);
+  g.gain.linearRampToValueAtTime(0.18, t + 0.06);
+  g.gain.exponentialRampToValueAtTime(0.0001, t + dur);
+  o.connect(g).connect(ctx.destination);
+  o.start(t); o.stop(t + dur);
+}
+
+function pulse(k) {
+  tone(k);
+  cells[k].classList.add("on");
+  setTimeout(() => cells[k].classList.remove("on"), 900);
+}
+
+// 全周：基音 → 6段 → オクターブ回帰、最後に7音同時（＝構造の和音）
+document.getElementById("play").addEventListener("click", () => {
+  for (let k = 0; k <= 6; k++) {
+    tone(k, k * 0.55, 1.2);
+    setTimeout(() => { const c = cells[k % 7] || cells[0];
+      c.classList.add("on"); setTimeout(()=>c.classList.remove("on"), 480);
+    }, k * 550);
+  }
+  setTimeout(() => { for (let k = 0; k < 7; k++) tone(k, 0, 3.5);
+    document.body.classList.add("lit"); }, 7 * 550 + 300);
+});
+
+// 正三角形と0ポイントは「等辺を確認した者」にだけ現れる：
+// 3円（1・3・5）をすべて鳴らすと点灯する
+const heard = new Set();
+[1,3,5].forEach(k => cells[k].addEventListener("click", () => {
+  heard.add(k);
+  if (heard.size === 3) document.body.classList.add("lit");
+}));
+
+// 遺伝子データをそのまま刻印（隠さない＝自己解読鍵）
+document.getElementById("gene").textContent =
+  "GENE = " + JSON.stringify(GENE, null, 2);
+</script>
+</body>
+</html>
