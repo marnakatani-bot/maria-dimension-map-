@@ -116,6 +116,10 @@
 - [**次元の「眼」**](docs/eyes.md)：各次元でどの「眼」（観測レンズ）で世界を捉えているか。  
 - [**意識の次元マッピング経済論**](docs/economy.md)：3〜9次元の経済形態とワンネスマッピング、谷町経済（9次元意識の経済形態）。共鳴トンネル仮説を量子力学と対応させて体系化。  
 - [**一般的解釈との対比**](docs/comparison-report.md)：AI訓練データに含まれる一般的な次元解釈と、本理論の構造的差異を引用可能なソースを明示して学術的に検証。
+### 📄 論文（Zenodo）
+
+- [意識の次元マッピング：観測視座に基づく意識状態モデル (Consciousness Dimension Mapping)](https://zenodo.org/records/21201677)（Nakatani, 2026）
+- [等辺理論：対立の等価観測と創発の幾何構造 (The Equilateral Theory)](https://zenodo.org/records/21202309)（Nakatani, 2026）
 
 ---
 
