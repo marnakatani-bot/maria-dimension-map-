@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>光と正射影 — 同一構造の二つの現れ</title>
+<style>
+  :root{
+    --bg:#070B14;
+    --line-dim:#5E6E8C;
+    --line-bright:#D8E2F2;
+    --gold:#F2C14E;
+    --glow:#FFB84D;
+    --alert:#E85D4A;
+    --text:#8FA3C4;
+    --text-dim:#5A6880;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:"Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
+    display:flex;flex-direction:column;align-items:center;
+    overflow:hidden;
+  }
+  header{
+    text-align:center;
+    padding:22px 16px 6px;
+  }
+  h1{
+    font-family:"Hiragino Mincho ProN","Yu Mincho",serif;
+    font-weight:500;
+    font-size:clamp(16px,2.6vw,22px);
+    letter-spacing:.35em;
+    color:var(--line-bright);
+  }
+  .sub{
+    font-size:11px;letter-spacing:.25em;color:var(--text-dim);margin-top:6px;
+  }
+  #stage{flex:1;width:100%;position:relative;touch-action:none}
+  canvas{display:block;width:100%;height:100%;cursor:grab}
+  canvas:active{cursor:grabbing}
+
+  .hud{
+    position:absolute;left:50%;transform:translateX(-50%);
+    bottom:18px;display:flex;gap:10px;align-items:center;flex-wrap:wrap;justify-content:center;
+  }
+  button{
+    font-family:inherit;font-size:13px;letter-spacing:.2em;
+    background:transparent;color:var(--text);
+    border:1px solid var(--line-dim);border-radius:999px;
+    padding:10px 22px;cursor:pointer;transition:all .3s ease;
+  }
+  button:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+  #lightBtn{
+    border-color:var(--gold);color:var(--gold);
+    padding:12px 30px;font-size:14px;
+  }
+  #lightBtn.on{
+    background:var(--gold);color:#1A1408;
+    box-shadow:0 0 24px rgba(242,193,78,.45);
+  }
+  #topBtn:hover{border-color:var(--line-bright);color:var(--line-bright)}
+
+  .readout{
+    position:absolute;top:12px;right:16px;text-align:right;
+    font-size:11px;line-height:1.9;letter-spacing:.12em;color:var(--text-dim);
+    font-variant-numeric:tabular-nums;
+  }
+  .readout b{color:var(--line-bright);font-weight:500}
+  .readout .zero{color:var(--alert)}
+  .readout .full{color:var(--gold)}
+
+  .note{
+    position:absolute;top:12px;left:16px;max-width:230px;
+    font-size:11px;line-height:1.9;letter-spacing:.08em;color:var(--text-dim);
+  }
+  @media (max-width:560px){ .note{display:none} }
+</style>
+</head>
+<body>
+<header>
+  <h1>光と正射影</h1>
+  <div class="sub">同一構造の二つの現れ — 意識の次元マッピング 論文③</div>
+</header>
+
+<div id="stage">
+  <canvas id="cv"></canvas>
+  <div class="note" id="note">構造は最初からそこに在る。<br>光が無ければ真上からの投影＝平面図。<br>ドラッグで視座を動かせます。</div>
+  <div class="readout">
+    <div>持ち上げ高さ　<b>h = r√3</b></div>
+    <div>三角形 3–9–6（実面積）　<b>√3 r²</b></div>
+    <div>見かけの面積　<b id="areaVal">0.000</b> r²</div>
+  </div>
+  <div class="hud">
+    <button id="lightBtn" aria-pressed="false">光を灯す</button>
+    <button id="topBtn">真上から見る</button>
+  </div>
+</div>
+
+<script>
+(() => {
+  const cv = document.getElementById('cv');
+  const ctx = cv.getContext('2d');
+  const stage = document.getElementById('stage');
+  const lightBtn = document.getElementById('lightBtn');
+  const topBtn = document.getElementById('topBtn');
+  const areaEl = document.getElementById('areaVal');
+  const noteEl = document.getElementById('note');
+  const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // ---- 幾何：r = 1 ----
+  const r = 1, h = Math.sqrt(3);          // h = r√3（論文③ 定理）
+  const C = {x:0, y:0, z:0};              // 中心（平面上）
+  const A = {x:0, y:0, z:h};              // 9次元点（持ち上げ後）
+  // 周縁6円の中心：ラベル 3..8、3 と 6 が対向
+  const P = [];
+  for (let k = 0; k < 6; k++){
+    const a = Math.PI/2 + k * Math.PI/3;  // 3 を上に
+    P.push({x: r*Math.cos(a), y: r*Math.sin(a), z: 0, label: 3 + k});
+  }
+  const P3 = P[0], P6 = P[3];             // 対向ペア
+
+  // ---- 状態 ----
+  let az = 0;                              // 方位
+  let el = Math.PI/2, elTarget = Math.PI/2;// 仰角（π/2 = 真上）
+  let light = 0, lightTarget = 0;          // 光の強さ 0..1
+  let lightOn = false;
+
+  // ---- 正射影（定理どおり orthographic）----
+  function proj(p){
+    const ca = Math.cos(az), sa = Math.sin(az);
+    const se = Math.sin(el), ce = Math.cos(el);
+    const x = p.x*ca - p.y*sa;
+    const y = p.x*sa + p.y*ca;
+    return { x, y: y*se + p.z*ce, d: y*ce - p.z*se };
+  }
+
+  let W, H, scale, cx, cy;
+  function resize(){
+    const dpr = devicePixelRatio || 1;
+    W = stage.clientWidth; H = stage.clientHeight;
+    cv.width = W*dpr; cv.height = H*dpr;
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+    scale = Math.min(W, H) * 0.19;
+    cx = W/2; cy = H/2 + Math.min(W,H)*0.03;
+  }
+  addEventListener('resize', resize); resize();
+
+  const S = p => { const q = proj(p); return {x: cx + q.x*scale, y: cy - q.y*scale}; };
+
+  function circle3D(center, radius, stroke, width){
+    ctx.beginPath();
+    for (let i = 0; i <= 72; i++){
+      const t = i/72 * Math.PI*2;
+      const q = S({x: center.x + radius*Math.cos(t), y: center.y + radius*Math.sin(t), z: center.z});
+      i ? ctx.lineTo(q.x, q.y) : ctx.moveTo(q.x, q.y);
+    }
+    ctx.strokeStyle = stroke; ctx.lineWidth = width; ctx.stroke();
+  }
+
+  function mix(c1, c2, t){
+    const a = parseInt(c1.slice(1),16), b = parseInt(c2.slice(1),16);
+    const f = (sh) => Math.round(((a>>sh&255)*(1-t) + (b>>sh&255)*t));
+    return `rgb(${f(16)},${f(8)},${f(0)})`;
+  }
+
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+
+    const apex = S(A), cen = S(C), s3 = S(P3), s6 = S(P6);
+
+    // 床の光だまり（9次元点＝光源の真下）
+    if (light > 0.02){
+      const pool = ctx.createRadialGradient(cen.x, cen.y, 0, cen.x, cen.y, scale*2.4);
+      pool.addColorStop(0, `rgba(255,184,77,${0.10*light})`);
+      pool.addColorStop(1, 'rgba(255,184,77,0)');
+      ctx.fillStyle = pool;
+      ctx.fillRect(0,0,W,H);
+    }
+
+    // 7円（Seed of Life）— 平面上に保存されたまま
+    const lineC = mix('#5E6E8C', '#D8E2F2', light*0.85);
+    circle3D(C, r, lineC, 1.1);
+    for (const p of P) circle3D(p, r, lineC, 1.1);
+
+    // 光錐：9次元点から周縁6点へ（淡）
+    if (light > 0.02){
+      ctx.strokeStyle = `rgba(242,193,78,${0.28*light})`;
+      ctx.lineWidth = 0.8;
+      for (const p of P){
+        const q = S(p);
+        ctx.beginPath(); ctx.moveTo(apex.x, apex.y); ctx.lineTo(q.x, q.y); ctx.stroke();
+      }
+    }
+
+    // 三角形 3–9–6
+    const areaPx = Math.abs((s3.x-apex.x)*(s6.y-apex.y) - (s6.x-apex.x)*(s3.y-apex.y)) / 2;
+    const areaR2 = areaPx / (scale*scale);
+    const flat = areaR2 < 0.02;
+
+    if (!flat){
+      const g = ctx.createLinearGradient(apex.x, apex.y, (s3.x+s6.x)/2, (s3.y+s6.y)/2);
+      g.addColorStop(0, `rgba(255,184,77,${0.30*light + 0.05})`);
+      g.addColorStop(1, `rgba(242,193,78,${0.04})`);
+      ctx.beginPath();
+      ctx.moveTo(s3.x,s3.y); ctx.lineTo(apex.x,apex.y); ctx.lineTo(s6.x,s6.y); ctx.closePath();
+      ctx.fillStyle = g; ctx.fill();
+      ctx.strokeStyle = mix('#8FA3C4', '#F2C14E', light);
+      ctx.lineWidth = 1.6; ctx.stroke();
+    } else {
+      // 共線に潰れた状態：面積0の「三角形」＝線分
+      ctx.setLineDash([5,5]);
+      ctx.beginPath(); ctx.moveTo(s3.x,s3.y); ctx.lineTo(s6.x,s6.y);
+      ctx.strokeStyle = 'rgba(232,93,74,0.85)'; ctx.lineWidth = 1.6; ctx.stroke();
+      ctx.setLineDash([]);
+      ctx.fillStyle = 'rgba(232,93,74,0.9)';
+      ctx.font = '11px sans-serif'; ctx.textAlign = 'center';
+      ctx.fillText('3・9・6 共線 — 面積 0', cen.x, cen.y - scale*1.28);
+    }
+
+    // 高さの補助線 h = r√3
+    if (!flat && light > 0.3){
+      ctx.setLineDash([3,5]);
+      ctx.beginPath(); ctx.moveTo(cen.x,cen.y); ctx.lineTo(apex.x,apex.y);
+      ctx.strokeStyle = `rgba(143,163,196,${0.5*light})`; ctx.lineWidth = 1; ctx.stroke();
+      ctx.setLineDash([]);
+      ctx.fillStyle = `rgba(216,226,242,${0.8*light})`;
+      ctx.font = '11px sans-serif'; ctx.textAlign = 'left';
+      ctx.fillText('h = r√3', (cen.x+apex.x)/2 + 8, (cen.y+apex.y)/2);
+    }
+
+    // 9次元点＝光源
+    const glowR = scale*(0.10 + 0.55*light);
+    const glow = ctx.createRadialGradient(apex.x, apex.y, 0, apex.x, apex.y, glowR);
+    glow.addColorStop(0, `rgba(255,224,150,${0.55 + 0.45*light})`);
+    glow.addColorStop(1, 'rgba(255,184,77,0)');
+    ctx.fillStyle = glow;
+    ctx.beginPath(); ctx.arc(apex.x, apex.y, glowR, 0, Math.PI*2); ctx.fill();
+    ctx.fillStyle = light > 0.4 ? '#FFEFC8' : '#D8E2F2';
+    ctx.beginPath(); ctx.arc(apex.x, apex.y, 3.2, 0, Math.PI*2); ctx.fill();
+
+    // ラベル
+    ctx.font = '12px "Hiragino Kaku Gothic ProN", sans-serif';
+    ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+    for (const p of P){
+      const q = S(p);
+      ctx.fillStyle = 'rgba(143,163,196,0.9)';
+      ctx.fillText(p.label, q.x, q.y);
+    }
+    ctx.fillStyle = light > 0.4 ? 'var(--gold)' : 'rgba(216,226,242,0.9)';
+    ctx.fillStyle = light > 0.4 ? '#F2C14E' : 'rgba(216,226,242,0.9)';
+    ctx.fillText('9', apex.x, apex.y - 14);
+
+    areaEl.textContent = areaR2.toFixed(3);
+    areaEl.className = flat ? 'zero' : (Math.abs(areaR2 - Math.sqrt(3)) < 0.05 ? 'full' : '');
+  }
+
+  // ---- ループ ----
+  function tick(){
+    const k = reduceMotion ? 1 : 0.07;
+    el += (elTarget - el) * k;
+    light += (lightTarget - light) * k;
+    draw();
+    requestAnimationFrame(tick);
+  }
+  tick();
+
+  // ---- 操作 ----
+  lightBtn.addEventListener('click', () => {
+    lightOn = !lightOn;
+    lightTarget = lightOn ? 1 : 0;
+    lightBtn.classList.toggle('on', lightOn);
+    lightBtn.setAttribute('aria-pressed', lightOn);
+    lightBtn.textContent = lightOn ? '光を消す' : '光を灯す';
+    if (lightOn && el > Math.PI/2 - 0.05) elTarget = Math.PI/5.2; // 立体が立ち上がる
+    noteEl.innerHTML = lightOn
+      ? '光と視差が加わると、同じ構造が<br>立体として立ち上がる。<br>「真上から見る」で正射影の保存を確認。'
+      : '構造は最初からそこに在る。<br>光が無ければ真上からの投影＝平面図。<br>ドラッグで視座を動かせます。';
+  });
+
+  topBtn.addEventListener('click', () => {
+    elTarget = Math.PI/2; az = 0;
+    if (lightOn) noteEl.innerHTML = '真上から見ると、立体は元の平面図に<br>正確に戻る（正射影保存）。<br>三角形 3–9–6 は線分に潰れ、面積 0。';
+  });
+
+  let dragging = false, lx = 0, ly = 0;
+  const down = e => { dragging = true; lx = e.clientX; ly = e.clientY; };
+  const move = e => {
+    if (!dragging) return;
+    az += (e.clientX - lx) * 0.008;
+    elTarget = el = Math.min(Math.PI/2, Math.max(0.06, el + (e.clientY - ly) * 0.006));
+    lx = e.clientX; ly = e.clientY;
+  };
+  const up = () => dragging = false;
+  cv.addEventListener('pointerdown', down);
+  addEventListener('pointermove', move);
+  addEventListener('pointerup', up);
+})();
+</script>
+</body>
+</html>
