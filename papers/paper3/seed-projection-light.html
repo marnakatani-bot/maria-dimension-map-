@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>Seed of Life 三面図（論文③補助資料1）</title>
+<meta name="description" content="『369正三角形：意識の次元マッピング構造の立体性の幾何学的導出』v1.0.1 補助資料1（中谷まり亜, 2026）">
+<style>
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: "Hiragino Sans", "Yu Gothic", sans-serif;
+    background: #f8f7f2;
+    color: #2a2a2a;
+    padding: 24px;
+    line-height: 1.55;
+  }
+  h1 { font-size: 17px; margin: 0 0 4px; letter-spacing: 0.02em; }
+  .subtitle { font-size: 12px; color: #666; margin: 0 0 24px; }
+  .container { display: flex; gap: 24px; align-items: flex-start; flex-wrap: wrap; }
+  .canvas-wrap {
+    background: #fff;
+    border: 1px solid #d8d5cd;
+    border-radius: 4px;
+    padding: 8px;
+  }
+  .controls {
+    flex: 0 0 260px;
+    background: #fff;
+    padding: 18px;
+    border: 1px solid #d8d5cd;
+    border-radius: 4px;
+    font-size: 13px;
+  }
+  .control-row { margin-bottom: 14px; }
+  label { display: block; margin-bottom: 4px; color: #444; font-size: 12px; }
+  input[type=range] { width: 100%; accent-color: #8a4d1c; }
+  button {
+    display: block; width: 100%;
+    padding: 8px 12px; margin-bottom: 6px;
+    background: #3a3a3a; color: #fff;
+    border: none; border-radius: 3px;
+    cursor: pointer; font-size: 13px;
+    font-family: inherit;
+  }
+  button:hover { background: #555; }
+  button.secondary { background: #eaeaea; color: #333; }
+  button.secondary:hover { background: #ddd; }
+  .info {
+    padding: 12px;
+    background: #f4f2ec;
+    border-radius: 3px;
+    font-size: 12px;
+    line-height: 1.6;
+    color: #333;
+    margin-top: 14px;
+  }
+  .metric {
+    font-family: "SF Mono", "Menlo", monospace;
+    font-size: 14px;
+    color: #8a4d1c;
+    font-weight: 600;
+  }
+  .footnote {
+    font-size: 11px;
+    color: #888;
+    margin-top: 32px;
+    max-width: 820px;
+    line-height: 1.6;
+  }
+</style>
+</head>
+<body>
+  <h1>補助資料1　Seed of Life 三面図：光源と回転による立体性の体験的確認</h1>
+  <p class="subtitle">『369正三角形：意識の次元マッピング構造の立体性の幾何学的導出』v1.0.1（中谷まり亜, 2026）</p>
+
+  <div class="container">
+    <div class="canvas-wrap">
+      <svg id="stage" width="580" height="580" viewBox="-290 -290 580 580" aria-label="Seed of Life 三面図"></svg>
+    </div>
+
+    <div class="controls">
+      <div class="control-row">
+        <label>方位角（水平回転）: <span id="azLabel">0°</span></label>
+        <input type="range" id="azimuth" min="-180" max="180" value="0" step="1">
+      </div>
+      <div class="control-row">
+        <label>仰角（上下傾き）: <span id="elLabel">90°（真上）</span></label>
+        <input type="range" id="elevation" min="0" max="90" value="90" step="1">
+      </div>
+
+      <button id="btnTop">真上投影に戻す（図3-a）</button>
+      <button id="btnOblique" class="secondary">斜め投影：369三角形（図3-c）</button>
+      <button id="btnSide" class="secondary">側面投影：垂直階層図（図3-b）</button>
+      <button id="btnLight" class="secondary">光源9D：点灯 / 消灯</button>
+
+      <div class="info">
+        <b>369三角形の見かけ面積</b><br>
+        <span class="metric" id="area">0.000</span> <span style="color:#999;">/ √3·r²（最大）</span><br>
+        <span id="areaComment" style="color:#666; display:block; margin-top:6px;">真上投影：面積は0に収束（補題1・帰結B）</span>
+      </div>
+    </div>
+  </div>
+
+  <p class="footnote">
+    本補助資料は、真上投影（Seed of Life 平面図）において3-9-6が共線として現れ、視座を傾けると立体的な正三角形として立ち上がる——という補題1・帰結B・浮上定理の関係を体験的に確認するための、静的図版に代えて用意された動的実装である。光源の点灯は立体視の契機として演出したものであり、立体性は光学的現象ではなく幾何学的整合性の主張である（本文2.7参照）。外部ライブラリ非依存。
+  </p>
+
+<script>
+// ============================================================
+// 補助資料1：Seed of Life 三面図の動的実装
+// 幾何：中心9D（Z=r√3）＋周縁6点（3D..8, Z=0, 半径r）
+// 3D:180°  4:120°  5:60°  6D:0°  7:-60°  8:-120°
+// ============================================================
+const r = 110;
+const h = r * Math.sqrt(3);
+const NS = 'http://www.w3.org/2000/svg';
+
+const V = {
+  '3': { x: r * Math.cos(Math.PI),         y: r * Math.sin(Math.PI),         z: 0, label: '3D' },
+  '4': { x: r * Math.cos(Math.PI * 2/3),   y: r * Math.sin(Math.PI * 2/3),   z: 0, label: '4' },
+  '5': { x: r * Math.cos(Math.PI / 3),     y: r * Math.sin(Math.PI / 3),     z: 0, label: '5' },
+  '6': { x: r * Math.cos(0),               y: r * Math.sin(0),               z: 0, label: '6D' },
+  '7': { x: r * Math.cos(-Math.PI / 3),    y: r * Math.sin(-Math.PI / 3),    z: 0, label: '7' },
+  '8': { x: r * Math.cos(-Math.PI * 2/3),  y: r * Math.sin(-Math.PI * 2/3),  z: 0, label: '8' },
+  '9': { x: 0, y: 0, z: h, label: '9D' }
+};
+
+let azimuth = 0;
+let elevation = 90;
+let lightOn = true;
+
+// 3D→2D投影：方位角（Z軸回り）→ 仰角（X軸回り）
+function project(p, azDeg, elDeg) {
+  const az = azDeg * Math.PI / 180;
+  const x1 = p.x * Math.cos(az) - p.y * Math.sin(az);
+  const y1 = p.x * Math.sin(az) + p.y * Math.cos(az);
+  const z1 = p.z;
+  // elevation: 90=真上（Z軸方向から見下ろす）, 0=水平（Y軸方向から見る）
+  const tilt = (90 - elDeg) * Math.PI / 180;
+  const cosT = Math.cos(tilt);
+  const sinT = Math.sin(tilt);
+  const yProj = y1 * cosT + z1 * sinT;
+  return { x: x1, y: -yProj };
+}
+
+function triArea(a, b, c) {
+  return Math.abs((b.x - a.x) * (c.y - a.y) - (c.x - a.x) * (b.y - a.y)) / 2;
+}
+
+function render() {
+  const svg = document.getElementById('stage');
+  while (svg.firstChild) svg.removeChild(svg.firstChild);
+
+  const pts = {};
+  for (const k of Object.keys(V)) pts[k] = project(V[k], azimuth, elevation);
+
+  // 周縁の六角リング
+  const ring = document.createElementNS(NS, 'path');
+  const ringOrder = ['3', '4', '5', '6', '7', '8', '3'];
+  let d = 'M ' + ringOrder.map(k => `${pts[k].x.toFixed(2)},${pts[k].y.toFixed(2)}`).join(' L ');
+  ring.setAttribute('d', d);
+  ring.setAttribute('fill', 'none');
+  ring.setAttribute('stroke', '#c4c1b8');
+  ring.setAttribute('stroke-width', '1');
+  svg.appendChild(ring);
+
+  // 9→周縁6本の線（浮上構造の骨）
+  for (const k of ['3', '4', '5', '6', '7', '8']) {
+    const line = document.createElementNS(NS, 'line');
+    line.setAttribute('x1', pts['9'].x); line.setAttribute('y1', pts['9'].y);
+    line.setAttribute('x2', pts[k].x);   line.setAttribute('y2', pts[k].y);
+    line.setAttribute('stroke', '#dcd8ce');
+    line.setAttribute('stroke-width', '0.8');
+    svg.appendChild(line);
+  }
+
+  // 369三角形（強調）
+  const tri = document.createElementNS(NS, 'path');
+  tri.setAttribute('d', `M ${pts['3'].x},${pts['3'].y} L ${pts['9'].x},${pts['9'].y} L ${pts['6'].x},${pts['6'].y} Z`);
+  tri.setAttribute('fill', 'rgba(200,120,60,0.14)');
+  tri.setAttribute('stroke', '#c8783c');
+  tri.setAttribute('stroke-width', '2.2');
+  tri.setAttribute('stroke-linejoin', 'round');
+  svg.appendChild(tri);
+
+  // 9D グロー（光源）
+  if (lightOn) {
+    const glowOuter = document.createElementNS(NS, 'circle');
+    glowOuter.setAttribute('cx', pts['9'].x);
+    glowOuter.setAttribute('cy', pts['9'].y);
+    glowOuter.setAttribute('r', 32);
+    glowOuter.setAttribute('fill', '#f6c94a');
+    glowOuter.setAttribute('opacity', '0.15');
+    svg.appendChild(glowOuter);
+    const glowInner = document.createElementNS(NS, 'circle');
+    glowInner.setAttribute('cx', pts['9'].x);
+    glowInner.setAttribute('cy', pts['9'].y);
+    glowInner.setAttribute('r', 18);
+    glowInner.setAttribute('fill', '#f6c94a');
+    glowInner.setAttribute('opacity', '0.28');
+    svg.appendChild(glowInner);
+  }
+
+  // 頂点
+  for (const k of Object.keys(V)) {
+    const p = pts[k];
+    const c = document.createElementNS(NS, 'circle');
+    c.setAttribute('cx', p.x); c.setAttribute('cy', p.y);
+    if (k === '9') {
+      c.setAttribute('r', 8);
+      c.setAttribute('fill', lightOn ? '#f6c94a' : '#8a8880');
+      c.setAttribute('stroke', lightOn ? '#c8983a' : '#4a4842');
+      c.setAttribute('stroke-width', '2');
+    } else if (k === '3' || k === '6') {
+      c.setAttribute('r', 6);
+      c.setAttribute('fill', '#c8783c');
+      c.setAttribute('stroke', '#7a3f18');
+      c.setAttribute('stroke-width', '1.5');
+    } else {
+      c.setAttribute('r', 4);
+      c.setAttribute('fill', '#8a8880');
+    }
+    svg.appendChild(c);
+
+    const t = document.createElementNS(NS, 'text');
+    t.setAttribute('x', p.x + 11);
+    t.setAttribute('y', p.y - 9);
+    t.setAttribute('font-size', k === '9' || k === '3' || k === '6' ? '13' : '11');
+    t.setAttribute('font-family', 'sans-serif');
+    t.setAttribute('font-weight', (k === '9' || k === '3' || k === '6') ? '600' : '400');
+    t.setAttribute('fill', k === '9' ? '#c8983a' : (k === '3' || k === '6') ? '#7a3f18' : '#666');
+    t.textContent = V[k].label;
+    svg.appendChild(t);
+  }
+
+  // 面積表示
+  const a = triArea(pts['3'], pts['9'], pts['6']);
+  const maxA = r * r * Math.sqrt(3);
+  const ratio = a / maxA;
+  document.getElementById('area').textContent = ratio.toFixed(3);
+  const cm = document.getElementById('areaComment');
+  if (ratio < 0.02) {
+    cm.textContent = '真上投影：3-9-6が共線として現れ、面積は0に収束（補題1・帰結B）';
+    cm.style.color = '#8a4d1c';
+  } else if (ratio > 0.97) {
+    cm.textContent = '正三角形が最大面積で立ち上がる視座（浮上定理の実現角）';
+    cm.style.color = '#c8783c';
+  } else {
+    cm.textContent = '中間の視座：三角形が浮上しつつある';
+    cm.style.color = '#888';
+  }
+
+  document.getElementById('azLabel').textContent = azimuth + '°';
+  const elText = elevation + '°' + (elevation === 90 ? '（真上）' : elevation === 0 ? '（水平）' : '');
+  document.getElementById('elLabel').textContent = elText;
+}
+
+// UI 配線
+document.getElementById('azimuth').addEventListener('input', e => { azimuth = +e.target.value; render(); });
+document.getElementById('elevation').addEventListener('input', e => { elevation = +e.target.value; render(); });
+
+function set(az, el) {
+  azimuth = az; elevation = el;
+  document.getElementById('azimuth').value = az;
+  document.getElementById('elevation').value = el;
+  render();
+}
+document.getElementById('btnTop').addEventListener('click', () => set(0, 90));
+document.getElementById('btnOblique').addEventListener('click', () => set(0, 35));
+document.getElementById('btnSide').addEventListener('click', () => set(0, 0));
+document.getElementById('btnLight').addEventListener('click', () => { lightOn = !lightOn; render(); });
+
+render();
+</script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 460" font-family="Noto Serif CJK JP, serif">
+<rect width="720" height="460" fill="white"/>
+<line x1="139.0" y1="370" x2="581.0" y2="370" stroke="#CCCCCC" stroke-width="1"/>
+<text x="589.0" y="374" font-size="13" fill="#999999">z = 0</text>
+<path d="M230.0,370 L360.0,144.83339501604596 L490.0,370 Z" fill="none" stroke="#1A1A1A" stroke-width="1.8"/>
+<line x1="360.0" y1="370" x2="360.0" y2="144.83339501604596" stroke="#999999" stroke-width="1" stroke-dasharray="4,4"/>
+<text x="370.0" y="257.416697508023" font-size="15" fill="#1A1A1A">h = r√3</text>
+<text x="360.0" y="396" font-size="15" fill="#1A1A1A" text-anchor="middle">2r</text>
+<text x="265.0" y="257.416697508023" font-size="15" fill="#1A1A1A" text-anchor="middle">2r</text>
+<text x="455.0" y="257.416697508023" font-size="15" fill="#1A1A1A" text-anchor="middle">2r</text>
+<circle cx="230.0" cy="370" r="4" fill="#1A1A1A"/>
+<text x="230.0" y="392" font-size="16" fill="#1A1A1A" text-anchor="middle">P₃</text>
+<circle cx="490.0" cy="370" r="4" fill="#1A1A1A"/>
+<text x="490.0" y="392" font-size="16" fill="#1A1A1A" text-anchor="middle">P₆</text>
+<circle cx="360.0" cy="144.83339501604596" r="4" fill="#1A1A1A"/>
+<text x="360.0" y="132.83339501604596" font-size="16" fill="#1A1A1A" text-anchor="middle">P₉′</text>
+<circle cx="360.0" cy="370" r="3.5" fill="white" stroke="#999999" stroke-width="1.4"/>
+<text x="346.0" y="392" font-size="13" fill="#999999" text-anchor="middle">P₉</text>
+<text x="360.0" y="436" font-size="14" fill="#1A1A1A" text-anchor="middle">√(r² + h²) = 2r ⟺ h = r√3（定理1）— 369正三角形の成立</text>
+</svg>
