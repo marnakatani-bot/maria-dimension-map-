@@ -120,7 +120,7 @@
 
 - [意識の次元マッピング：観測視座に基づく意識状態モデル (Consciousness Dimension Mapping)](https://zenodo.org/records/21201677)（Nakatani, 2026）
 - [等辺理論：対立の等価観測と創発の幾何構造 (The Equilateral Theory)](https://zenodo.org/records/21202309)（Nakatani, 2026）
--『369正三角形：意識の次元マッピング構造の立体性の幾何学的導出』v1.0.1 — DOI: [10.5281/zenodo.21278785](https://doi.org/10.5281/zenodo.21278785)
+- 『369正三角形：『369正三角形：意識の次元マッピング構造の立体性の幾何学的導出』v1.0.1 — DOI: [10.5281/zenodo.21278785](https://doi.org/10.5281/zenodo.21278785)
 - 補助資料1（動的三面図）: https://marnakatani-bot.github.io/maria-dimension-map-/papers/paper3/seed-projection-light.html
 ---
 
