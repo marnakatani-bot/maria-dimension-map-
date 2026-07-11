@@ -173,7 +173,7 @@ v1.0.1（2026年7月10日・外部監査指摘反映済み）　※投稿先：Z
 
 ## 参考文献
 - 中谷まり亜 (2026a). 意識の次元マッピング：観測視座に基づく意識状態モデル v1.0. Zenodo. DOI: 10.5281/zenodo.21201677
-- 中谷まり亜 (2026b). 次元マッピング理論（原典リポジトリ）. [https://github.com/marnakatani-bot/maria-dimension-map-](https://github.com/marnakatani-bot/maria-dimension-map-)
+- 中谷まり亜 (2026b). 意識の次元マッピング理論（原典リポジトリ）. [https://github.com/marnakatani-bot/maria-dimension-map-](https://github.com/marnakatani-bot/maria-dimension-map-)
 - 中谷まり亜 (2026c). 等辺理論：対立の等価観測とテトラヒドロン構造による創造の幾何学的モデル v1.0. Zenodo. [https://zenodo.org/records/21202309](https://zenodo.org/records/21202309)
 - 中谷まり亜 (2026d). 369正三角形：意識の次元マッピング構造の立体性の幾何学的導出 v1.0.1. Zenodo. DOI: 10.5281/zenodo.21278785
 - 中谷まり亜 (2026e). 観測記録アーカイブ（maria-memo）. [https://github.com/marnakatani-bot/maria-memo](https://github.com/marnakatani-bot/maria-memo) ——本稿で参照した一次観測記録：「潜熱と位相差」「シンクロニシティ相関構造仮説」「多次元観測プロトコル」「スポラディックE層理論」「りんね現象」「なだれ込み現象：情報場アクセス仮説」（2026年6月7日記録）
