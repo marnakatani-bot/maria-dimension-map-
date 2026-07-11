@@ -1,0 +1,65 @@
+<svg viewBox="0 0 800 940" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+  <rect x="0" y="0" width="800" height="940" fill="#ffffff"/>
+
+  <defs>
+    <marker id="af" markerWidth="10" markerHeight="10" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#333333"/>
+    </marker>
+  </defs>
+
+  <!-- Node 1 -->
+  <rect x="190" y="30" width="420" height="60" rx="14" fill="#ffffff" stroke="#1f6feb" stroke-width="2"/>
+  <text x="400" y="65" font-size="13" text-anchor="middle" fill="#111111">① 観測期間の事前設定（記録開始前に固定・変更禁止）</text>
+  <line x1="400" y1="90" x2="400" y2="120" stroke="#333333" stroke-width="1.5" marker-end="url(#af)"/>
+
+  <!-- Node 2 -->
+  <rect x="190" y="120" width="420" height="60" rx="14" fill="#ffffff" stroke="#1f6feb" stroke-width="2"/>
+  <text x="400" y="155" font-size="13" text-anchor="middle" fill="#111111">② 記録（付録A・逐語記録先行）</text>
+  <line x1="400" y1="180" x2="400" y2="210" stroke="#333333" stroke-width="1.5" marker-end="url(#af)"/>
+
+  <!-- Node 3 -->
+  <rect x="190" y="210" width="420" height="60" rx="14" fill="#ffffff" stroke="#1f6feb" stroke-width="2"/>
+  <text x="400" y="245" font-size="13" text-anchor="middle" fill="#111111">③ 指標算定：(a)失効率／(b)語彙分類</text>
+  <line x1="400" y1="270" x2="400" y2="310" stroke="#333333" stroke-width="1.5" marker-end="url(#af)"/>
+
+  <!-- side note for node3 -->
+  <text x="625" y="225" font-size="12" fill="#cf222e">試行ゼロ→(a)算定不能</text>
+  <text x="625" y="240" font-size="12" fill="#cf222e">外的急変→判定保留</text>
+  <text x="625" y="255" font-size="12" fill="#cf222e">医学的要因の疑い→3Dレイヤー</text>
+  <text x="625" y="270" font-size="12" fill="#cf222e">対応を先行（本文5.2）</text>
+
+  <!-- Node 4 diamond -->
+  <polygon points="400,310 610,395 400,480 190,395" fill="#ffffff" stroke="#d29922" stroke-width="2"/>
+  <text x="400" y="385" font-size="13" text-anchor="middle" fill="#111111">④ 飽和判定：連続記録で</text>
+  <text x="400" y="403" font-size="13" text-anchor="middle" fill="#111111">高進行か？</text>
+  <text x="620" y="390" font-size="12" fill="#111111">Yes</text>
+  <line x1="400" y1="480" x2="400" y2="520" stroke="#333333" stroke-width="1.5" marker-end="url(#af)"/>
+
+  <!-- No path back to Node2 (left dashed) -->
+  <path d="M 190 395 L 120 395 L 120 150 L 190 150" fill="none" stroke="#cf222e" stroke-width="1.5" stroke-dasharray="5,4" marker-end="url(#af)"/>
+  <text x="30" y="270" font-size="12" fill="#cf222e" transform="rotate(-90 30 270)">No（継続記録）</text>
+
+  <!-- Node 5 -->
+  <rect x="190" y="520" width="420" height="60" rx="14" fill="#ffffff" stroke="#1f6feb" stroke-width="2"/>
+  <text x="400" y="555" font-size="13" text-anchor="middle" fill="#111111">⑤ 転移監視（シンクロニシティ記録・解釈分離）</text>
+  <line x1="400" y1="580" x2="400" y2="620" stroke="#333333" stroke-width="1.5" marker-end="url(#af)"/>
+
+  <!-- Node 6 diamond -->
+  <polygon points="400,620 640,700 400,780 160,700" fill="#ffffff" stroke="#d29922" stroke-width="2"/>
+  <text x="400" y="685" font-size="12.5" text-anchor="middle" fill="#111111">⑥ 転移判定：T1不連続性・T2即時性・</text>
+  <text x="400" y="702" font-size="12.5" text-anchor="middle" fill="#111111">T3外的不変性の同時成立？</text>
+  <text x="650" y="695" font-size="12" fill="#111111">Yes</text>
+  <line x1="400" y1="780" x2="400" y2="820" stroke="#333333" stroke-width="1.5" marker-end="url(#af)"/>
+
+  <!-- No path back to Node5 (right dashed) -->
+  <path d="M 640 700 L 720 700 L 720 550 L 610 550" fill="none" stroke="#cf222e" stroke-width="1.5" stroke-dasharray="5,4" marker-end="url(#af)"/>
+  <text x="725" y="600" font-size="11.5" fill="#cf222e">No：過冷却型停滞として継続。</text>
+  <text x="725" y="614" font-size="11.5" fill="#cf222e">期間満了で反証型2の候補</text>
+
+  <!-- Node 7 -->
+  <rect x="190" y="820" width="420" height="60" rx="14" fill="#ffffff" stroke="#1f6feb" stroke-width="2"/>
+  <text x="400" y="855" font-size="13" text-anchor="middle" fill="#111111">⑦ 転移として記録（高進行との時間順序を明記）</text>
+
+  <!-- footer -->
+  <text x="780" y="925" font-size="12" text-anchor="end" fill="#6e7781">全物理用語は構造的類比（本文3.5参照）</text>
+</svg>

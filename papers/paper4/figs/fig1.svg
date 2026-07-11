@@ -1,0 +1,60 @@
+<svg viewBox="0 0 900 520" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+  <rect x="0" y="0" width="900" height="520" fill="#ffffff"/>
+
+  <!-- background bands spanning both panels -->
+  <rect x="80" y="40" width="300" height="440" fill="#f0f0f0"/>
+  <rect x="380" y="40" width="240" height="440" fill="#ddeeff"/>
+  <rect x="620" y="40" width="240" height="440" fill="#e2f5e6"/>
+
+  <!-- band labels -->
+  <text x="230" y="55" font-size="14" text-anchor="middle" fill="#333333">(i) 飽和進行</text>
+  <text x="500" y="55" font-size="14" text-anchor="middle" fill="#333333">(ii) 静寂（停滞）</text>
+  <text x="740" y="55" font-size="14" text-anchor="middle" fill="#333333">(iii) 転換後</text>
+
+  <!-- ============ UPPER PANEL (y 40-260) ============ -->
+  <text x="30" y="150" font-size="18" fill="#1a1a1a" text-anchor="middle" transform="rotate(-90 30 150)">飽和度（2指標の傾向・順序尺度）</text>
+
+  <!-- axis lines upper panel -->
+  <line x1="80" y1="260" x2="860" y2="260" stroke="#999999" stroke-width="1"/>
+  <line x1="80" y1="70" x2="80" y2="260" stroke="#999999" stroke-width="1"/>
+
+  <!-- monotonic increasing curve (blue) -->
+  <path d="M 80 250
+           C 200 245, 300 150, 380 110
+           C 460 95, 560 85, 620 78
+           C 700 74, 780 72, 860 70"
+        fill="none" stroke="#1f6feb" stroke-width="3"/>
+
+  <!-- nucleation star marker near x=600 on curve -->
+  <text x="596" y="84" font-size="20" fill="#d29922" text-anchor="middle">★</text>
+  <line x1="600" y1="90" x2="650" y2="130" stroke="#d29922" stroke-width="1"/>
+  <text x="655" y="126" font-size="12" fill="#333333">核形成イベント＝シンクロニシティの</text>
+  <text x="655" y="141" font-size="12" fill="#333333">観測（構造的類比）</text>
+
+  <!-- ============ LOWER PANEL (y 300-480) ============ -->
+  <text x="30" y="390" font-size="18" fill="#1a1a1a" text-anchor="middle" transform="rotate(-90 30 390)">観測構造（視座）</text>
+
+  <!-- axis lines lower panel -->
+  <line x1="80" y1="480" x2="860" y2="480" stroke="#999999" stroke-width="1"/>
+  <line x1="80" y1="300" x2="80" y2="480" stroke="#999999" stroke-width="1"/>
+
+  <!-- step function (amber): old level -> jump at x=620 -> new level -->
+  <path d="M 80 440 L 620 440 L 620 340 L 860 340"
+        fill="none" stroke="#d29922" stroke-width="3"/>
+
+  <text x="200" y="430" font-size="14" fill="#8a6d1a">旧視座</text>
+  <text x="720" y="330" font-size="14" fill="#8a6d1a">新視座</text>
+
+  <!-- jump annotation -->
+  <line x1="620" y1="340" x2="620" y2="480" stroke="#cf222e" stroke-width="1" stroke-dasharray="4,3"/>
+  <text x="628" y="400" font-size="12" fill="#cf222e">不連続（ジャンプ）：T1</text>
+
+  <!-- common x axis title -->
+  <text x="470" y="497" font-size="14" text-anchor="middle" fill="#333333">時間（記録連番）</text>
+
+  <!-- bottom note -->
+  <text x="80" y="514" font-size="12" fill="#333333">制御変数は連続、秩序変数は不連続——一次相転移型（構造的類比）の骨格</text>
+
+  <!-- common footer note bottom-right -->
+  <text x="880" y="514" font-size="12" text-anchor="end" fill="#6e7781">全物理用語は構造的類比（本文3.5参照）</text>
+</svg>

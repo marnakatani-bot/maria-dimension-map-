@@ -1,0 +1,46 @@
+<svg viewBox="0 0 700 700" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+  <rect x="0" y="0" width="700" height="700" fill="#ffffff"/>
+
+  <!-- plot area border -->
+  <rect x="100" y="60" width="540" height="540" fill="none" stroke="#999999" stroke-width="1"/>
+
+  <!-- top-right quadrant fill (high a, high b) -->
+  <rect x="370" y="60" width="270" height="270" fill="#2da44e" opacity="0.12"/>
+
+  <!-- cross dividers -->
+  <line x1="370" y1="60" x2="370" y2="600" stroke="#999999" stroke-width="1" stroke-dasharray="4,3"/>
+  <line x1="100" y1="330" x2="640" y2="330" stroke="#999999" stroke-width="1" stroke-dasharray="4,3"/>
+
+  <!-- axis titles -->
+  <text x="370" y="640" font-size="18" text-anchor="middle" fill="#1a1a1a">指標(a) 既知戦略の失効率（低→高）</text>
+  <text x="35" y="330" font-size="18" text-anchor="middle" fill="#1a1a1a" transform="rotate(-90 35 330)">指標(b) 脱物語化度（低→高）</text>
+
+  <!-- quadrant labels -->
+  <text x="235" y="465" font-size="14" text-anchor="middle" fill="#333333">低進行（転移予測なし）</text>
+  <text x="505" y="465" font-size="14" text-anchor="middle" fill="#333333">飽和進行・物語内滞留</text>
+  <text x="235" y="195" font-size="14" text-anchor="middle" fill="#333333">（まれ・要記録）</text>
+  <text x="505" y="195" font-size="14" text-anchor="middle" fill="#1a1a1a">高進行（転移条件域）</text>
+
+  <!-- observation trajectory: bottom-left -> bottom-right -> top-right -->
+  <path d="M 150 560 C 250 570, 380 540, 460 480 C 520 430, 540 280, 560 180"
+        fill="none" stroke="#1f6feb" stroke-width="3" marker-end="url(#arrow)"/>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#1f6feb"/>
+    </marker>
+  </defs>
+
+  <!-- transition event marker -->
+  <circle cx="560" cy="175" r="6" fill="#111111"/>
+  <text x="572" y="172" font-size="12" fill="#111111">転移イベント（T1–T3成立）</text>
+
+  <!-- falsification annotations -->
+  <text x="115" y="590" font-size="12" fill="#cf222e">※この領域で転移が系統的に生じれば</text>
+  <text x="115" y="603" font-size="12" fill="#cf222e">反証型1（本文5.1）</text>
+
+  <text x="385" y="80" font-size="12" fill="#cf222e">※高進行のまま事前設定期間内に転移が生じない</text>
+  <text x="385" y="93" font-size="12" fill="#cf222e">事例の蓄積は反証型2（過冷却型停滞との区別要件つき）</text>
+
+  <!-- footer -->
+  <text x="640" y="686" font-size="12" text-anchor="end" fill="#6e7781">全物理用語は構造的類比（本文3.5参照）</text>
+</svg>

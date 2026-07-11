@@ -1,0 +1,46 @@
+<svg viewBox="0 0 900 460" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+  <rect x="0" y="0" width="900" height="460" fill="#ffffff"/>
+
+  <!-- axis titles -->
+  <text x="470" y="440" font-size="18" text-anchor="middle" fill="#1a1a1a">経過（記録連番）</text>
+  <text x="30" y="180" font-size="18" text-anchor="middle" fill="#1a1a1a" transform="rotate(-90 30 180)">表層状態（体感される変化）</text>
+
+  <!-- axis lines -->
+  <line x1="80" y1="360" x2="860" y2="360" stroke="#999999" stroke-width="1"/>
+  <line x1="80" y1="80" x2="80" y2="360" stroke="#999999" stroke-width="1"/>
+
+  <!-- plateau background zones -->
+  <rect x="350" y="80" width="170" height="280" fill="#f0f0f0"/>
+  <rect x="520" y="80" width="180" height="280" fill="#ddeeff"/>
+
+  <!-- zone labels: top -->
+  <text x="435" y="105" font-size="14" text-anchor="middle" fill="#555555">過冷却型停滞</text>
+  <text x="610" y="105" font-size="14" text-anchor="middle" fill="#1f6feb">潜熱型静寂（凪）</text>
+
+  <!-- zone labels: bottom two lines -->
+  <text x="435" y="330" font-size="12" text-anchor="middle" fill="#555555">旧視座の準安定維持</text>
+  <text x="435" y="346" font-size="12" text-anchor="middle" fill="#555555">戦略試行が継続し失効が累積</text>
+  <text x="610" y="330" font-size="12" text-anchor="middle" fill="#1f6feb">内部で再記述が進行・表層不変</text>
+  <text x="610" y="346" font-size="12" text-anchor="middle" fill="#1f6feb">試行自体が減少</text>
+
+  <!-- heating curve: rise, plateau, rise -->
+  <path d="M 80 340 C 180 300, 280 220, 350 195
+           L 520 195
+           C 600 190, 660 150, 700 130
+           C 760 105, 820 90, 860 82"
+        fill="none" stroke="#111111" stroke-width="3"/>
+
+  <!-- boundary marker at x=520: nucleation -->
+  <line x1="520" y1="80" x2="520" y2="360" stroke="#cf222e" stroke-width="1" stroke-dasharray="4,3"/>
+  <text x="520" y="72" font-size="16" text-anchor="middle" fill="#cf222e">★核形成</text>
+
+  <!-- bottom mini comparison table -->
+  <text x="80" y="390" font-size="12" font-family="monospace" fill="#333333">指標(a)失効率：〔過冷却型〕上昇継続　→　〔潜熱型〕試行母数が減少し頭打ち</text>
+  <text x="80" y="408" font-size="12" font-family="monospace" fill="#333333">指標(b)脱物語化度：〔過冷却型〕低〜中　→　〔潜熱型〕急上昇</text>
+
+  <!-- top-right red note -->
+  <text x="856" y="65" font-size="12" text-anchor="end" fill="#cf222e">二相の識別可能性は予測であり前向き記録の検証対象（本文2.3）</text>
+
+  <!-- footer -->
+  <text x="856" y="452" font-size="12" text-anchor="end" fill="#6e7781">全物理用語は構造的類比（本文3.5参照）</text>
+</svg>
