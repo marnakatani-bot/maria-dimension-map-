@@ -1,0 +1,64 @@
+<svg viewBox="0 0 900 600" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+  <rect x="0" y="0" width="900" height="600" fill="#ffffff"/>
+
+  <!-- top-right red note -->
+  <text x="880" y="20" font-size="11.5" text-anchor="end" fill="#cf222e">『共鳴トンネル』『障壁』は物理用語と同綴。構造的類比でありトンネル過程の主張を含まない（本文4.4・4.5）。</text>
+  <text x="880" y="34" font-size="11.5" text-anchor="end" fill="#cf222e">『なぜ2段階か』は未解明（本文6.2条件5）</text>
+
+  <!-- ===== UPPER PANEL: 本モデル ===== -->
+  <text x="450" y="52" font-size="15" text-anchor="middle" fill="#333333">本モデル：視座差Δと経済的流動の成否</text>
+  <line x1="100" y1="260" x2="820" y2="260" stroke="#999999" stroke-width="1"/>
+  <text x="460" y="285" font-size="16" text-anchor="middle" fill="#1a1a1a">視座差 Δ（段階数）</text>
+  <text x="35" y="170" font-size="14" text-anchor="middle" fill="#1a1a1a" transform="rotate(-90 35 170)">経済的流動の成立（成否）</text>
+
+  <!-- Δ=2 green zone -->
+  <rect x="410" y="70" width="100" height="190" fill="#2da44e" opacity="0.12"/>
+  <text x="460" y="85" font-size="12" text-anchor="middle" fill="#2da44e">流動成立（2段階差）</text>
+
+  <!-- bars -->
+  <rect x="140" y="230" width="50" height="30" fill="#6e7781"/>
+  <text x="165" y="222" font-size="12" text-anchor="middle" fill="#333333">Δ=0</text>
+  <text x="165" y="212" font-size="10.5" text-anchor="middle" fill="#333333">同次元不成立</text>
+
+  <rect x="270" y="220" width="50" height="40" fill="#6e7781"/>
+  <text x="295" y="212" font-size="12" text-anchor="middle" fill="#333333">Δ=1</text>
+
+  <rect x="435" y="90" width="50" height="170" fill="#2da44e"/>
+  <text x="460" y="82" font-size="12" text-anchor="middle" fill="#2da44e">Δ=2</text>
+  <text x="460" y="255" font-size="10" text-anchor="middle" fill="#ffffff">5D×3D成立／7D×5D成立</text>
+
+  <rect x="570" y="225" width="50" height="35" fill="#6e7781"/>
+  <text x="595" y="217" font-size="12" text-anchor="middle" fill="#333333">Δ=3</text>
+  <text x="595" y="207" font-size="10.5" text-anchor="middle" fill="#333333">7D×3D立ち消え</text>
+
+  <rect x="700" y="235" width="50" height="25" fill="#6e7781"/>
+  <text x="725" y="227" font-size="12" text-anchor="middle" fill="#333333">Δ=4</text>
+
+  <!-- dotted connector to lower peak -->
+  <line x1="460" y1="260" x2="460" y2="330" stroke="#8250df" stroke-width="1" stroke-dasharray="4,3"/>
+
+  <!-- ===== LOWER PANEL: 構造的類比 ===== -->
+  <rect x="100" y="330" width="720" height="26" fill="#8250df" opacity="0.15"/>
+  <text x="460" y="348" font-size="13" text-anchor="middle" fill="#5a2ea6">構造的類比：機序の同一ではない</text>
+
+  <text x="450" y="380" font-size="14" text-anchor="middle" fill="#333333">共鳴トンネル効果：透過率の模式</text>
+  <line x1="100" y1="530" x2="820" y2="530" stroke="#999999" stroke-width="1"/>
+
+  <!-- transmission curve: single barrier low, double barrier peak, triple+ sharp decline -->
+  <path d="M 140 500 L 260 495
+           L 320 500
+           C 380 480, 430 340, 460 335
+           C 490 340, 540 480, 600 505
+           L 700 522 L 750 526"
+        fill="none" stroke="#111111" stroke-width="3"/>
+
+  <text x="200" y="518" font-size="11.5" text-anchor="middle" fill="#333333">単一障壁（1段階・低透過）</text>
+  <text x="460" y="325" font-size="11.5" text-anchor="middle" fill="#333333">二重障壁（2段階・共鳴ピーク）</text>
+  <text x="670" y="518" font-size="11.5" text-anchor="middle" fill="#333333">三重以上（急減）</text>
+
+  <!-- correspondence mini table -->
+  <text x="130" y="560" font-size="11.5" fill="#333333">粒子エネルギー↔経済資源　／　障壁↔視座差　／　共鳴条件↔2段階差　／　透過率最大化↔流動成立</text>
+
+  <!-- footer -->
+  <text x="820" y="592" font-size="11" text-anchor="end" fill="#6e7781">全物理・数学用語は構造的類比（本文4.5参照）／経済形態の配列は並列であり価値の序列ではない（本文2.2・3.4参照）</text>
+</svg>
