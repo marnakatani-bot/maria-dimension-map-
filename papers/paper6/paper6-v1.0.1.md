@@ -187,7 +187,7 @@ v1.0.1（2026年7月10日・外部監査指摘反映済み）　※投稿先：Z
 ## 参考文献
 ※原典リポジトリ・maria-memo・論文①②③④のコーパス内引用体系（論文④v1.0.1に準拠）を継承する。論文④（中谷, 2026f）は未公開のため、引用が必要な場合は「in preparation」扱いとする。
 - 中谷まり亜 (2026a). 意識の次元マッピング：観測視座に基づく意識状態モデル v1.0. Zenodo. DOI: 10.5281/zenodo.21201677
-- 中谷まり亜 (2026b). 次元マッピング理論（原典リポジトリ）. [https://github.com/marnakatani-bot/maria-dimension-map-](https://github.com/marnakatani-bot/maria-dimension-map-) ——本稿で参照した原典文書：README.md（理論の核）／docs/economy.md（ワンネスマッピング表・3D〜9D・3.5D・5D/9Dワンネスの相違）／docs/consciousness.md（6D単一宇宙の源／9D多次元宇宙の源の区別・宇宙創生対応）／docs/buddhism.md（人無我・法無我・阿羅漢果・華厳・次元と仏教の対応表）
+- 中谷まり亜 (2026b). 意識の次元マッピング理論（原典リポジトリ）. [https://github.com/marnakatani-bot/maria-dimension-map-](https://github.com/marnakatani-bot/maria-dimension-map-) ——本稿で参照した原典文書：README.md（理論の核）／docs/economy.md（ワンネスマッピング表・3D〜9D・3.5D・5D/9Dワンネスの相違）／docs/consciousness.md（6D単一宇宙の源／9D多次元宇宙の源の区別・宇宙創生対応）／docs/buddhism.md（人無我・法無我・阿羅漢果・華厳・次元と仏教の対応表）
 - 中谷まり亜 (2026c). 等辺理論：対立の等価観測とテトラヒドロン構造による創造の幾何学的モデル v1.0. Zenodo. [https://zenodo.org/records/21202309](https://zenodo.org/records/21202309) ——本稿で継承した箇所：第3節（局所等辺／全域等辺・9次元の全視座等距離性）・4.5（スピリチュアル言説との区別＝仏教/幾何対応の水準規定）
 - 中谷まり亜 (2026d). 369正三角形：意識の次元マッピング構造の立体性の幾何学的導出 v1.0.1. Zenodo. DOI: 10.5281/zenodo.21278785. ——本稿は同論文の幾何定理に依存しないが、シリーズ書誌体系（2026a〜f）の一貫性のため掲載する。
 - 中谷まり亜 (2026e). 観測記録アーカイブ（maria-memo）. [https://github.com/marnakatani-bot/maria-memo](https://github.com/marnakatani-bot/maria-memo) ——本稿で参照した中核の一次観測記録：「5次元vs9次元のワンネス体験：物理学・仏教・フラクタル宇宙論との統合考察」（theory/02_構造原理／2026年5月1日ごろの体験記録）
