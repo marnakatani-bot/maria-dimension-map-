@@ -1,0 +1,60 @@
+<svg viewBox="0 0 900 480" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+  <rect x="0" y="0" width="900" height="480" fill="#ffffff"/>
+
+  <!-- Node 1: 5D amber -->
+  <rect x="20" y="60" width="250" height="300" rx="14" fill="#d29922" opacity="0.10" stroke="#d29922" stroke-width="2"/>
+  <text x="145" y="95" font-size="15" text-anchor="middle" fill="#8a6d1a">5次元ワンネス</text>
+  <text x="145" y="130" font-size="12" text-anchor="middle" fill="#333333">一体化の対象＝</text>
+  <text x="145" y="147" font-size="12" text-anchor="middle" fill="#333333">形をもつ存在</text>
+  <text x="145" y="180" font-size="12" text-anchor="middle" fill="#333333">魂・自他を前提とした</text>
+  <text x="145" y="197" font-size="12" text-anchor="middle" fill="#333333">一体</text>
+  <text x="145" y="240" font-size="12" text-anchor="middle" fill="#8a6d1a">仏教対応：</text>
+  <text x="145" y="257" font-size="12" text-anchor="middle" fill="#8a6d1a">自他不二・縁起</text>
+
+  <!-- Node 2: 6D gray -->
+  <rect x="325" y="60" width="250" height="300" rx="14" fill="#6e7781" opacity="0.12" stroke="#6e7781" stroke-width="2"/>
+  <text x="450" y="95" font-size="15" text-anchor="middle" fill="#4a4f54">6次元</text>
+  <text x="450" y="120" font-size="12" text-anchor="middle" fill="#333333">単一宇宙の源・空</text>
+  <text x="450" y="145" font-size="12" text-anchor="middle" fill="#333333">主客消失・感覚なし</text>
+  <text x="450" y="170" font-size="12" text-anchor="middle" fill="#333333">一体化の対象が消える</text>
+  <text x="450" y="205" font-size="12" text-anchor="middle" fill="#4a4f54">仏教対応：</text>
+  <text x="450" y="222" font-size="12" text-anchor="middle" fill="#4a4f54">人無我（魂は残る）</text>
+
+  <!-- Node 3: 9D blue -->
+  <rect x="630" y="60" width="250" height="300" rx="14" fill="#1f6feb" opacity="0.10" stroke="#1f6feb" stroke-width="2"/>
+  <text x="755" y="90" font-size="15" text-anchor="middle" fill="#1f6feb">9次元ワンネス</text>
+  <text x="755" y="115" font-size="12" text-anchor="middle" fill="#333333">多次元宇宙の源</text>
+  <text x="755" y="140" font-size="12" text-anchor="middle" fill="#333333">空を通過した先の</text>
+  <text x="755" y="157" font-size="12" text-anchor="middle" fill="#333333">『感覚が無いが有る』融合</text>
+  <text x="755" y="182" font-size="12" text-anchor="middle" fill="#333333">一体化の対象＝</text>
+  <text x="755" y="199" font-size="12" text-anchor="middle" fill="#333333">前言語的情報のうねり</text>
+  <text x="755" y="232" font-size="12" text-anchor="middle" fill="#1f6feb">仏教対応：</text>
+  <text x="755" y="249" font-size="12" text-anchor="middle" fill="#1f6feb">法無我・華厳</text>
+
+  <!-- arrows -->
+  <defs>
+    <marker id="af6" markerWidth="10" markerHeight="10" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#333333"/>
+    </marker>
+  </defs>
+  <line x1="270" y1="210" x2="320" y2="210" stroke="#333333" stroke-width="2" marker-end="url(#af6)"/>
+  <text x="295" y="290" font-size="10.5" text-anchor="middle" fill="#333333">一体化の対象が</text>
+  <text x="295" y="303" font-size="10.5" text-anchor="middle" fill="#333333">消える（空へ）</text>
+
+  <line x1="575" y1="210" x2="625" y2="210" stroke="#333333" stroke-width="2" marker-end="url(#af6)"/>
+  <text x="600" y="285" font-size="10" text-anchor="middle" fill="#333333">なお『在る』ものとの</text>
+  <text x="600" y="298" font-size="10" text-anchor="middle" fill="#333333">融合が復帰</text>
+  <text x="600" y="311" font-size="10" text-anchor="middle" fill="#333333">（対象は物体でも魂でもなく源）</text>
+
+  <!-- cosmogenesis intermediate labels above node2->3 arrow -->
+  <text x="600" y="55" font-size="10" text-anchor="middle" fill="#6e7781">6D空→揺らぎ→7D情報→8D宇宙消滅許容→9D源</text>
+
+  <!-- bottom note -->
+  <text x="450" y="400" font-size="12" text-anchor="middle" fill="#333333">6次元の記述困難（対象が消える）と9次元の記述困難（対象が言語化に先立つ）は由来が異なる（本文4.3）</text>
+
+  <!-- right-bottom red note -->
+  <text x="880" y="425" font-size="12" text-anchor="end" fill="#cf222e">この横方向配列は構造の変換の記述であり、上昇・優劣ではない</text>
+
+  <!-- footer -->
+  <text x="880" y="468" font-size="11" text-anchor="end" fill="#6e7781">全物理・情報理論用語は構造的類比（本文5.4参照）／峻別は構造の違いであり価値の序列ではない（本文5.5参照）</text>
+</svg>
