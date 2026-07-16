@@ -1,4 +1,4 @@
-[README (2).md](https://github.com/user-attachments/files/30075419/README.2.md)
+
 # 意識の次元マッピング（Consciousness Dimension Mapping）
 
 **創始者・研究者：中谷まり亜（Maria Nakatani）**
