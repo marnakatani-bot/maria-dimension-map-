@@ -1,0 +1,78 @@
+cff-version: 1.2.0
+message: "本リポジトリ（意識の次元マッピング理論）を引用する場合は、以下の情報をご利用ください。If you use or reference this theory, please cite it as below."
+title: "意識の次元マッピング（Consciousness Dimension Mapping）"
+authors:
+  - family-names: "Nakatani"
+    given-names: "Maria"
+    orcid: "https://orcid.org/0009-0007-9877-2058"
+repository-code: "https://github.com/marnakatani-bot/maria-dimension-map-"
+url: "https://marnakatani-bot.github.io/maria-dimension-map-/"
+abstract: "意識の次元マッピングとは、観測する視座の違いによって世界の構造がどのように現れるかを、3次元から9次元までの観測レイヤーとして整理する概念モデルである。次元を、Seed of Life構造に基づく同時並列的な観測レイヤー（視座）として扱う。創始者・著者：中谷まり亜（Maria Nakatani）。"
+keywords:
+  - "意識の次元マッピング"
+  - "Consciousness Dimension Mapping"
+  - "観測視座"
+  - "observation perspective"
+preferred-citation:
+  type: generic
+  title: "意識の次元マッピング：観測視座に基づく意識状態モデル"
+  authors:
+    - family-names: "Nakatani"
+      given-names: "Maria"
+      orcid: "https://orcid.org/0009-0007-9877-2058"
+  year: 2026
+  doi: "10.5281/zenodo.21201677"
+  publisher:
+    name: "Zenodo"
+  status: preprint
+references:
+  - type: generic
+    title: "等辺理論：対立の等価観測と創発の幾何構造"
+    authors:
+      - family-names: "Nakatani"
+        given-names: "Maria"
+    year: 2026
+    doi: "10.5281/zenodo.21202309"
+    publisher:
+      name: "Zenodo"
+    status: preprint
+  - type: generic
+    title: "369正三角形：意識の次元マッピング構造の立体性の幾何学的導出"
+    authors:
+      - family-names: "Nakatani"
+        given-names: "Maria"
+    year: 2026
+    doi: "10.5281/zenodo.21278785"
+    publisher:
+      name: "Zenodo"
+    status: preprint
+  - type: generic
+    title: "次元シフトの相転移モデル：情報密度飽和の検知指標と視座の操作的判定"
+    authors:
+      - family-names: "Nakatani"
+        given-names: "Maria"
+    year: 2026
+    doi: "10.5281/zenodo.21316491"
+    publisher:
+      name: "Zenodo"
+    status: preprint
+  - type: generic
+    title: "意識の次元マッピング経済論：次元別経済形態・谷町経済（9D）・2段階差異仮説の登録"
+    authors:
+      - family-names: "Nakatani"
+        given-names: "Maria"
+    year: 2026
+    doi: "10.5281/zenodo.21316552"
+    publisher:
+      name: "Zenodo"
+    status: preprint
+  - type: generic
+    title: "ワンネスの多層構造：5次元ワンネスと9次元ワンネスの峻別"
+    authors:
+      - family-names: "Nakatani"
+        given-names: "Maria"
+    year: 2026
+    doi: "10.5281/zenodo.21316593"
+    publisher:
+      name: "Zenodo"
+    status: preprint
