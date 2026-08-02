@@ -1,0 +1,199 @@
+/* ===== 観測マッピング・ノート  styles.css (v0.1.2) ===== */
+
+/* hidden属性が付いた要素は必ず隠す（.modal の display:flex などに負けないように） */
+[hidden]{ display:none !important; }
+
+:root{
+  --bg:#faf9f7;
+  --panel:#ffffff;
+  --panel-2:#f2f1ee;
+  --text:#26262a;
+  --muted:#6d6d77;
+  --line:#e0dfda;
+  --accent:#5b6b8c;
+  --accent-text:#ffffff;
+  --danger:#a3453f;
+  --chip:#eceaf1;
+  --chip-on:#5b6b8c;
+  --shadow:0 1px 2px rgba(0,0,0,.05);
+  --radius:10px;
+}
+html[data-theme="dark"]{
+  --bg:#1b1c20;
+  --panel:#24262b;
+  --panel-2:#2b2d33;
+  --text:#dedee3;
+  --muted:#9a9aa4;
+  --line:#383b42;
+  --accent:#7f92b8;
+  --accent-text:#15161a;
+  --danger:#c97b74;
+  --chip:#31343b;
+  --chip-on:#7f92b8;
+  --shadow:none;
+}
+
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:"Hiragino Kaku Gothic ProN","Yu Gothic UI","Meiryo",system-ui,sans-serif;
+  font-size:16px;
+  line-height:1.75;
+  -webkit-text-size-adjust:100%;
+  overflow-x:hidden;
+}
+
+/* ---- ヘッダー ---- */
+.topbar{
+  position:sticky; top:0; z-index:20;
+  background:var(--bg);
+  border-bottom:1px solid var(--line);
+}
+.topbar-inner{
+  max-width:860px; margin:0 auto; padding:10px 16px;
+  display:flex; align-items:center; gap:8px; flex-wrap:wrap;
+}
+.app-title{font-size:1.05rem; font-weight:600; margin:0; letter-spacing:.04em; flex:1 1 auto}
+.topbar-actions{display:flex; gap:8px; flex:0 0 auto}
+
+.wrap{max-width:860px; margin:0 auto; padding:20px 16px 80px}
+.view{animation:fade .18s ease}
+@keyframes fade{from{opacity:.4}to{opacity:1}}
+
+/* ---- パネル ---- */
+.panel{
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  padding:18px 16px;
+  margin:16px 0;
+}
+
+/* ---- ボタン ---- */
+.btn{
+  font:inherit;
+  min-height:46px;
+  padding:10px 16px;
+  border-radius:var(--radius);
+  border:1px solid var(--line);
+  background:var(--panel-2);
+  color:var(--text);
+  cursor:pointer;
+}
+.btn:hover{border-color:var(--accent)}
+.btn:disabled{opacity:.5; cursor:not-allowed}
+.btn-primary{background:var(--accent); color:var(--accent-text); border-color:var(--accent); font-weight:600}
+.btn-ghost{background:transparent}
+.btn-danger{background:transparent; color:var(--danger); border-color:var(--danger)}
+.btn-big{width:100%; font-size:1.1rem; min-height:60px}
+.btn-back{margin:4px 0 0}
+
+/* ---- 入力 ---- */
+.field-label{display:block; margin:18px 0 6px; font-weight:600; font-size:.95rem}
+.field-label .req{margin-left:8px; font-weight:400; font-size:.8rem; color:var(--danger)}
+.input{
+  width:100%;
+  font:inherit;
+  min-height:46px;
+  padding:10px 12px;
+  color:var(--text);
+  background:var(--panel-2);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+}
+.input:focus{outline:2px solid var(--accent); outline-offset:1px}
+textarea.input{min-height:auto; line-height:1.8; resize:vertical}
+.textarea-main{min-height:220px; font-size:1.02rem}
+.tag-input-row{display:flex; gap:8px; flex-wrap:wrap}
+.tag-input-row .input{flex:1 1 200px}
+
+/* ---- ラベル群 ---- */
+.group{margin-top:18px}
+.group-name{font-weight:600; font-size:.95rem; margin:0 0 8px}
+.labels{display:flex; flex-wrap:wrap; gap:8px; margin:6px 0}
+.chip{
+  display:inline-flex; align-items:center; gap:6px;
+  padding:8px 13px;
+  border-radius:999px;
+  border:1px solid var(--line);
+  background:var(--chip);
+  color:var(--text);
+  font-size:.9rem;
+  cursor:pointer;
+  user-select:none;
+  min-height:40px;
+}
+.chip.on{background:var(--chip-on); color:var(--accent-text); border-color:var(--chip-on); font-weight:600}
+.chip-static{cursor:default}
+.chip-del{border:none;background:transparent;color:inherit;font:inherit;cursor:pointer;padding:0 2px;line-height:1}
+.chip-count{color:var(--muted); font-weight:400; font-size:.85rem}
+
+/* ---- 絞り込み ---- */
+.filters{margin-top:16px; border-top:1px solid var(--line); padding-top:12px}
+.filters summary{cursor:pointer; font-weight:600; padding:6px 0; min-height:40px}
+.filter-body{padding-top:4px}
+.row-actions{display:flex; gap:10px; flex-wrap:wrap; align-items:center; margin-top:16px}
+.muted{color:var(--muted)}
+.small{font-size:.85rem}
+
+/* ---- カード ---- */
+.cards{display:flex; flex-direction:column; gap:12px}
+.card{
+  text-align:left; width:100%;
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  padding:16px;
+  cursor:pointer;
+  font:inherit; color:inherit;
+}
+.card:hover{border-color:var(--accent)}
+.card-title{font-size:1.05rem; font-weight:600; margin:0 0 4px; overflow-wrap:anywhere}
+.card-date{font-size:.82rem; color:var(--muted); margin:0 0 8px}
+.card-excerpt{margin:0 0 10px; color:var(--text); overflow-wrap:anywhere; white-space:pre-wrap}
+.empty{text-align:center; color:var(--muted); padding:40px 0}
+
+/* ---- 詳細 ---- */
+.detail-title{font-size:1.35rem; margin:6px 0 4px; overflow-wrap:anywhere}
+.sec-head{font-size:1rem; margin:26px 0 6px; padding-bottom:4px; border-bottom:1px solid var(--line)}
+.longtext{white-space:pre-wrap; overflow-wrap:anywhere; margin-top:8px}
+.detail-actions{border-top:1px solid var(--line); padding-top:16px; margin-top:24px}
+.future{margin-top:14px; display:flex; gap:10px; align-items:center; flex-wrap:wrap}
+.sticky-save{border-top:1px solid var(--line); padding-top:16px}
+
+/* ---- モーダル ---- */
+.modal{
+  position:fixed; inset:0; z-index:50;
+  background:rgba(0,0,0,.45);
+  display:flex; align-items:center; justify-content:center;
+  padding:16px;
+}
+.modal-box{
+  background:var(--panel); border:1px solid var(--line);
+  border-radius:var(--radius); padding:20px 18px;
+  max-width:420px; width:100%;
+}
+.modal-box h3{margin:0 0 8px}
+
+/* ---- トースト ---- */
+.toast{
+  position:fixed; left:50%; bottom:24px; transform:translateX(-50%);
+  background:var(--accent); color:var(--accent-text);
+  padding:12px 20px; border-radius:999px; z-index:60;
+  max-width:90vw; text-align:center;
+}
+
+/* ---- スマートフォン ---- */
+@media (max-width:600px){
+  .wrap{padding:14px 12px 70px}
+  .panel{padding:14px 12px}
+  .app-title{font-size:1rem; width:100%}
+  .topbar-actions{width:100%}
+  .topbar-actions .btn{flex:1}
+  .textarea-main{min-height:200px}
+  .detail-actions .btn, .row-actions .btn{flex:1 1 120px}
+}

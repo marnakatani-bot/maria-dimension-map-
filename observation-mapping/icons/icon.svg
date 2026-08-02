@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="観測マッピング・ノート">
+  <rect width="512" height="512" rx="96" fill="#1b1c20"/>
+  <g fill="none" stroke="#d7b56d" stroke-width="18">
+    <circle cx="256" cy="156" r="96"/>
+    <circle cx="170" cy="306" r="96"/>
+    <circle cx="342" cy="306" r="96"/>
+  </g>
+  <circle cx="256" cy="256" r="34" fill="#f4e4b8"/>
+</svg>
