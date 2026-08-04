@@ -276,6 +276,18 @@
     });
   }
 
+  /* 公開一覧からもService Workerを登録し、更新を確認する。
+     失敗しても公開一覧の表示は止めない。 */
+  function setupServiceWorker() {
+    if (!('serviceWorker' in navigator)) return;
+    if (window.location.protocol === 'file:') return;
+    try {
+      navigator.serviceWorker.register('./service-worker.js')
+        .then(function (registration) { return registration.update(); })
+        .catch(function () {});
+    } catch (e) {}
+  }
+
   function start() {
     var savedTheme = null;
     try { savedTheme = localStorage.getItem(themeKey); } catch (e) {}
@@ -306,4 +318,7 @@
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start);
   else start();
+
+  if (document.readyState === 'complete') setupServiceWorker();
+  else window.addEventListener('load', setupServiceWorker);
 })();
