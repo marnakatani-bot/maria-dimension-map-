@@ -1,15 +1,20 @@
 {
-  "name": "観測マッピング・ノート",
+  "name": "自分の観測ノート",
   "short_name": "観測ノート",
-  "description": "意識の次元マッピングの一次観測を、あとから検索・分類・再利用できるように保存する個人用の記録アプリ。",
+  "description": "意識の次元マッピングの一次観測を端末内に保存し、検索・分類・再利用する個人用記録アプリ。",
   "lang": "ja",
-  "start_url": "./index.html",
+  "start_url": "./note.html",
   "scope": "./",
   "display": "standalone",
   "orientation": "portrait-primary",
   "background_color": "#1b1c20",
   "theme_color": "#1b1c20",
   "icons": [
-    { "src": "icons/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+    {
+      "src": "icons/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
   ]
 }

@@ -4,155 +4,92 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#1b1c20">
-<title>観測マッピング・ノート</title>
+<meta name="description" content="中谷まり亜による意識の次元マッピングの公開観測アーカイブ。日常の現象を3次元から9次元の複数視座で記録します。">
+<title>公開観測アーカイブ｜意識の次元マッピング</title>
 <link rel="stylesheet" href="styles.css">
-<link rel="manifest" href="manifest.webmanifest">
+<link rel="stylesheet" href="public.css">
 <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
 </head>
 <body>
 
 <header class="topbar">
   <div class="topbar-inner">
-    <h1 class="app-title">観測マッピング・ノート</h1>
+    <h1 class="app-title">公開観測アーカイブ</h1>
     <div class="topbar-actions">
+      <a class="btn btn-ghost" href="note.html">自分の観測ノート</a>
       <button type="button" id="btn-theme" class="btn btn-ghost" aria-label="表示テーマを切り替える">🌙 ダーク</button>
-      <button type="button" id="btn-backup" class="btn btn-ghost">バックアップ</button>
     </div>
   </div>
 </header>
 
 <main class="wrap">
-
-  <!-- ===== 一覧画面 ===== -->
-  <section id="view-list" class="view">
-    <button type="button" id="btn-new" class="btn btn-primary btn-big">＋ 新しい観測を記録</button>
+  <section id="public-list-view" class="view">
+    <div class="panel archive-intro">
+      <p class="eyebrow">意識の次元マッピング｜一次観測</p>
+      <h2>日常で生まれた観測を、ここへ集めます。</h2>
+      <p>
+        中谷まり亜が、現実・夢・身体反応・ひらめきを3次元から9次元の複数視座で記録する公開アーカイブです。
+        SNSや記事に分散していた観測の中心地として、原観測を先に残し、理論化・記事化・論文化との接続を後から育てます。
+      </p>
+      <p class="muted small">
+        公開記録は誰でも閲覧できます。「自分の観測ノート」は、この端末のブラウザー内だけに保存される個人用画面です。
+      </p>
+    </div>
 
     <div class="panel">
-      <label class="field-label" for="q">キーワード検索</label>
-      <input type="search" id="q" class="input" placeholder="本文・タイトル・タグから探す" autocomplete="off">
+      <label class="field-label" for="public-q">公開観測を検索</label>
+      <input type="search" id="public-q" class="input" placeholder="本文・タイトル・タグから探す" autocomplete="off">
 
-      <details id="filter-details" class="filters">
-        <summary>ラベルで絞り込む <span id="filter-count" class="chip-count"></span></summary>
-        <div id="filter-body" class="filter-body"></div>
+      <details class="filters">
+        <summary>次元・タグで絞り込む <span id="public-filter-count" class="chip-count"></span></summary>
+        <div class="filter-body">
+          <div class="group">
+            <p class="group-name">次元</p>
+            <div id="public-filter-dimensions" class="labels"></div>
+          </div>
+          <div class="group">
+            <p class="group-name">自由タグ</p>
+            <div id="public-filter-tags" class="labels"></div>
+          </div>
+        </div>
       </details>
 
       <div class="row-actions">
-        <button type="button" id="btn-clear" class="btn btn-ghost">すべての記録に戻す</button>
-        <span id="result-count" class="muted"></span>
+        <button type="button" id="public-clear" class="btn btn-ghost">すべての公開記録に戻す</button>
+        <span id="public-result-count" class="muted"></span>
       </div>
     </div>
 
-    <div id="cards" class="cards"></div>
-    <p id="empty-msg" class="empty" hidden>条件に合う記録がありません。</p>
+    <div id="public-cards" class="cards"></div>
+    <p id="public-loading" class="empty">公開観測を読み込んでいます。</p>
+    <p id="public-error" class="empty" hidden>公開観測を読み込めませんでした。時間をおいて再読み込みしてください。</p>
+    <p id="public-empty" class="empty" hidden>条件に合う公開観測がありません。</p>
   </section>
 
-  <!-- ===== 詳細画面 ===== -->
-  <section id="view-detail" class="view" hidden>
-    <button type="button" class="btn btn-ghost btn-back" data-back>← 一覧へ戻る</button>
+  <section id="public-detail-view" class="view" hidden>
+    <button type="button" id="public-back" class="btn btn-ghost btn-back">← 公開観測一覧へ</button>
     <article class="panel detail">
-      <h2 id="d-title" class="detail-title"></h2>
-      <p id="d-date" class="muted"></p>
-      <div id="d-labels" class="labels"></div>
+      <p class="eyebrow">公開一次観測</p>
+      <h2 id="public-title" class="detail-title"></h2>
+      <p id="public-date" class="muted"></p>
+      <div id="public-labels" class="labels"></div>
 
-      <h3 class="sec-head">原文</h3>
-      <div id="d-body" class="longtext"></div>
+      <h3 class="sec-head">原観測</h3>
+      <div id="public-body" class="longtext"></div>
 
-      <div id="d-extra"></div>
+      <div id="public-extra"></div>
 
       <div class="row-actions detail-actions">
-        <button type="button" id="btn-edit" class="btn btn-primary">編集する</button>
-        <button type="button" id="btn-dup" class="btn">複製する</button>
-        <button type="button" id="btn-del" class="btn btn-danger">削除する</button>
+        <button type="button" id="public-share" class="btn btn-primary">この観測のURLを共有</button>
+        <a class="btn" href="note.html">自分の観測を記録する</a>
       </div>
-      <div class="future">
-        <button type="button" id="btn-sol-copy" class="btn btn-ghost">Sol相談用にコピー</button>
-        <span class="muted small">記録を整形してコピーします。この画面から外部へは送信しません。</span>
-      </div>
+      <p class="muted small">原観測は、中谷まり亜本人が記録した一次情報です。理論的な整理や検証は後続工程で行います。</p>
     </article>
   </section>
-
-  <!-- ===== 入力画面 ===== -->
-  <section id="view-edit" class="view" hidden>
-    <button type="button" class="btn btn-ghost btn-back" data-back>← 保存せずに戻る</button>
-    <form id="form" class="panel" novalidate>
-      <h2 id="edit-head" class="detail-title">新しい観測を記録</h2>
-
-      <label class="field-label" for="f-body">原文（本文）<span class="req">必須</span></label>
-      <textarea id="f-body" class="input textarea-main" rows="12" placeholder="思いついたまま、そのまま書いてください。"></textarea>
-      <p class="muted small">ここに書いた文章は「原文」として保存され、アプリが自動で書き換えることはありません。</p>
-
-      <label class="field-label" for="f-title">タイトル（任意）</label>
-      <input type="text" id="f-title" class="input" placeholder="空欄なら本文の冒頭から自動で付けます">
-
-      <label class="field-label" for="f-date">記録日時</label>
-      <input type="datetime-local" id="f-date" class="input">
-
-      <div id="edit-labels"></div>
-
-      <label class="field-label" for="f-tags">自由タグ</label>
-      <div class="tag-input-row">
-        <input type="text" id="f-tags" class="input" placeholder="例：仕事　→　入力してEnterか「追加」">
-        <button type="button" id="btn-addtag" class="btn">追加</button>
-      </div>
-      <div id="tag-chips" class="labels"></div>
-
-      <h3 class="sec-head">補助欄（原文とは別に保存されます・任意）</h3>
-      <label class="field-label" for="f-dim">次元展開</label>
-      <textarea id="f-dim" class="input" rows="6"></textarea>
-      <label class="field-label" for="f-memo">整理メモ</label>
-      <textarea id="f-memo" class="input" rows="4"></textarea>
-      <label class="field-label" for="f-link">研究への接続</label>
-      <textarea id="f-link" class="input" rows="4"></textarea>
-      <label class="field-label" for="f-rel">関連記録</label>
-      <textarea id="f-rel" class="input" rows="3"></textarea>
-
-      <div class="row-actions sticky-save">
-        <button type="submit" id="btn-save" class="btn btn-primary btn-big">保存する</button>
-        <button type="button" class="btn btn-ghost" data-back>やめる</button>
-      </div>
-    </form>
-  </section>
-
-  <!-- ===== バックアップ画面 ===== -->
-  <section id="view-backup" class="view" hidden>
-    <button type="button" class="btn btn-ghost btn-back" data-back>← 一覧へ戻る</button>
-    <div class="panel">
-      <h2 class="detail-title">バックアップと復元</h2>
-      <h3 class="sec-head">書き出し（保存）</h3>
-      <div class="row-actions">
-        <button type="button" id="btn-export-json" class="btn btn-primary">JSONで書き出す</button>
-        <button type="button" id="btn-export-md" class="btn">Markdownで書き出す</button>
-      </div>
-      <p class="muted small">JSONは復元用、Markdownは読み書き用の控えです。</p>
-
-      <h3 class="sec-head">読み込み（復元）</h3>
-      <p class="muted small">書き出したJSONファイルを選ぶと、記録を戻せます。</p>
-      <div class="row-actions">
-        <button type="button" id="btn-import-add" class="btn">追加して読み込む</button>
-        <button type="button" id="btn-import-replace" class="btn btn-danger">すべて置き換える</button>
-      </div>
-      <input type="file" id="file-input" accept="application/json,.json" hidden>
-      <p id="backup-msg" class="muted" role="status"></p>
-      <p class="muted small">データはこのブラウザーの中（IndexedDB）だけに保存されています。外部には一切送信していません。</p>
-    </div>
-  </section>
-
 </main>
-
-<!-- ===== 確認ダイアログ ===== -->
-<div id="modal" class="modal" hidden>
-  <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="modal-title">
-    <h3 id="modal-title"></h3>
-    <p id="modal-text"></p>
-    <div class="row-actions">
-      <button type="button" id="modal-ok" class="btn btn-danger">はい</button>
-      <button type="button" id="modal-cancel" class="btn btn-ghost">いいえ</button>
-    </div>
-  </div>
-</div>
 
 <div id="toast" class="toast" hidden></div>
 
-<script src="app.js"></script>
+<script src="public.js"></script>
 </body>
 </html>

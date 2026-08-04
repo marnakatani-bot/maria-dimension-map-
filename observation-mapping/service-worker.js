@@ -1,39 +1,56 @@
-/* 観測マッピング・ノート  service-worker.js
-   インターネットが無くても起動できるように、アプリのファイルだけを保存します。
-   記録そのものはここではなくIndexedDBに保存されます。 */
-var CACHE = 'omn-v0-1-2';  // 版を上げると古い保存分は自動で捨てられます
+/* 観測マッピング  service-worker.js
+   公開観測アーカイブと個人用ノートのアプリファイルを保存します。
+   公開観測データは更新を反映するため、常にネットワークから取得します。 */
+var CACHE = 'omn-v0-2-0';
 var FILES = [
   './',
   './index.html',
+  './note.html',
   './styles.css',
+  './public.css',
+  './public.js',
   './app.js',
   './manifest.webmanifest',
   './icons/icon.svg'
 ];
 
-self.addEventListener('install', function (e) {
-  e.waitUntil(
-    caches.open(CACHE).then(function (c) { return c.addAll(FILES); }).then(function () {
+self.addEventListener('install', function (event) {
+  event.waitUntil(
+    caches.open(CACHE).then(function (cache) {
+      return cache.addAll(FILES);
+    }).then(function () {
       return self.skipWaiting();
     }).catch(function () {})
   );
 });
 
-self.addEventListener('activate', function (e) {
-  e.waitUntil(
+self.addEventListener('activate', function (event) {
+  event.waitUntil(
     caches.keys().then(function (keys) {
-      return Promise.all(keys.map(function (k) { return k === CACHE ? null : caches.delete(k); }));
-    }).then(function () { return self.clients.claim(); })
+      return Promise.all(keys.map(function (key) {
+        return key === CACHE ? null : caches.delete(key);
+      }));
+    }).then(function () {
+      return self.clients.claim();
+    })
   );
 });
 
-self.addEventListener('fetch', function (e) {
-  if (e.request.method !== 'GET') return;
-  e.respondWith(
-    caches.match(e.request).then(function (hit) {
+self.addEventListener('fetch', function (event) {
+  if (event.request.method !== 'GET') return;
+
+  var url = new URL(event.request.url);
+  if (url.pathname.endsWith('/public-observations.json')) {
+    event.respondWith(fetch(event.request, { cache: 'no-store' }));
+    return;
+  }
+
+  event.respondWith(
+    caches.match(event.request).then(function (hit) {
       if (hit) return hit;
-      return fetch(e.request).catch(function () {
-        return caches.match('./index.html');
+      return fetch(event.request).catch(function () {
+        if (event.request.mode === 'navigate') return caches.match('./index.html');
+        return undefined;
       });
     })
   );

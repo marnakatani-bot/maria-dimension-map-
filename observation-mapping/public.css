@@ -1,0 +1,15 @@
+/* 公開観測アーカイブ／個人ノート分離 v0.2.0 */
+a{color:var(--accent)}
+a.btn{text-decoration:none;display:inline-flex;align-items:center;justify-content:center}
+.topbar-actions{flex-wrap:wrap}
+.archive-intro h2{font-size:1.45rem;line-height:1.45;margin:.25rem 0 .75rem}
+.archive-intro p{margin:.5rem 0}
+.eyebrow{font-size:.8rem;font-weight:700;letter-spacing:.1em;color:var(--accent);margin:0;text-transform:uppercase}
+.local-notice{border-left:4px solid var(--accent)}
+.local-notice p{margin:.4rem 0 0}
+a.card{text-decoration:none;display:block}
+.public-card{border-left:4px solid var(--accent)}
+@media (max-width:600px){
+  .topbar-actions .btn{flex:1 1 120px}
+  .archive-intro h2{font-size:1.25rem}
+}
