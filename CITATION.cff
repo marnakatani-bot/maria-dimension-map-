@@ -76,3 +76,23 @@ references:
     publisher:
       name: "Zenodo"
     status: preprint
+  - type: generic
+    title: "観測先行型方法論：一人称観測者とAI支援形式化の分業"
+    authors:
+      - family-names: "Nakatani"
+        given-names: "Maria"
+    year: 2026
+    doi: "10.5281/zenodo.21612651"
+    publisher:
+      name: "Zenodo"
+    status: preprint
+  - type: generic
+    title: "Seed of LifeからFlower of Lifeへ：帰還の螺旋と多観測者展開仮説"
+    authors:
+      - family-names: "Nakatani"
+        given-names: "Maria"
+    year: 2026
+    doi: "10.5281/zenodo.21767440"
+    publisher:
+      name: "Zenodo"
+    status: preprint
