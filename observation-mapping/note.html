@@ -65,6 +65,11 @@
       <h3 class="sec-head">原文</h3>
       <div id="d-body" class="longtext"></div>
 
+      <div id="d-images" class="detail-images" hidden>
+        <h3 class="sec-head">添付画像</h3>
+        <div id="d-image-grid" class="image-grid"></div>
+      </div>
+
       <div id="d-extra"></div>
 
       <div class="row-actions detail-actions">
@@ -87,6 +92,17 @@
       <label class="field-label" for="f-body">原文（本文）<span class="req">必須</span></label>
       <textarea id="f-body" class="input textarea-main" rows="12" placeholder="思いついたまま、そのまま書いてください。"></textarea>
       <p class="muted small">ここに書いた文章は「原文」として保存され、アプリが自動で書き換えることはありません。</p>
+
+      <div class="image-attach">
+        <label class="field-label" for="f-images">図・画像を追加</label>
+        <input type="file" id="f-images" accept="image/*" multiple hidden>
+        <button type="button" id="btn-add-images" class="btn">図・画像を選択</button>
+        <span id="image-count" class="muted small">0 / 3枚</span>
+        <p class="muted small">1観測につき3枚まで。大きな写真は、細い線を確認できる画質を優先して長辺1600px以下・おおむね1MB以下に縮小します。</p>
+        <p class="muted small local-image-notice">画像もこの端末のブラウザー内だけに保存され、外部には送信されません。</p>
+        <p id="image-status" class="muted small" role="status"></p>
+        <div id="edit-image-grid" class="image-grid image-edit-grid"></div>
+      </div>
 
       <label class="field-label" for="f-title">タイトル（任意）</label>
       <input type="text" id="f-title" class="input" placeholder="空欄なら本文の冒頭から自動で付けます">
@@ -157,6 +173,11 @@
 </div>
 
 <div id="toast" class="toast" hidden></div>
+
+<div id="image-lightbox" class="image-lightbox" hidden>
+  <button type="button" id="image-lightbox-close" class="image-lightbox-close" aria-label="画像を閉じる">×</button>
+  <img id="image-lightbox-img" alt="添付画像の拡大表示">
+</div>
 
 <script src="app.js"></script>
 </body>

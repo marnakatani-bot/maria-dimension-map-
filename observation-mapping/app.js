@@ -26,6 +26,9 @@
   var LS_KEY = 'omn-records';
   var LS_THEME = 'omn-theme';
   var LS_SEEDED = 'omn-seeded';
+  var MAX_IMAGES = 3;
+  var MAX_IMAGE_EDGE = 1600;
+  var TARGET_IMAGE_BYTES = 1024 * 1024;
 
   var Store = {
     mode: 'idb',
@@ -167,6 +170,98 @@
     });
   }
 
+  function dataUrlBytes(data) {
+    var comma = data.indexOf(',');
+    if (comma < 0) return data.length;
+    var payload = data.slice(comma + 1);
+    return Math.floor(payload.length * 3 / 4);
+  }
+
+  function normalizeImage(image, index) {
+    var data = typeof image === 'string' ? image : (image && image.data);
+    if (typeof data !== 'string' || data.indexOf('data:image/') !== 0) return null;
+    var typeMatch = /^data:([^;,]+)/.exec(data);
+    var size = image && Number(image.size);
+    return {
+      id: image && image.id ? String(image.id) : 'img-' + index + '-' + Date.now().toString(36),
+      name: image && image.name ? String(image.name) : '添付画像' + (index + 1) + '.jpg',
+      type: image && image.type ? String(image.type) : (typeMatch ? typeMatch[1] : 'image/jpeg'),
+      data: data,
+      width: image && Number(image.width) > 0 ? Number(image.width) : 0,
+      height: image && Number(image.height) > 0 ? Number(image.height) : 0,
+      size: isFinite(size) && size > 0 ? size : dataUrlBytes(data)
+    };
+  }
+
+  function readImageFile(file) {
+    return new Promise(function (resolve, reject) {
+      if (!file || !file.type || file.type.indexOf('image/') !== 0) {
+        reject(new Error('画像ファイルではありません'));
+        return;
+      }
+      var reader = new FileReader();
+      reader.onload = function () {
+        var img = new Image();
+        img.onload = function () { resolve(img); };
+        img.onerror = function () { reject(new Error('画像を読み込めませんでした')); };
+        img.src = String(reader.result);
+      };
+      reader.onerror = function () { reject(new Error('画像を読み込めませんでした')); };
+      reader.readAsDataURL(file);
+    });
+  }
+
+  function compressImage(file) {
+    return readImageFile(file).then(function (img) {
+      var naturalWidth = img.naturalWidth || img.width;
+      var naturalHeight = img.naturalHeight || img.height;
+      if (!naturalWidth || !naturalHeight) throw new Error('画像サイズを取得できませんでした');
+
+      var scale = Math.min(1, MAX_IMAGE_EDGE / Math.max(naturalWidth, naturalHeight));
+      var width = Math.max(1, Math.round(naturalWidth * scale));
+      var height = Math.max(1, Math.round(naturalHeight * scale));
+      var canvas = document.createElement('canvas');
+      var data = '';
+      var size = 0;
+      var quality = 0.92;
+
+      function render(q) {
+        canvas.width = width;
+        canvas.height = height;
+        var ctx = canvas.getContext('2d');
+        ctx.fillStyle = '#ffffff';
+        ctx.fillRect(0, 0, width, height);
+        ctx.imageSmoothingEnabled = true;
+        ctx.imageSmoothingQuality = 'high';
+        ctx.drawImage(img, 0, 0, width, height);
+        data = canvas.toDataURL('image/jpeg', q);
+        size = dataUrlBytes(data);
+      }
+
+      render(quality);
+      while (size > TARGET_IMAGE_BYTES && quality > 0.72) {
+        quality = Math.max(0.72, quality - 0.05);
+        render(quality);
+      }
+      while (size > TARGET_IMAGE_BYTES && Math.max(width, height) > 800) {
+        width = Math.max(1, Math.round(width * 0.9));
+        height = Math.max(1, Math.round(height * 0.9));
+        render(0.82);
+      }
+
+      var baseName = String(file.name || '添付画像').replace(/\.[^.]*$/, '');
+      return {
+        id: 'img-' + Date.now().toString(36) + '-' + Math.random().toString(36).slice(2, 8),
+        name: baseName + '.jpg',
+        type: 'image/jpeg',
+        data: data,
+        width: width,
+        height: height,
+        size: size
+      };
+    });
+  }
+
   /* ---------- 記録の正規化（読み込み時の安全策） ---------- */
   function normalize(r) {
     var o = {
@@ -175,7 +270,8 @@
       body: (r && typeof r.body === 'string') ? r.body : '',
       createdAt: (r && r.createdAt) ? r.createdAt : new Date().toISOString(),
       updatedAt: (r && r.updatedAt) ? r.updatedAt : new Date().toISOString(),
-      tags: (r && Array.isArray(r.tags)) ? r.tags.map(String) : []
+      tags: (r && Array.isArray(r.tags)) ? r.tags.map(String) : [],
+      images: (r && Array.isArray(r.images)) ? r.images.slice(0, MAX_IMAGES).map(normalizeImage).filter(function (image) { return image; }) : []
     };
     GROUPS.forEach(function (g) {
       o[g.key] = (r && Array.isArray(r[g.key])) ? r[g.key].map(String) : [];
@@ -213,6 +309,8 @@
   var keyword = '';
   var editing = null;   // 編集中の記録（新規の場合はid未保存）
   var editTags = [];
+  var editImages = [];
+  var imageBusy = false;
   var currentId = null;
 
   /* ---------- 画面切り替え ---------- */
@@ -322,6 +420,7 @@
       c.appendChild(el('p', 'card-date', fmt(r.createdAt)));
       var ex = r.body.replace(/\s+/g, ' ').slice(0, 90);
       c.appendChild(el('p', 'card-excerpt', ex + (r.body.length > 90 ? '…' : '')));
+      if (r.images.length) c.appendChild(el('p', 'muted small', '添付画像：' + r.images.length + '件'));
       var lab = el('div', 'labels');
       GROUPS.forEach(function (g) {
         r[g.key].forEach(function (v) { lab.appendChild(chip(v, false, null)); });
@@ -349,6 +448,23 @@
     });
     r.tags.forEach(function (t) { lab.appendChild(chip('#' + t, false, null)); });
     $('d-body').textContent = r.body;
+
+    var imageHost = $('d-image-grid');
+    imageHost.innerHTML = '';
+    r.images.forEach(function (image, index) {
+      var figure = el('figure', 'image-thumb');
+      var open = el('button', 'image-open');
+      open.type = 'button';
+      open.setAttribute('aria-label', '添付画像' + (index + 1) + 'を拡大表示');
+      var img = el('img');
+      img.src = image.data;
+      img.alt = r.title + 'の添付画像' + (index + 1);
+      open.appendChild(img);
+      open.addEventListener('click', function () { openImageLightbox(image, img.alt); });
+      figure.appendChild(open);
+      imageHost.appendChild(figure);
+    });
+    $('d-images').hidden = !r.images.length;
 
     var ex = $('d-extra');
     ex.innerHTML = '';
@@ -395,10 +511,83 @@
     });
   }
 
+  function renderEditImages() {
+    var host = $('edit-image-grid');
+    host.innerHTML = '';
+    editImages.forEach(function (image, index) {
+      var figure = el('figure', 'image-thumb');
+      var img = el('img');
+      img.src = image.data;
+      img.alt = '添付画像' + (index + 1);
+      figure.appendChild(img);
+      var remove = el('button', 'image-remove', '削除');
+      remove.type = 'button';
+      remove.setAttribute('aria-label', '添付画像' + (index + 1) + 'を削除');
+      remove.addEventListener('click', function () {
+        editImages.splice(index, 1);
+        $('image-status').textContent = '';
+        renderEditImages();
+      });
+      figure.appendChild(remove);
+      host.appendChild(figure);
+    });
+    $('image-count').textContent = editImages.length + ' / ' + MAX_IMAGES + '枚';
+    $('btn-add-images').disabled = imageBusy || editImages.length >= MAX_IMAGES;
+    $('btn-save').disabled = imageBusy;
+  }
+
+  function selectImages(files) {
+    var remaining = MAX_IMAGES - editImages.length;
+    var selected = Array.prototype.slice.call(files || []);
+    if (!remaining || !selected.length) return;
+    if (selected.length > remaining) {
+      selected = selected.slice(0, remaining);
+      $('image-status').textContent = '1観測につき3枚までのため、先頭の' + remaining + '枚を追加します。';
+    } else {
+      $('image-status').textContent = selected.length + '枚を縮小しています…';
+    }
+    imageBusy = true;
+    renderEditImages();
+
+    var failed = 0;
+    var chain = Promise.resolve();
+    selected.forEach(function (file) {
+      chain = chain.then(function () {
+        return compressImage(file).then(function (image) {
+          editImages.push(image);
+          renderEditImages();
+        }).catch(function () { failed++; });
+      });
+    });
+    chain.then(function () {
+      imageBusy = false;
+      renderEditImages();
+      if (failed) {
+        $('image-status').textContent = failed + '枚を読み込めませんでした。画像ファイルを選び直してください。';
+      } else {
+        $('image-status').textContent = selected.length + '枚を追加しました。';
+      }
+    });
+  }
+
+  function openImageLightbox(image, alt) {
+    $('image-lightbox-img').src = image.data;
+    $('image-lightbox-img').alt = alt || '添付画像の拡大表示';
+    $('image-lightbox').hidden = false;
+    $('image-lightbox-close').focus();
+  }
+
+  function closeImageLightbox() {
+    $('image-lightbox').hidden = true;
+    $('image-lightbox-img').removeAttribute('src');
+  }
+
   function openEditor(rec) {
     editing = rec ? JSON.parse(JSON.stringify(rec)) : normalize({ body: '' });
     if (!rec) editing.title = '';
     editTags = editing.tags.slice();
+    editImages = editing.images.map(function (image) { return Object.assign({}, image); });
+    imageBusy = false;
     $('edit-head').textContent = rec ? '記録を編集' : '新しい観測を記録';
     $('f-body').value = editing.body;
     $('f-title').value = rec ? editing.title : '';
@@ -407,8 +596,11 @@
       $({ dimExpand: 'f-dim', memo: 'f-memo', research: 'f-link', related: 'f-rel' }[f.key]).value = editing[f.key];
     });
     $('f-tags').value = '';
+    $('f-images').value = '';
+    $('image-status').textContent = '';
     renderEditLabels();
     renderEditTags();
+    renderEditImages();
     show('view-edit');
   }
 
@@ -424,6 +616,7 @@
   }
 
   function saveEditing() {
+    if (imageBusy) { toast('画像の処理が終わるまでお待ちください'); return; }
     var body = $('f-body').value;
     if (!body.trim()) { toast('本文を入力してください'); $('f-body').focus(); return; }
     editing.body = body;                       // 原文はそのまま保存
@@ -432,6 +625,7 @@
     editing.createdAt = fromLocalInput($('f-date').value);
     editing.updatedAt = new Date().toISOString();
     editing.tags = editTags.slice();
+    editing.images = editImages.map(function (image) { return Object.assign({}, image); });
     editing.dimExpand = $('f-dim').value;
     editing.memo = $('f-memo').value;
     editing.research = $('f-link').value;
@@ -444,6 +638,8 @@
       renderFilters(); renderList();
       toast('保存しました');
       openDetail(rec.id);
+    }).catch(function () {
+      toast('保存できませんでした。ブラウザーの空き容量を確認してください');
     });
   }
 
@@ -494,7 +690,7 @@
     setTimeout(function () { URL.revokeObjectURL(url); }, 1000);
   }
   function exportJSON() {
-    var data = { app: '観測マッピング・ノート', version: 1, exportedAt: new Date().toISOString(), records: records };
+    var data = { app: '観測マッピング・ノート', version: 2, exportedAt: new Date().toISOString(), records: records };
     download('観測マッピング-バックアップ-' + stamp() + '.json', JSON.stringify(data, null, 2), 'application/json');
     $('backup-msg').textContent = 'JSONを書き出しました。';
   }
@@ -507,6 +703,7 @@
           if (r[g.key].length) out.push('- ' + g.name + '：' + r[g.key].join(' / '));
         });
         if (r.tags.length) out.push('- 自由タグ：' + r.tags.map(function (t) { return '#' + t; }).join(' '));
+        if (r.images.length) out.push('- 添付画像：' + r.images.length + '件');
         out.push('', '### 原文', '', r.body, '');
         EXTRA_FIELDS.forEach(function (f) {
           if (r[f.key]) out.push('### ' + f.name, '', r[f.key], '');
@@ -530,6 +727,7 @@
       if (r[g.key].length) out.push('- ' + g.name + '：' + r[g.key].join(' / '));
     });
     if (r.tags.length) out.push('- 自由タグ：' + r.tags.map(function (t) { return '#' + t; }).join(' '));
+    if (r.images.length) out.push('- 添付画像：' + r.images.length + '件');
     out.push('', '## 原観測（改変せず扱ってください）', '', r.body, '');
     EXTRA_FIELDS.forEach(function (f) {
       if (r[f.key]) out.push('## ' + f.name, '', r[f.key], '');
@@ -652,6 +850,11 @@
     $('f-tags').addEventListener('keydown', function (e) {
       if (e.key === 'Enter') { e.preventDefault(); addTagFromInput(); }
     });
+    $('btn-add-images').addEventListener('click', function () { $('f-images').click(); });
+    $('f-images').addEventListener('change', function () {
+      selectImages(this.files);
+      this.value = '';
+    });
 
     $('btn-edit').addEventListener('click', function () {
       var r = records.find(function (x) { return x.id === currentId; });
@@ -673,6 +876,13 @@
     $('btn-theme').addEventListener('click', function () {
       var now = document.documentElement.getAttribute('data-theme');
       applyTheme(now === 'dark' ? 'light' : 'dark');
+    });
+    $('image-lightbox-close').addEventListener('click', closeImageLightbox);
+    $('image-lightbox').addEventListener('click', function (e) {
+      if (e.target === this) closeImageLightbox();
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && !$('image-lightbox').hidden) closeImageLightbox();
     });
   }
 
@@ -720,7 +930,8 @@
     setKeyword: function (v) { keyword = v; $('q').value = v; renderList(); },
     matches: matches, filtered: filtered, toMarkdown: toMarkdown,
     recordToSolMarkdown: recordToSolMarkdown,
-    normalize: normalize, store: Store, renderList: renderList, renderFilters: renderFilters
+    normalize: normalize, compressImage: compressImage,
+    store: Store, renderList: renderList, renderFilters: renderFilters
   };
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start);
