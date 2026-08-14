@@ -170,6 +170,30 @@
     });
   }
 
+  function renderImages(record) {
+    var old = $('public-images');
+    if (old) old.remove();
+    if (!record.images || !record.images.length) return;
+
+    var section = el('section', 'public-images');
+    section.id = 'public-images';
+    section.appendChild(el('h3', 'sec-head', '観測画像'));
+
+    record.images.forEach(function (image) {
+      var figure = el('figure', 'public-image');
+      var img = el('img');
+      img.src = image.src;
+      img.alt = image.alt || '';
+      img.loading = 'lazy';
+      figure.appendChild(img);
+      if (image.caption) figure.appendChild(el('figcaption', '', image.caption));
+      section.appendChild(figure);
+    });
+
+    var extra = $('public-extra');
+    extra.parentNode.insertBefore(section, extra);
+  }
+
   function setStructuredData(record) {
     var old = document.getElementById('observation-jsonld');
     if (old) old.remove();
@@ -215,6 +239,7 @@
     (record.stage || []).forEach(function (value) { addStaticChip(labels, value); });
     (record.tags || []).forEach(function (value) { addStaticChip(labels, '#' + value); });
 
+    renderImages(record);
     renderExtra(record);
     $('public-list-view').hidden = true;
     $('public-detail-view').hidden = false;

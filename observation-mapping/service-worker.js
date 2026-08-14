@@ -1,7 +1,7 @@
 /* 観測マッピング  service-worker.js
    公開観測アーカイブと個人用ノートのアプリファイルを保存します。
    公開観測データは更新を反映するため、常にネットワークから取得します。 */
-var CACHE = 'omn-v0-3-0';
+var CACHE = 'omn-v0-3-1';
 var FILES = [
   './',
   './index.html',

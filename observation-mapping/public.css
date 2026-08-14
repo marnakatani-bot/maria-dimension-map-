@@ -9,6 +9,9 @@ a.btn{text-decoration:none;display:inline-flex;align-items:center;justify-conten
 .local-notice p{margin:.4rem 0 0}
 a.card{text-decoration:none;display:block}
 .public-card{border-left:4px solid var(--accent)}
+.public-image{margin:1rem 0}
+.public-image img{display:block;max-width:100%;height:auto}
+.public-image figcaption{margin-top:.45rem;color:var(--muted);font-size:.9rem}
 @media (max-width:600px){
   .topbar-actions .btn{flex:1 1 120px}
   .archive-intro h2{font-size:1.25rem}
