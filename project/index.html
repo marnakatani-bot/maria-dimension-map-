@@ -108,7 +108,7 @@
   .button.primary{background:var(--gold);border-color:var(--gold)}
   .button:hover{transform:translateY(-2px);background:#fff;color:var(--deep);border-color:#fff}
   .orbit{
-    aspect-ratio:1;position:relative;display:grid;place-items:center;
+    aspect-ratio:1 / 1;position:relative;display:grid;place-items:center;
     border:1px solid rgba(217,189,120,.3);border-radius:50%;
   }
   .orbit::before,.orbit::after{content:"";position:absolute;border:1px solid rgba(217,189,120,.22);border-radius:50%}
@@ -149,7 +149,7 @@
   .road-arrow{display:block;color:var(--gold);font-family:Georgia,serif;font-size:1.1rem;margin-top:6px}
   .future-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
   .future-card{background:rgba(255,255,255,.72);border:1px solid #c8cedb;border-radius:var(--radius);padding:34px;box-shadow:var(--shadow)}
-  .future-card h3{font-size:clamp(1.35rem,2.7vw,1.82rem);margin:0 0 8px;color:var(--future)}
+  .future-card h2{font-size:clamp(1.35rem,2.7vw,1.82rem);margin:0 0 8px;color:var(--future)}
   .future-card .subhead{font-family:"Hiragino Mincho ProN","Yu Mincho",serif;font-weight:700;color:var(--deep);margin-bottom:22px}
   .future-card p{margin:0 0 1.1em}
   .future-card p:last-child{margin-bottom:0}
@@ -267,7 +267,7 @@
   <section class="section compact tinted" id="roadmap">
     <div class="wrap">
       <div class="section-head"><div class="section-index">03 / ROADMAP</div><div><h2><span class="square">■</span>このプロジェクトが向かう未来</h2><p class="section-intro">2026 → 7世代先へ</p></div></div>
-      <div class="roadmap" aria-label="2026年から7世代先へのロードマップ">
+      <div class="roadmap">
         <div class="road-step now">8本の論文<span class="road-arrow">↓</span></div>
         <div class="road-step">約100本の論文<span class="road-arrow">↓</span></div>
         <div class="road-step">書籍・研究全集<span class="road-arrow">↓</span></div>
@@ -284,11 +284,11 @@
     </div>
   </section>
 
-  <section class="section future" id="future-concepts">
+  <div class="section future" id="future-concepts">
     <div class="wrap">
       <div class="future-grid">
         <article class="future-card">
-          <h3><span class="square">■</span>未来構想｜Consciousness Atlas</h3>
+          <h2><span class="square">■</span>未来構想｜Consciousness Atlas</h2>
           <p class="subhead">世界の「見え方」を地図にする</p>
           <p>Google Earthでは、地球上の場所を移動します。</p>
           <p>Consciousness Atlasで動かすのは、世界を見る位置・距離・縮尺・視座です。</p>
@@ -301,7 +301,7 @@
           <p>現在公開している観測記録や論文も、将来この地図を構成する「地形データ」へ育っていきます。</p>
         </article>
         <article class="future-card">
-          <h3><span class="square">■</span>未来構想｜視座VR・スケールVR</h3>
+          <h2><span class="square">■</span>未来構想｜視座VR・スケールVR</h2>
           <p class="subhead">別の存在から見える世界へ入る。</p>
           <p>人の視座。<br>AIの視座。<br>子どもの視座。<br>異なる文化を生きる人の視座。</p>
           <p>地上から見る。<br>宇宙から見る。<br>火星から見る。<br>銀河から見る。</p>
@@ -311,7 +311,7 @@
         </article>
       </div>
     </div>
-  </section>
+  </div>
 
   <section class="section" id="accessibility">
     <div class="wrap">
