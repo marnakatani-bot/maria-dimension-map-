@@ -169,6 +169,31 @@
   .participation h3{font-size:1.05rem;color:var(--deep);margin:0 0 8px}
   .participation p{margin:0;color:var(--muted);font-size:.95rem}
   .contact-link{display:inline-flex;margin-top:34px;font-weight:700;color:var(--deep);text-underline-offset:7px}
+  .needs-grid{margin-top:34px}
+  .needs-grid .card:last-child{grid-column:1/-1}
+  .needs-grid + .prose{margin-top:30px}
+  .in-kind-block{max-width:850px;margin:34px auto 0;background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--gold);border-radius:var(--radius);padding:30px;box-shadow:var(--shadow)}
+  .in-kind-block h3{font-family:"Hiragino Mincho ProN","Yu Mincho",serif;font-size:clamp(1.25rem,2.7vw,1.65rem);line-height:1.5;margin:0 0 18px;color:var(--deep)}
+  .in-kind-block h3 .square{color:var(--gold);font-size:.68em;margin-right:.5em}
+  .in-kind-block p{margin:0 0 1.15em;color:var(--muted)}
+  .in-kind-block .observation-question{font-family:"Hiragino Mincho ProN","Yu Mincho",serif;font-size:1.08rem;font-weight:700;color:var(--deep)}
+  .trace-example{max-width:900px;margin:36px auto;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:32px;box-shadow:var(--shadow)}
+  .example-label{display:inline-flex;border-radius:999px;background:var(--paper-deep);color:var(--deep);padding:6px 14px;font-size:.86rem;font-weight:700}
+  .example-note{margin:14px 0 24px;color:var(--muted);font-size:.9rem}
+  .trace-item{padding:20px 0;border-top:1px solid var(--line)}
+  .trace-item-head{display:flex;flex-wrap:wrap;gap:6px 16px;align-items:baseline;color:var(--deep)}
+  .trace-item-head .date{min-width:52px;font-family:Georgia,"Times New Roman",serif;color:var(--gold);font-weight:700}
+  .trace-item-head .amount{margin-left:auto;color:var(--muted);font-size:.92rem}
+  .trace-item p{margin:8px 0 0;color:var(--muted)}
+  .in-kind-example{margin-top:30px;padding-top:28px;border-top:1px dashed var(--gold)}
+  .in-kind-example h3{font-size:1.12rem;line-height:1.6;margin:0;color:var(--deep)}
+  .in-kind-flow{display:grid;gap:10px;margin-top:18px}
+  .in-kind-step{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:18px 20px}
+  .in-kind-step h4{font-size:1rem;line-height:1.55;margin:0;color:var(--deep)}
+  .in-kind-step p{margin:7px 0 0;color:var(--muted)}
+  .in-kind-arrow{text-align:center;color:var(--gold);font-family:Georgia,"Times New Roman",serif;font-size:1.2rem;line-height:1}
+  .example-cautions{margin:20px 0 0;color:var(--muted);font-size:.88rem}
+  .trace-callout{max-width:850px;margin:34px auto 0;border-left:4px solid var(--gold);background:var(--surface);padding:22px 26px;font-family:"Hiragino Mincho ProN","Yu Mincho",serif;font-size:clamp(1.12rem,2.4vw,1.38rem);font-weight:700;color:var(--deep)}
   .support-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
   .support-card{display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:32px;text-decoration:none;box-shadow:var(--shadow)}
   .support-card:hover{border-color:var(--gold);transform:translateY(-2px)}
@@ -192,7 +217,7 @@
     .cards,.future-grid,.sentence-list,.support-grid{grid-template-columns:1fr}
     .roadmap{grid-template-columns:1fr}.road-step{text-align:left;padding:8px 0 8px 42px}.road-step::before{top:11px;left:5px}
     .transform{grid-template-columns:1fr 1fr}.link-grid,.participation{grid-template-columns:1fr}
-    .card,.future-card,.support-card{padding:24px}
+    .card,.future-card,.support-card,.trace-example,.in-kind-block{padding:24px}
   }
   @media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
 </style>
@@ -413,7 +438,7 @@
 
   <section class="section dark" id="open-sustainable">
     <div class="wrap">
-      <div class="section-head"><div class="section-index">10 / OPEN</div><div><h2><span class="square">■</span>ひらいた知を、未来へつなぐ</h2><p class="section-intro">OPEN &amp; SUSTAINABLE</p></div></div>
+      <div class="section-head"><div class="section-index">10 / OPEN</div><div><h2><span class="square">■</span>無料で共有する知を、未来へつなぐ</h2><p class="section-intro">OPEN &amp; SUSTAINABLE</p></div></div>
       <div class="prose">
         <p>意識の次元マッピングは、メモの段階から研究成果まで無料で公開しています。</p>
         <p>観測。<br>Research Sketch。<br>GitHub原典。<br>論文。</p>
@@ -460,9 +485,105 @@
     </div>
   </section>
 
+  <section class="section tinted" id="needs">
+    <div class="wrap">
+      <div class="section-head"><div class="section-index">13 / NEEDS</div><div><h2><span class="square">■</span>今、この研究にあると加速するもの</h2></div></div>
+      <div class="prose">
+        <p>意識の次元マッピングは、観測から始まり、論文、公開アーカイブ、書籍、教育、AI、3D、VRへと少しずつ形を広げています。</p>
+        <p>研究そのものに集中できる時間と環境、そして新しい表現や技術を試せる道具が増えるほど、できることも広がっていきます。</p>
+      </div>
+      <div class="cards needs-grid">
+        <article class="card current"><h3>💻 高性能PC・GPU</h3><p>AIを使った調査や論文制作、データ処理、3D・VRなど、これからの研究開発へ。</p></article>
+        <article class="card current"><h3>🤖 AI・クラウド・ソフトウェア利用環境</h3><p>調査、翻訳、文章制作、画像・動画・プログラム開発など、日々の研究環境へ。</p></article>
+        <article class="card current"><h3>🖨️ 3Dプリンター</h3><p>研究で生まれた構造や3Dモデルを、実際に触れられる立体物として試作するために。</p></article>
+        <article class="card current"><h3>🪑 デスク・研究用チェア</h3><p>長時間の研究を安定して続けられる作業環境へ。</p></article>
+        <article class="card current"><h3>🏠 研究室・作業スペース</h3><p>資料や機材を置き、観測・研究・制作へ集中できる場所へ。</p></article>
+        <article class="card current"><h3>🧑‍💻 人のアシスタント</h3><p>連絡、資料整理、事務、発送、スケジュール調整など、研究以外の実務を支える人。</p></article>
+        <article class="card current"><h3>🎥 技術・映像・デザインの協力</h3><p>AI、Web、3D、VR、アプリ、映像、アニメーション、翻訳など、研究を新しい形で届ける力へ。</p></article>
+      </div>
+      <div class="prose"><p>資金だけでなく、機材、設備、場所、技術、人の力も、このプロジェクトを前へ進める大切な支援です。</p></div>
+      <div class="in-kind-block">
+        <h3><span class="square">■</span>現物での支援も歓迎します</h3>
+        <p>研究に直接使う機材はもちろん、一見すると研究とは関係なさそうなものから、新しい観測が始まることもあります。</p>
+        <p class="observation-question">そもそも、あなたの「壊れている」は、わたしの「壊れている」と同じなのでしょうか。</p>
+        <p>そこから、新しい観測が始まるかもしれません。</p>
+        <p>あなたには役目を終えたように見えるものが、こちらではまだ使えるかもしれない。<br>別の用途が見つかるかもしれない。<br>誰かにとっては価値のあるものかもしれない。</p>
+        <p>ひとつの物が、見る人や置かれる場所によってどんな意味を持つのか。<br>その変化も、このプロジェクトでは観測していきます。</p>
+        <p>いただいたものは、使う、試す、直す、観測する、別の形へ変える、売却して研究費にするなど、その時いちばん生きる形で活用します。</p>
+        <p>何がどこへつながるかも、このプロジェクトの観測のひとつです。</p>
+        <p>現物支援をご検討の場合は、送付前にご相談ください。<br>受け取ったものの具体的な活用方法は、プロジェクト側にお任せいただく形となります。</p>
+        <a class="card-link" href="mailto:contact@dimension-map.com">［ 現物支援について相談する ］</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="trace">
+    <div class="wrap">
+      <div class="section-head"><div class="section-index">14 / TRACE</div><div><h2><span class="square">■</span>支援が、その後どう生きているかも公開します</h2></div></div>
+      <div class="prose">
+        <p>いただいた支援が研究環境をどう変え、そこから何が生まれ、プロジェクトがどこまで進んだのか。</p>
+        <p>大きな設備やAI利用料から、研究途中の小さな出来事まで、できるだけその後を追える形で公開していきます。</p>
+      </div>
+      <div class="trace-example">
+        <div class="example-label">表示例｜これからの公開ログ</div>
+        <p class="example-note">以下は今後の公開方法を示す表示例であり、実際の支援実績ではありません。</p>
+        <div class="trace-log">
+          <div class="trace-item">
+            <div class="trace-item-head"><span class="date">8/20</span><strong>🍨 アイス</strong><span class="amount">130円</span></div>
+            <p>研究の途中で糖分補給。<br>その日の身体感覚や出来事から新しい観測が生まれ、Research Sketchや次の研究テーマへ育つこともあります。</p>
+          </div>
+          <div class="trace-item">
+            <div class="trace-item-head"><span class="date">8/21</span><strong>🤖 AI利用料</strong><span class="amount">○○円</span></div>
+            <p>論文、調査、翻訳、資料整理、開発環境として活用。</p>
+          </div>
+          <div class="trace-item">
+            <div class="trace-item-head"><span class="date">8/28</span><strong>💻 高性能PC</strong><span class="amount">○○円</span></div>
+            <p>AI・3D・論文制作の研究環境を更新。</p>
+          </div>
+          <div class="trace-item">
+            <div class="trace-item-head"><span class="date">9/03</span><strong>📄 論文⑨ 英語版完成</strong></div>
+            <p>未来へ残る公開原典がひとつ増えました。</p>
+          </div>
+          <div class="trace-item">
+            <div class="trace-item-head"><span class="date">10/15</span><strong>🪑 研究用チェア</strong></div>
+            <p>長時間の研究を続けやすい環境へ。</p>
+          </div>
+          <div class="trace-item">
+            <div class="trace-item-head"><span class="date">11/02</span><strong>🖨️ 3Dプリンター</strong></div>
+            <p>画面の中にあった構造を、手に取って観察できる立体モデルへ。</p>
+          </div>
+        </div>
+        <div class="in-kind-example">
+          <h3>現物が別の研究資源へ変わる表示例</h3>
+          <div class="in-kind-flow">
+            <article class="in-kind-step"><h4>👜 壊れたバッグをいただきました！</h4><p>まずは状態を観測。素材、壊れ方、修理できるかを見てみます。</p></article>
+            <div class="in-kind-arrow" aria-hidden="true">↓</div>
+            <article class="in-kind-step"><h4>🔨 今回は別の活用へ</h4><p>修理する、素材として使う、売却するなど、いちばん生きる方法を選びます。</p></article>
+            <div class="in-kind-arrow" aria-hidden="true">↓</div>
+            <article class="in-kind-step"><h4>💰 Yahoo!オークションで1,850円になりました</h4><p>現物支援が研究資金へ変わりました。</p></article>
+            <div class="in-kind-arrow" aria-hidden="true">↓</div>
+            <article class="in-kind-step"><h4>🍨 アイス　130円</h4><p>その一部で研究途中の糖分補給。</p></article>
+            <div class="in-kind-arrow" aria-hidden="true">↓</div>
+            <article class="in-kind-step"><h4>📝 そこから新しい観測</h4><p>身体感覚やその日の出来事から問いが生まれ、AIとの対話やResearch Sketchへつながることもあります。</p></article>
+          </div>
+          <p class="example-cautions">※金額・日付・出来事はすべて表示例です。<br>※特定の現物について、必ず売却するという意味ではありません。</p>
+        </div>
+      </div>
+      <div class="prose">
+        <p>物、資金、体験、観測、研究。<br>ひとつの支援が思いもよらない経路を通って、次の知へ変わっていく過程も公開していきます。</p>
+        <p>これは「何円を何に使ったか」だけを見るための記録ではありません。</p>
+        <p>ひとつの支援が、どんな観測を生み、どんな研究へ育ち、未来へ何を残したのか。</p>
+        <p>その変化ごと、一緒に楽しめるプロジェクトにしていきます。</p>
+        <p>日々の出来事や、そこから実際に何を観測し、どんな発見につながったのか。より詳しい研究者の日常と物語はnoteで公開していきます。</p>
+        <a class="card-link" href="https://note.com/maria_nakatani2">［ 研究の日常と、その先を見る｜note ］</a>
+      </div>
+      <p class="trace-callout">支援することも、この研究の続きを観測すること。</p>
+    </div>
+  </section>
+
   <section class="section tinted" id="support">
     <div class="wrap">
-      <div class="section-head"><div class="section-index">13 / SUPPORT</div><div><h2><span class="square">■</span>気軽に支援する</h2></div></div>
+      <div class="section-head"><div class="section-index">15 / SUPPORT</div><div><h2><span class="square">■</span>気軽に支援する</h2></div></div>
       <div class="support-grid">
         <a class="support-card" href="https://buy.stripe.com/14A7sK2Ep3Fe6L26ik2Nq01"><strong>一度だけ参加する</strong><span>自由金額</span><b>［ 単発で支援する ］</b></a>
         <a class="support-card" href="https://buy.stripe.com/4gM00i5QBfnW0mEfSU2Nq03"><strong>継続して参加する</strong><span>月額サポート</span><b>［ 継続して支援する ］</b></a>
