@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>意識の次元マッピング・プロジェクト｜7世代先へ｜中谷まり亜</title>
+<meta name="description" content="中谷まり亜による「意識の次元マッピング・プロジェクト」。人間、AI、未来の知性が自由に使える知のインフラを、教育・アクセシビリティとともに7世代先へつなぐ長期プロジェクトです。">
+<link rel="canonical" href="https://marnakatani-bot.github.io/maria-dimension-map-/project/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="意識の次元マッピング・プロジェクト｜7世代先の世界へ贈る「意識の地図」">
+<meta property="og:description" content="未来のすべての知性が、自由に使える知のインフラをつくる。中谷まり亜による7世代先へ向けた長期プロジェクト。">
+<meta property="og:url" content="https://marnakatani-bot.github.io/maria-dimension-map-/project/">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Project",
+  "@id": "https://marnakatani-bot.github.io/maria-dimension-map-/project/#project",
+  "name": "意識の次元マッピング・プロジェクト",
+  "alternateName": "Consciousness Dimension Mapping Project",
+  "description": "未来のすべての知性が、自由に使える知のインフラをつくる長期プロジェクト。",
+  "url": "https://marnakatani-bot.github.io/maria-dimension-map-/project/",
+  "inLanguage": "ja",
+  "founder": {
+    "@type": "Person",
+    "name": "中谷まり亜",
+    "alternateName": "Maria Nakatani",
+    "url": "https://marnakatani-bot.github.io/maria-dimension-map-/"
+  },
+  "sameAs": [
+    "https://github.com/marnakatani-bot/maria-dimension-map-/",
+    "https://marnakatani.substack.com/"
+  ]
+}
+</script>
+<style>
+  :root{
+    --paper:#f6f4ef;
+    --paper-deep:#ece7dc;
+    --surface:#fffdf8;
+    --ink:#111522;
+    --deep:#17223f;
+    --deep-2:#25365f;
+    --gold:#b08338;
+    --gold-light:#d9bd78;
+    --line:#d2caba;
+    --muted:#696557;
+    --future:#35486f;
+    --current:#2f675d;
+    --radius:22px;
+    --shadow:0 18px 45px rgba(23,34,63,.08);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    background:
+      radial-gradient(circle at 92% 3%,rgba(176,131,56,.12),transparent 25rem),
+      var(--paper);
+    color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
+    line-height:1.85;
+    -webkit-font-smoothing:antialiased;
+    overflow-wrap:anywhere;
+  }
+  a{color:inherit}
+  a:focus-visible{outline:3px solid var(--gold);outline-offset:4px}
+  .skip-link{
+    position:fixed;top:8px;left:8px;z-index:20;
+    transform:translateY(-150%);background:var(--deep);color:#fff;padding:8px 14px;border-radius:8px;
+  }
+  .skip-link:focus{transform:none}
+  .wrap{width:min(1120px,calc(100% - 44px));margin-inline:auto}
+  .site-head{
+    position:absolute;z-index:5;inset:0 0 auto;
+    padding:20px 0;color:#fff;
+  }
+  .site-head a{display:inline-flex;align-items:center;gap:10px;text-decoration:none;font-size:.82rem;letter-spacing:.08em}
+  .site-head .mark{width:9px;height:9px;border:1px solid var(--gold-light);border-radius:50%;box-shadow:0 0 0 5px rgba(217,189,120,.14)}
+  .hero{
+    position:relative;isolation:isolate;overflow:hidden;
+    min-height:min(820px,94vh);display:grid;align-items:center;
+    color:#fff;background:
+      linear-gradient(135deg,rgba(10,18,40,.98),rgba(31,47,82,.96) 60%,rgba(45,50,78,.94));
+    padding:116px 0 92px;
+  }
+  .hero::before,.hero::after{
+    content:"";position:absolute;z-index:-1;border:1px solid rgba(217,189,120,.22);border-radius:50%;
+  }
+  .hero::before{width:560px;height:560px;right:-160px;top:-170px;box-shadow:0 0 0 86px rgba(217,189,120,.035),0 0 0 172px rgba(217,189,120,.025)}
+  .hero::after{width:340px;height:340px;left:-170px;bottom:-190px;box-shadow:0 0 0 74px rgba(217,189,120,.04)}
+  .hero-grid{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(250px,.65fr);gap:72px;align-items:center}
+  .hero-kicker{color:var(--gold-light);font-size:.76rem;font-weight:700;letter-spacing:.25em;margin:0 0 24px}
+  h1,h2,h3{font-family:"Hiragino Mincho ProN","Yu Mincho",serif}
+  h1{font-size:clamp(2.1rem,5.6vw,4.7rem);line-height:1.2;letter-spacing:.01em;margin:0;font-weight:600}
+  .nobr{white-space:nowrap}
+  h1 .project-name{display:block;color:var(--gold-light);font-size:clamp(1.05rem,2.4vw,1.52rem);margin-top:22px;letter-spacing:.08em}
+  .hero-lead{font-family:"Hiragino Mincho ProN","Yu Mincho",serif;font-size:clamp(1.12rem,2.2vw,1.48rem);line-height:1.75;margin:32px 0 20px}
+  .hero-copy{max-width:720px;color:#e5e7ee;font-size:1rem;margin:0}
+  .hero-copy + .hero-copy{margin-top:10px}
+  .hero-actions,.button-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
+  .button{
+    min-height:48px;display:inline-flex;align-items:center;justify-content:center;
+    border:1px solid var(--gold-light);border-radius:999px;padding:10px 20px;
+    color:#fff;text-decoration:none;font-weight:700;font-size:.9rem;transition:.18s ease;
+  }
+  .button.primary{background:var(--gold);border-color:var(--gold)}
+  .button:hover{transform:translateY(-2px);background:#fff;color:var(--deep);border-color:#fff}
+  .orbit{
+    aspect-ratio:1;position:relative;display:grid;place-items:center;
+    border:1px solid rgba(217,189,120,.3);border-radius:50%;
+  }
+  .orbit::before,.orbit::after{content:"";position:absolute;border:1px solid rgba(217,189,120,.22);border-radius:50%}
+  .orbit::before{inset:17%}.orbit::after{inset:34%}
+  .orbit-core{position:relative;z-index:1;text-align:center;font-family:Georgia,"Times New Roman",serif;color:var(--gold-light);letter-spacing:.12em;font-size:.74rem}
+  .orbit-core strong{display:block;color:#fff;font-size:clamp(1.7rem,4vw,2.8rem);letter-spacing:.04em;line-height:1.15;margin-bottom:8px}
+  main{overflow:hidden}
+  .section{padding:96px 0}
+  .section.compact{padding:72px 0}
+  .section.tinted{background:var(--paper-deep)}
+  .section.dark{background:var(--deep);color:#fff}
+  .section.future{position:relative;background:linear-gradient(150deg,#eef0f5,#f6f4ef 58%)}
+  .section-head{display:grid;grid-template-columns:100px minmax(0,1fr);gap:24px;align-items:start;margin-bottom:42px}
+  .section-index{font-family:Georgia,"Times New Roman",serif;color:var(--gold);font-style:italic;font-size:.9rem;letter-spacing:.14em;padding-top:9px}
+  h2{font-size:clamp(1.65rem,3.5vw,2.72rem);line-height:1.35;margin:0;color:var(--deep);font-weight:600}
+  .dark h2{color:#fff}
+  h2 .square{color:var(--gold);font-size:.62em;vertical-align:.14em;margin-right:.5em}
+  .section-intro{max-width:820px;margin:18px 0 0;color:var(--muted)}
+  .dark .section-intro{color:#d8dbe5}
+  .prose{max-width:850px;margin-inline:auto;font-size:1rem}
+  .prose p{margin:0 0 1.28em}
+  .prose .lead{font-family:"Hiragino Mincho ProN","Yu Mincho",serif;font-size:clamp(1.2rem,2.7vw,1.58rem);color:var(--deep);line-height:1.75}
+  .text-button{display:inline-flex;margin-top:12px;color:var(--deep);font-weight:700;text-decoration-thickness:1px;text-underline-offset:6px}
+  .cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:28px;box-shadow:var(--shadow)}
+  .card.current{border-top:4px solid var(--current)}
+  .card h3{font-size:1.25rem;line-height:1.5;margin:0 0 12px;color:var(--deep)}
+  .card p{margin:0;color:var(--muted)}
+  .card .metric{font-family:Georgia,"Yu Mincho",serif;font-size:clamp(2.5rem,6vw,4.1rem);line-height:1;color:var(--deep);margin-bottom:16px}
+  .card .metric span{font-family:"Hiragino Sans","Yu Gothic",sans-serif;font-size:.3em;color:var(--muted);margin-left:8px}
+  .card .meta{display:inline-block;margin-top:18px;border-radius:999px;background:#e7efe9;color:var(--current);padding:4px 12px;font-size:.78rem;font-weight:700}
+  .card-link{display:inline-flex;margin-top:18px;color:var(--deep);font-weight:700;text-underline-offset:5px}
+  .roadmap{position:relative;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin:0 0 34px}
+  .roadmap::before{content:"";position:absolute;left:7%;right:7%;top:31px;height:1px;background:var(--gold)}
+  .road-step{position:relative;text-align:center;padding-top:70px;font-weight:700;color:var(--deep);font-size:.9rem;line-height:1.6}
+  .road-step::before{content:"";position:absolute;top:22px;left:calc(50% - 9px);width:18px;height:18px;background:var(--surface);border:2px solid var(--gold);border-radius:50%;box-shadow:0 0 0 8px var(--paper-deep)}
+  .road-step.now::before{background:var(--gold)}
+  .road-arrow{display:block;color:var(--gold);font-family:Georgia,serif;font-size:1.1rem;margin-top:6px}
+  .future-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+  .future-card{background:rgba(255,255,255,.72);border:1px solid #c8cedb;border-radius:var(--radius);padding:34px;box-shadow:var(--shadow)}
+  .future-card h3{font-size:clamp(1.35rem,2.7vw,1.82rem);margin:0 0 8px;color:var(--future)}
+  .future-card .subhead{font-family:"Hiragino Mincho ProN","Yu Mincho",serif;font-weight:700;color:var(--deep);margin-bottom:22px}
+  .future-card p{margin:0 0 1.1em}
+  .future-card p:last-child{margin-bottom:0}
+  .sentence-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 40px;max-width:850px;margin-inline:auto}
+  .sentence-list p{margin:0 0 18px;padding-bottom:18px;border-bottom:1px solid rgba(210,202,186,.82)}
+  .transform{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:36px 0}
+  .transform span{border:1px solid rgba(217,189,120,.45);border-radius:16px;padding:18px;text-align:center;color:#f3e8cc;font-weight:700}
+  .flow{max-width:780px;margin-inline:auto;display:grid;gap:10px;text-align:center;font-family:"Hiragino Mincho ProN","Yu Mincho",serif;font-size:1.12rem}
+  .flow .arrow{color:var(--gold);line-height:1}
+  .keywords{display:flex;flex-wrap:wrap;gap:10px;margin-top:32px}
+  .keywords span{border:1px solid rgba(217,189,120,.45);border-radius:999px;padding:6px 14px;color:#f3e8cc;font-size:.82rem;letter-spacing:.08em}
+  .link-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:30px}
+  .link-grid a{display:flex;align-items:center;justify-content:center;min-height:74px;padding:14px;text-align:center;background:var(--surface);border:1px solid var(--line);border-radius:16px;text-decoration:none;font-weight:700;color:var(--deep)}
+  .link-grid a:hover{border-color:var(--gold);box-shadow:var(--shadow)}
+  .participation{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+  .participation article{border-top:1px solid var(--gold);padding:22px 4px 4px}
+  .participation h3{font-size:1.05rem;color:var(--deep);margin:0 0 8px}
+  .participation p{margin:0;color:var(--muted);font-size:.95rem}
+  .contact-link{display:inline-flex;margin-top:34px;font-weight:700;color:var(--deep);text-underline-offset:7px}
+  .support-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+  .support-card{display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:32px;text-decoration:none;box-shadow:var(--shadow)}
+  .support-card:hover{border-color:var(--gold);transform:translateY(-2px)}
+  .support-card strong{font-family:"Hiragino Mincho ProN","Yu Mincho",serif;font-size:1.35rem;color:var(--deep)}
+  .support-card span{color:var(--muted);margin:4px 0 18px}
+  .support-card b{margin-top:auto;color:var(--gold);font-size:.9rem}
+  .founder{text-align:center}
+  .founder .name{font-family:"Hiragino Mincho ProN","Yu Mincho",serif;font-size:clamp(1.8rem,4vw,2.7rem);color:var(--deep);line-height:1.4}
+  .founder .en{font-family:Georgia,"Times New Roman",serif;color:var(--gold);letter-spacing:.08em;margin:5px 0 12px}
+  footer{background:#0c1429;color:#d7dbe5;text-align:center;padding:28px 20px;font-size:.78rem;letter-spacing:.04em}
+  @media (max-width:820px){
+    .hero-grid{grid-template-columns:1fr;gap:54px}.orbit{width:min(310px,80vw);margin-inline:auto}
+    .section-head{grid-template-columns:1fr;gap:4px}.section-index{padding-top:0}
+    .roadmap{grid-template-columns:repeat(2,1fr)}.roadmap::before{display:none}.road-step::before{box-shadow:0 0 0 8px var(--paper-deep)}
+    .link-grid{grid-template-columns:repeat(2,1fr)}.participation{grid-template-columns:repeat(2,1fr)}
+  }
+  @media (max-width:620px){
+    .wrap{width:min(100% - 30px,1120px)}
+    .hero{min-height:auto;padding:110px 0 74px}.hero-actions,.button-row{display:grid}.button{width:100%}
+    .section{padding:72px 0}.section.compact{padding:58px 0}
+    .cards,.future-grid,.sentence-list,.support-grid{grid-template-columns:1fr}
+    .roadmap{grid-template-columns:1fr}.road-step{text-align:left;padding:8px 0 8px 42px}.road-step::before{top:11px;left:5px}
+    .transform{grid-template-columns:1fr 1fr}.link-grid,.participation{grid-template-columns:1fr}
+    .card,.future-card,.support-card{padding:24px}
+  }
+  @media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">本文へ移動</a>
+<div class="site-head"><div class="wrap"><a href="../"><span class="mark" aria-hidden="true"></span>意識の次元マッピング</a></div></div>
+
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="hero-kicker">7 GENERATIONS / OPEN TO ALL INTELLIGENCE</p>
+      <h1>7世代先の世界へ<span class="nobr">贈る</span>「意識の地図」<span class="project-name">意識の次元マッピング・プロジェクト</span></h1>
+      <p class="hero-lead">未来のすべての知性が、自由に使える知のインフラをつくる。</p>
+      <p class="hero-copy">人間、AI、そして未来に存在するさまざまな知性へ。</p>
+      <p class="hero-copy">言葉、身体、感覚、国境を越え、いつか惑星を越えて。</p>
+      <p class="hero-copy">意識の次元マッピングは、同じ世界が、観測する位置や視座によってどのように違って見えるのかを記録し、研究し、未来へ渡していく長期プロジェクトです。</p>
+      <div class="hero-actions">
+        <a class="button primary" href="#about">［ プロジェクトを見る ］</a>
+        <a class="button" href="#participate">［ 参加・支援する ］</a>
+      </div>
+    </div>
+    <div class="orbit" aria-hidden="true"><div class="orbit-core"><strong>7</strong>GENERATIONS</div></div>
+  </div>
+</header>
+
+<main id="main">
+  <section class="section" id="about">
+    <div class="wrap">
+      <div class="section-head"><div class="section-index">01 / SOURCE</div><div><h2><span class="square">■</span>意識の次元マッピングとは</h2></div></div>
+      <div class="prose">
+        <p class="lead">同じ出来事やテーマを、3D〜9Dの異なる観測レンズから見ることで、世界の構造がどのように変わって見えるのかを観測・記録する概念モデルです。</p>
+        <p>3D〜9Dは、同時並列に存在する観測レイヤーとして扱います。</p>
+        <a class="text-button" href="https://github.com/marnakatani-bot/maria-dimension-map-/">［ 公式原典を見る ］</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section tinted" id="current">
+    <div class="wrap">
+      <div class="section-head"><div class="section-index">02 / NOW</div><div><h2><span class="square">■</span>現在地</h2></div></div>
+      <div class="cards">
+        <article class="card current">
+          <div class="metric">8<span>本</span></div>
+          <h3>DOI付き論文 8本</h3>
+          <p>研究の原典を未来へ残すため、研究成果を論文としてまとめ、ZenodoでDOI付きで公開・保存しています。</p>
+          <a class="card-link" href="../#sources">［ 論文を見る ］</a><br>
+          <span class="meta">公開形式：プレプリント</span>
+        </article>
+        <article class="card current">
+          <h3>GitHub公式原典</h3>
+          <p>意識の次元マッピングの定義、理論、仮説、研究原典を公開しています。</p>
+          <a class="card-link" href="https://github.com/marnakatani-bot/maria-dimension-map-/">［ GitHub公式原典を見る ］</a>
+        </article>
+        <article class="card current">
+          <h3>公開観測アーカイブ</h3>
+          <p>日々生まれる一次観測を記録し、公開しています。</p>
+          <a class="card-link" href="../observation-mapping/">［ 観測アーカイブを見る ］</a>
+        </article>
+        <article class="card current">
+          <h3>オープンリサーチ</h3>
+          <p>観測、メモ、Research Sketch、GitHub原典、論文へと、研究が育っていく過程そのものを蓄積しています。</p>
+        </article>
+        <article class="card current">
+          <h3>1人の研究者 ＋ AI</h3>
+          <p>中谷まり亜とAIによる共同研究から、研究・記録・公開の仕組みを育てています。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section compact tinted" id="roadmap">
+    <div class="wrap">
+      <div class="section-head"><div class="section-index">03 / ROADMAP</div><div><h2><span class="square">■</span>このプロジェクトが向かう未来</h2><p class="section-intro">2026 → 7世代先へ</p></div></div>
+      <div class="roadmap" aria-label="2026年から7世代先へのロードマップ">
+        <div class="road-step now">8本の論文<span class="road-arrow">↓</span></div>
+        <div class="road-step">約100本の論文<span class="road-arrow">↓</span></div>
+        <div class="road-step">書籍・研究全集<span class="road-arrow">↓</span></div>
+        <div class="road-step">図書館・大学・公共アーカイブ<span class="road-arrow">↓</span></div>
+        <div class="road-step">子ども向けの絵本・アニメーション・教育コンテンツ<span class="road-arrow">↓</span></div>
+        <div class="road-step">意識の次元マッピングAI<span class="road-arrow">↓</span></div>
+        <div class="road-step">Consciousness Atlas / 視座VR<span class="road-arrow">↓</span></div>
+        <div class="road-step">未来のすべての知性へ</div>
+      </div>
+      <div class="prose">
+        <p>現在の長中期ロードマップでは、約100本の論文、研究全集、図書館や大学への公共寄贈、子ども向けの絵本や教育コンテンツ、AI実装までを計画しています。</p>
+        <p>さらにその先では、研究成果を新しい地図、体験、教育、AI、VRへと育てていきます。</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section future" id="future-concepts">
+    <div class="wrap">
+      <div class="future-grid">
+        <article class="future-card">
+          <h3><span class="square">■</span>未来構想｜Consciousness Atlas</h3>
+          <p class="subhead">世界の「見え方」を地図にする</p>
+          <p>Google Earthでは、地球上の場所を移動します。</p>
+          <p>Consciousness Atlasで動かすのは、世界を見る位置・距離・縮尺・視座です。</p>
+          <p>たとえば「お金」を見る。</p>
+          <p>自分の生活から見る。<br>家族から見る。<br>会社から見る。<br>社会制度から見る。<br>所有や交換の仕組みから見る。<br>地球全体から見る。</p>
+          <p>さらに、人間、AI、子ども、3D〜9Dなど、さまざまな観測レンズを切り替えていく。</p>
+          <p>同じ出来事も、見る位置や距離が変われば、別の構造として見えてきます。</p>
+          <p>新しい観測やResearch Sketch、論文が加わるたびに、新しい地点や関係が生まれ、地図そのものも育っていく。</p>
+          <p>「世界のどこを見るか」と同時に、<br>「世界をどこから見るか」を動かせる地図へ。</p>
+          <p>現在公開している観測記録や論文も、将来この地図を構成する「地形データ」へ育っていきます。</p>
+        </article>
+        <article class="future-card">
+          <h3><span class="square">■</span>未来構想｜視座VR・スケールVR</h3>
+          <p class="subhead">別の存在から見える世界へ入る。</p>
+          <p>人の視座。<br>AIの視座。<br>子どもの視座。<br>異なる文化を生きる人の視座。</p>
+          <p>地上から見る。<br>宇宙から見る。<br>火星から見る。<br>銀河から見る。</p>
+          <p>「誰として見るか」と「どこから見るか」を組み合わせることで、同じ世界を別の観測地点から体験します。</p>
+          <p>教育、研究、対話、国際交流、外交。</p>
+          <p>さまざまな場面で、同じ景色を共有してから対話するという新しいコミュニケーションへつながっていく未来を考えています。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="accessibility">
+    <div class="wrap">
+      <div class="section-head"><div class="section-index">04 / ACCESS</div><div><h2><span class="square">■</span>すべての隔たりを越えて</h2></div></div>
+      <div class="sentence-list">
+        <div>
+          <p>国境。</p><p>言語。</p><p>文化。</p><p>年齢。</p><p>経済的な環境。</p><p>身体のハンデ。</p><p>感覚の個性。</p>
+        </div>
+        <div>
+          <p>歩くことが難しい人。</p><p>長い距離を移動することが難しい人。</p><p>重い病気や障がいで、病院や施設、ベッドの上で長い時間を過ごす人。</p><p>高齢者。</p><p>子ども。</p><p>遠くへ旅する経済的な余裕がない人。</p>
+        </div>
+      </div>
+      <div class="prose">
+        <p>たとえば、みんなで同じVR空間に入り、火星から地球を見る。</p>
+        <p>身体は、それぞれ別の場所にあります。</p>
+        <p>その場所から、同じ火星の地平線に立ち、遠くに浮かぶ同じ地球を見る。</p>
+        <p>身体の状態や感覚の個性に合わせて、体験の届け方も変えていく。</p>
+        <p>視覚から受け取る。</p>
+        <p>音から受け取る。</p>
+        <p>触覚や振動から受け取る。</p>
+        <p>形や空間から受け取る。</p>
+        <p>その人が受け取りやすい方法へ、情報の形そのものを変換する。</p>
+        <p>将来の技術が広がれば、さまざまな身体状態や意識状態に合わせた体験の設計も、さらに広がっていくでしょう。</p>
+        <p>身体、国境、言語、文化、年齢、経済状況を越えて、同じ世界を共有できる未来へ。</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section dark" id="beyond-language">
+    <div class="wrap">
+      <div class="section-head"><div class="section-index">05 / TRANSLATE</div><div><h2><span class="square">■</span>言葉を越えて</h2></div></div>
+      <div class="prose">
+        <p>未来の知性は、文字、音、形、空間、触覚、構造データなど、さまざまな形で情報を受け取るかもしれません。</p>
+        <div class="transform"><span>視覚 → 音</span><span>音 → 形</span><span>データ → 空間</span><span>構造 → 触覚</span></div>
+        <p>人間が受け取る。</p>
+        <p>AIが構造として受け取る。</p>
+        <p>異なる感覚を持つ存在が、その存在に合った方法で受け取る。</p>
+        <p>情報を、その知性が受け取りやすい形へ。</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section future" id="beyond-earth">
+    <div class="wrap">
+      <div class="section-head"><div class="section-index">06 / PLANET</div><div><h2><span class="square">■</span>地球を越えて</h2></div></div>
+      <div class="prose">
+        <p>7世代先には、観測技術も大きく広がっているかもしれません。</p>
+        <p>現在より多様な波長。</p>
+        <p>振動。</p>
+        <p>場。</p>
+        <p>情報パターン。</p>
+        <p>惑星ごとに固有の情報パターンまで観測できるようになれば、それを色、音、空間、触覚、構造データなどへ変換する未来も考えられます。</p>
+        <p>「○○星について知る」から、</p>
+        <p>「○○星から立ち上がる世界を体験する」へ。</p>
+        <p>人間から始まり、未来のさまざまな知性が使える地図へ。</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="legacy">
+    <div class="wrap">
+      <div class="section-head"><div class="section-index">07 / LEGACY</div><div><h2><span class="square">■</span>未来へ残す</h2></div></div>
+      <div class="sentence-list">
+        <div><p>観測。</p><p>メモ。</p><p>対話。</p><p>仮説。</p></div>
+        <div><p>論文。</p><p>データ。</p><p>研究の形成過程。</p></div>
+      </div>
+      <div class="prose">
+        <p>現在残せるものを、未来で再利用できる形にして置いていきます。</p>
+        <p>未来の人間が使う。</p>
+        <p>未来のAIが使う。</p>
+        <p>その先に生まれる、新しい知性が使う。</p>
+        <p>未来のすべての知性へ。</p>
+        <p class="lead">OPEN TO ALL INTELLIGENCE</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section compact tinted" id="infrastructure">
+    <div class="wrap">
+      <div class="section-head"><div class="section-index">08 / SYSTEM</div><div><h2><span class="square">■</span>研究から公共インフラへ</h2></div></div>
+      <div class="flow">
+        <span>観測</span><span class="arrow">↓</span><span>メモ・Research Sketch</span><span class="arrow">↓</span><span>研究・論文</span><span class="arrow">↓</span><span>公共アーカイブ</span><span class="arrow">↓</span><span>書籍・教育</span><span class="arrow">↓</span><span>AI・3D・VR</span><span class="arrow">↓</span><span>次の世代が続きをつくる</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="children">
+    <div class="wrap">
+      <div class="section-head"><div class="section-index">09 / CHILDREN</div><div><h2><span class="square">■</span>子どもたちへ</h2></div></div>
+      <div class="prose">
+        <p class="lead">7世代先の地球の喜びのために。</p>
+        <p>すべての子どもたちが、隔たりなく無償で手に取れるものを未来へ置く。</p>
+        <p>絵本。<br>アニメーション。<br>学校。<br>図書館。<br>児童施設。<br>病院。<br>デジタルコンテンツ。</p>
+        <p>そして、その時代の子どもたちが自然に触れられる新しいメディアへ。</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section dark" id="open-sustainable">
+    <div class="wrap">
+      <div class="section-head"><div class="section-index">10 / OPEN</div><div><h2><span class="square">■</span>ひらいた知を、未来へつなぐ</h2><p class="section-intro">OPEN &amp; SUSTAINABLE</p></div></div>
+      <div class="prose">
+        <p>意識の次元マッピングは、メモの段階から研究成果まで無料で公開しています。</p>
+        <p>観測。<br>Research Sketch。<br>GitHub原典。<br>論文。</p>
+        <p>研究が形になっていく途中の情報も含め、未来で誰かが参照し、検証し、続きをつくれる形で残していきます。</p>
+        <p>国籍、言語、年齢、身体、経済状況など、それぞれの環境を越えて、必要な人が知へ触れられる状態を育てる。</p>
+        <p>そして、この無料公開を7世代先まで続けられる仕組みへ育てていきます。</p>
+        <p>研究する人。<br>技術をつくる人。<br>翻訳する人。<br>映像やデザインで届ける人。<br>設備や場所を提供する人。<br>資金を支える人。<br>未来へ資産を託す人。</p>
+        <p>それぞれの力がつながることで、</p>
+        <p>無料で共有できる知を、持続可能な公共インフラへ。</p>
+        <div class="keywords"><span>OPEN KNOWLEDGE</span><span>ACCESSIBILITY</span><span>EDUCATION</span><span>SUSTAINABILITY</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section tinted" id="explore">
+    <div class="wrap">
+      <div class="section-head"><div class="section-index">11 / EXPLORE</div><div><h2><span class="square">■</span>まずは、この研究を見てみる</h2></div></div>
+      <div class="prose">
+        <p>論文を読む。<br>GitHubの原典を見る。<br>日々の観測を覗く。<br>Research Sketchを読む。<br>これから何が生まれるのか見守る。</p>
+      </div>
+      <div class="link-grid">
+        <a href="../#sources">［ DOI付き論文 ］</a>
+        <a href="https://github.com/marnakatani-bot/maria-dimension-map-/">［ GitHub公式原典 ］</a>
+        <a href="../observation-mapping/">［ 公開観測アーカイブ ］</a>
+        <a href="https://marnakatani.substack.com/">［ Research Sketch ］</a>
+      </div>
+      <div class="prose"><p>見ること、読むこと、見守ることから、このプロジェクトとの接点が始まります。</p></div>
+    </div>
+  </section>
+
+  <section class="section" id="participate">
+    <div class="wrap">
+      <div class="section-head"><div class="section-index">12 / JOIN</div><div><h2><span class="square">■</span>このプロジェクトに参加する</h2><p class="section-intro">この未来に、何を持ち込めますか？</p></div></div>
+      <div class="participation">
+        <article><h3>寄付・継続支援</h3><p>研究・公開・制作・技術開発を続けるための資金。</p></article>
+        <article><h3>遺贈・資産寄付</h3><p>研究、教育、公共アーカイブを未来世代へつなぐための資産。</p></article>
+        <article><h3>技術協力</h3><p>AI / Web / 3D / VR / データ可視化 / アプリ開発</p></article>
+        <article><h3>研究連携</h3><p>共同研究 / 検証 / 他分野との接続</p></article>
+        <article><h3>クリエイティブ</h3><p>映像 / デザイン / アニメーション / 音楽 / 翻訳 / 体験設計</p></article>
+        <article><h3>場所・設備・ネットワーク</h3><p>GPU / 3Dプリンター / 展示空間 / 教育現場 / 研究施設 / 人や組織との接続</p></article>
+      </div>
+      <a class="contact-link" href="mailto:contact@dimension-map.com">［ 支援・協力について相談する ］</a>
+      <div class="prose"><p>さまざまな形の参加を歓迎します。</p></div>
+    </div>
+  </section>
+
+  <section class="section tinted" id="support">
+    <div class="wrap">
+      <div class="section-head"><div class="section-index">13 / SUPPORT</div><div><h2><span class="square">■</span>気軽に支援する</h2></div></div>
+      <div class="support-grid">
+        <a class="support-card" href="https://buy.stripe.com/14A7sK2Ep3Fe6L26ik2Nq01"><strong>一度だけ参加する</strong><span>自由金額</span><b>［ 単発で支援する ］</b></a>
+        <a class="support-card" href="https://buy.stripe.com/4gM00i5QBfnW0mEfSU2Nq03"><strong>継続して参加する</strong><span>月額サポート</span><b>［ 継続して支援する ］</b></a>
+      </div>
+      <div class="prose"><p>支援は、研究、教育、公開アーカイブ、技術開発、未来世代への継承につながります。</p></div>
+    </div>
+  </section>
+
+  <section class="section compact" id="founder">
+    <div class="wrap founder">
+      <h2><span class="square">■</span>創設者・研究者</h2>
+      <div class="name">中谷まり亜</div>
+      <div class="en">Maria Nakatani</div>
+      <p>意識の次元マッピング研究所</p>
+      <div class="button-row" style="justify-content:center">
+        <a class="text-button" href="../#sources">［ DOI付き論文 ］</a>
+        <a class="text-button" href="https://github.com/marnakatani-bot/maria-dimension-map-/">［ GitHub公式原典 ］</a>
+        <a class="text-button" href="../observation-mapping/">［ 公開観測アーカイブ ］</a>
+        <a class="text-button" href="https://marnakatani.substack.com/">［ Research Sketch ］</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>意識の次元マッピング・プロジェクト</footer>
+</body>
+</html>
