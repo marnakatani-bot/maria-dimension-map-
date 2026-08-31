@@ -1,5 +1,16 @@
 # 観測マッピング・ノート（デモ版 v0.1.2）
 
+## 公開観測アーカイブの検索ページ生成
+
+`public-observations.json` を更新した後は、リポジトリのルートで次を実行します。
+
+```text
+node scripts/generate-observation-pages.mjs
+node scripts/verify-search-pages.mjs
+```
+
+1つ目の処理は、公開JSONを正本として `records/<公開ID>/index.html` とルートの `sitemap.xml` を生成します。2つ目の処理は、全公開ID、本文、補助欄、canonical、H1、サイトマップURLが正本と一致していることを検査します。生成ページの本文を個別に編集しないでください。
+
 ## このアプリの目的
 
 思いついた観測を、その場ですぐ書き留めて、あとから探せるようにするための、個人用の記録アプリです。

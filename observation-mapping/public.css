@@ -12,6 +12,9 @@ a.card{text-decoration:none;display:block}
 .public-image{margin:1rem 0}
 .public-image img{display:block;max-width:100%;height:auto}
 .public-image figcaption{margin-top:.45rem;color:var(--muted);font-size:.9rem}
+.static-nav{display:flex;gap:.75rem;justify-content:space-between;flex-wrap:wrap;margin-top:1.25rem}
+.static-nav a{text-decoration:none}
+.static-source-links{display:flex;gap:.5rem;flex-wrap:wrap}
 @media (max-width:600px){
   .topbar-actions .btn{flex:1 1 120px}
   .archive-intro h2{font-size:1.25rem}

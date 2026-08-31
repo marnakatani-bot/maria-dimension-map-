@@ -120,12 +120,22 @@
     host.appendChild(item);
   }
 
+  function archiveUrl() {
+    return new URL('https://marnakatani-bot.github.io/maria-dimension-map-/observation-mapping/');
+  }
+
   function recordUrl(id) {
-    var url = new URL(window.location.href);
-    url.search = '';
-    url.hash = '';
-    url.searchParams.set('id', id);
-    return url.toString();
+    return new URL('records/' + encodeURIComponent(id) + '/', archiveUrl()).toString();
+  }
+
+  function setCanonical(url) {
+    var node = document.querySelector('link[rel="canonical"]');
+    if (!node) {
+      node = document.createElement('link');
+      node.rel = 'canonical';
+      document.head.appendChild(node);
+    }
+    node.href = url;
   }
 
   function renderList() {
@@ -137,7 +147,7 @@
 
     filtered.forEach(function (record) {
       var link = el('a', 'card public-card');
-      link.href = '?id=' + encodeURIComponent(record.id);
+      link.href = 'records/' + encodeURIComponent(record.id) + '/';
       link.setAttribute('data-id', record.id);
       link.appendChild(el('h3', 'card-title', record.title));
       link.appendChild(el('p', 'card-date', displayDate(record.date) + '｜' + (record.stage || []).join(' / ')));
@@ -244,6 +254,7 @@
     $('public-list-view').hidden = true;
     $('public-detail-view').hidden = false;
     document.title = record.title + '｜公開観測アーカイブ';
+    setCanonical(recordUrl(record.id));
     setStructuredData(record);
 
     if (pushState !== false) {
@@ -269,6 +280,7 @@
     $('public-detail-view').hidden = true;
     $('public-list-view').hidden = false;
     document.title = '公開観測アーカイブ｜意識の次元マッピング';
+    setCanonical(archiveUrl().toString());
     var jsonld = document.getElementById('observation-jsonld');
     if (jsonld) jsonld.remove();
     if (pushState !== false) history.pushState({}, '', window.location.pathname);

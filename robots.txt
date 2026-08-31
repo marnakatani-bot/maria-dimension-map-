@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://marnakatani-bot.github.io/maria-dimension-map-/sitemap.xml
