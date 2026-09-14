@@ -27,7 +27,15 @@
 - 2026-07-26 NotebookLM第三AI監査：v1.2本文・台帳・制作ログ・変更ログを同時照合
 - 総合判定：適正。公開上の追跡可能性についてA-01を指摘
 - 人間による査読とは区別する
-## 現在未回収の原ファイル
-- Fable v1.0本文・台帳・制作ログの原ファイル
-- Fable v1.1本文・台帳・制作ログ・v1.0→v1.1変更ログの原ファイル
-これらは監査記録に対象ファイル名・SHA-256・修正履歴が残るため工程上の存在と差分は追跡できるが、原文引用は行わない。原ファイルが回収された場合のみ、公開版の引用候補を追加照合する。
+## 2026年9月14日に回収したFable原ファイル
+Fable v1.0の3成果物とv1.1の4成果物を保存ZIPから全件回収し、SOL第二監査および差分監査に記録されたSHA-256と7件すべて一致した。
+### Fable v1.0
+- `paper7-observation-first-methodology-v1.0-draft.md`
+- `paper7-ledger-claims-unverified-v1.0.md`
+- `paper7-production-log-selfaudit-v1.0.md`
+### Fable v1.1
+- `paper7-observation-first-methodology-v1.1-draft.md`
+- `paper7-ledger-claims-unverified-v1.1.md`
+- `paper7-production-log-selfaudit-v1.1.md`
+- `paper7-v1.0-to-v1.1-change-log.md`
+v1.0→v1.1変更ログは、v1.1差分監査の同一性表では `paper7-change-log-v1.0-to-v1.1.md` と記録されているが、回収した実ファイルのSHA-256は記録値と完全一致しており、内容の同一性に差はない。
