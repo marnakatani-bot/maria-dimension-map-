@@ -360,9 +360,16 @@ Flower of Life型構造は、単一観測者のSeed of Life型構造から、複
 
 ## 意識の次元マッピング・プロジェクト
 
-研究の長期構想、現在地、未来へ残すための取り組み、参加方法は、PROJECTページにまとめています。
+意識の次元マッピングを7世代先へ残すための長期プロジェクトとして、現在の研究、これから実現したいこと、参加・支援の方法を公開しています。
 
-▶ [7世代先へ｜意識の次元マッピング・プロジェクト](https://marnakatani-bot.github.io/maria-dimension-map-/project/)
+▶ [この研究プロジェクトを見る](https://marnakatani-bot.github.io/maria-dimension-map-/project/)
+
+### 研究を支援する
+
+研究・公開・アーカイブを継続するための支援を受け付けています。
+
+- [単発で支援する（金額自由）](https://buy.stripe.com/14A7sK2Ep3Fe6L26ik2Nq01)
+- [継続して支援する（月額1,111円）](https://buy.stripe.com/4gM00i5QBfnW0mEfSU2Nq03)
 
 中谷まり亜（Maria Nakatani）
 
