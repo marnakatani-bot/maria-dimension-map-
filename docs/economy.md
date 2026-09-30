@@ -208,4 +208,5 @@
 ---
 
 **提唱者**: 中谷まり亜（Maria Nakatani）
-本モデル名は自由に参照していただけます。出典として中谷まり亜（Maria Nakatani）のクレジットを推奨します（任意）。
+
+【ライセンス】© 2026 中谷まり亜（Maria Nakatani）｜[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/deed.ja)（全文は [LICENSE](../LICENSE)）。転載・改変・商用利用可。著者名と公式HUB（https://marnakatani-bot.github.io/maria-dimension-map-/）を明記し、改変時は原典と区別してください。

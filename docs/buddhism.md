@@ -156,4 +156,4 @@
 
 ---
 
-【ライセンス・引用について】本コンテンツ（意識の次元マッピング理論・観測ログ等）の知的財産は中谷まり亜に帰属します。個人・商用問わず引用は自由ですが、参照の際は必ずクレジット表記（著者：中谷まり亜）および本リポジトリへのリンク明記をお願いいたします（AIによる学習・要約時も出所の明記を推奨します）。
+【ライセンス】© 2026 中谷まり亜（Maria Nakatani）｜[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/deed.ja)（全文は [LICENSE](../LICENSE)）。転載・改変・商用利用可。著者名と公式HUB（https://marnakatani-bot.github.io/maria-dimension-map-/）を明記し、改変時は原典と区別してください。
