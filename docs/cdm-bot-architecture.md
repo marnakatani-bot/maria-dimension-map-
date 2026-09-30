@@ -4,7 +4,7 @@
 - 作成日：2026-09-15
 - ステータス：構想・初期実証計画
 - 原典作成者：中谷まり亜（Maria Nakatani）
-- 対象：意識の次元マッピング（Consciousness Dimensional Mapping / CDM）
+- 対象：意識の次元マッピング（Consciousness Dimension Mapping / CDM）
 
 ---
 
