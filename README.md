@@ -394,4 +394,16 @@ Flower of Life型構造は、単一観測者のSeed of Life型構造から、複
 
 ---
 
+<a id="research-patrons"></a>
+
+## 研究奉賛者 / Research Patrons
+
+意識の次元マッピング研究を支えてくださった方のうち、掲載をご希望いただいた方のお名前・ニックネームを、研究へのご協力の記録として掲載します。掲載は任意です。匿名でのご支援も歓迎しています。
+
+受託研究や研究支援を通じてご協力いただいた方を、ご本人のご希望に応じて記録します。金額、注文内容、連絡先、その他の個人情報は掲載しません。
+
+掲載希望者のみ順次記載
+
+---
+
 【ライセンス】© 2026 中谷まり亜（Maria Nakatani）｜[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/deed.ja)（全文は [LICENSE](LICENSE)）。転載・改変・商用利用可。著者名と公式HUB（https://marnakatani-bot.github.io/maria-dimension-map-/）を明記し、改変時は原典と区別してください。
