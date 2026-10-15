@@ -194,7 +194,10 @@ records.forEach((record, index) => {
   fs.writeFileSync(path.join(targetDir, 'index.html'), recordPage(record, index, records), 'utf8');
 });
 
-const sitemapUrls = [siteBase, siteBase + 'project/', archiveBase].map((loc) => ({ loc, lastmod: '' }));
+const publicPaths = JSON.parse(fs.readFileSync(path.join(repoRoot, 'scripts/public-research-paths.json'), 'utf8'));
+const sitemapUrls = [...new Set([siteBase, siteBase + 'project/', archiveBase,
+  ...publicPaths.map(({ path: publicPath }) => new URL(publicPath, siteBase).href)])]
+  .map((loc) => ({ loc, lastmod: '' }));
 for (const record of records) {
   sitemapUrls.push({
     loc: archiveBase + 'records/' + encodeURIComponent(record.id) + '/',

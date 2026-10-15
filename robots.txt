@@ -1,3 +1,6 @@
+# This file is served below /maria-dimension-map-/ on GitHub Pages.
+# Crawlers consult https://marnakatani-bot.github.io/robots.txt for host-wide rules.
+# This project file documents the public crawling preference; it does not control that host root.
 User-agent: *
 Allow: /
 

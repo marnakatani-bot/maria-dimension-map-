@@ -56,7 +56,10 @@ for (const record of records) {
 
 const sitemap = fs.readFileSync(path.join(repoRoot, 'sitemap.xml'), 'utf8');
 const locs = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1]);
-assert(locs.length === records.length + 3, 'sitemap URL数が一致しません。');
+const publicPaths = JSON.parse(fs.readFileSync(path.join(repoRoot, 'scripts/public-research-paths.json'), 'utf8'));
+assert(locs.length === records.length + 3 + publicPaths.length, 'sitemap URL数が一致しません。');
+for (const entry of publicPaths) assert(locs.includes(new URL(entry.path, siteBase).href), `公開資料がsitemapにありません: ${entry.path}`);
+assert(!locs.some(loc => loc.endsWith('/note.html') || loc.includes('/archive/v1.0.1/')), '個人用ノートや公開前原稿を新しいsitemapに追加しません。');
 assert(new Set(locs).size === locs.length, 'sitemap URLが重複しています。');
 assert(locs.includes(siteBase), 'トップページがsitemapにありません。');
 assert(locs.includes(siteBase + 'project/'), 'プロジェクトページがsitemapにありません。');
