@@ -1,0 +1,52 @@
+name: Archive AI crawler observations
+on:
+  schedule:
+    - cron: '20 20 * * *' # 05:20 JST; previous completed JST day
+  workflow_dispatch:
+    inputs:
+      date:
+        description: 'JST date YYYY-MM-DD; blank means yesterday (within available retention)'
+        required: false
+        type: string
+permissions:
+  contents: read
+concurrency:
+  group: ai-crawl-archive
+  cancel-in-progress: false
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: main
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: '24'
+      - name: Select completed JST day
+        id: day
+        env:
+          INPUT_DATE: ${{ inputs.date }}
+        run: |
+          node --input-type=module <<'JS'
+          import { appendFileSync } from 'node:fs';
+          import { jstDay } from './operations/ai-crawl/collect-ai-crawls.mjs';
+          const date = process.env.INPUT_DATE || new Date(Date.now()+9*3600000-86400000).toISOString().slice(0,10);
+          if (jstDay(date)[1] > Date.now()) throw new Error('JST day has not ended');
+          appendFileSync(process.env.GITHUB_OUTPUT, `date=${date}\n`);
+          JS
+      - name: Query Cloudflare analytics
+        env:
+          CF_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
+          CF_ZONE_ID: 111cf321567191ef5f14a8ff8708fc93
+          DATE: ${{ steps.day.outputs.date }}
+        run: node operations/ai-crawl/collect-ai-crawls.mjs --date "$DATE" --out export
+      - name: Append immutable daily result to data branch
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          DATE: ${{ steps.day.outputs.date }}
+        run: node operations/ai-crawl/archive-result.mjs "$DATE"
