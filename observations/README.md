@@ -57,4 +57,4 @@ CDMの公式定義や既存研究資料は、事例の解釈に合わせて変�
 
 ### 更新履歴
 
-- 2026-10-16：第002号・第003号を追加。初回回答から著者補足・再回答までの形成過程と原文2件を保存。既存第001号を保持。公開内容のコミットは[この2件の追加履歴](https://github.com/marnakatani-bot/maria-dimension-map-/commits/main/observations/index.html)から追跡できる。
+- 2026-10-16：第002号・第003号を追加。初回回答から著者補足・再回答までの形成過程と原文2件を保存。既存第001号を保持。公開内容のコミット：[`1564ca294adc3a6f5c964f238e7b008e0432e494`](https://github.com/marnakatani-bot/maria-dimension-map-/commit/1564ca294adc3a6f5c964f238e7b008e0432e494)。
