@@ -38,7 +38,7 @@ assert(JSON.stringify(generatedIds) === JSON.stringify(sourceIds), '生成ペー
 for (const record of records) {
   const filePath = path.join(recordsRoot, record.id, 'index.html');
   assert(fs.existsSync(filePath), `静的ページがありません: ${record.id}`);
-  const html = fs.readFileSync(filePath, 'utf8');
+  const html = fs.readFileSync(filePath, 'utf8').replaceAll('\r\n', '\n');
   const canonical = archiveBase + 'records/' + encodeURIComponent(record.id) + '/';
   assert(html.includes(`<link rel="canonical" href="${canonical}">`), `canonical不一致: ${record.id}`);
   assert(html.includes(`<h1 class="detail-title">${escapeHtml(record.title)}</h1>`), `タイトル不一致: ${record.id}`);
