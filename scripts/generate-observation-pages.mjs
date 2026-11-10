@@ -91,7 +91,7 @@ function recordPage(record, index, records) {
         '@id': canonical + '#article',
         headline: record.title,
         description,
-        datePublished: record.date,
+        datePublished: record.publishedAt || record.date,
         dateModified: record.updatedAt || record.date,
         inLanguage: 'ja',
         author: {

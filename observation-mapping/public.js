@@ -214,7 +214,7 @@
       '@context': 'https://schema.org',
       '@type': 'Article',
       headline: record.title,
-      datePublished: record.date,
+      datePublished: record.publishedAt || record.date,
       dateModified: record.updatedAt || record.date,
       author: {
         '@type': 'Person',
