@@ -53,6 +53,14 @@ function textSection(title, value) {
   return `\n      <h2 class="sec-head">${escapeHtml(title)}</h2>\n      <div class="longtext">${escapeText(value)}</div>`;
 }
 
+function relatedMemoSection(record) {
+  if (!record.relatedMemos || !record.relatedMemos.length) return '';
+  const links = record.relatedMemos.map((memo) =>
+    `<li><a href="${escapeHtml(memo.url)}">${escapeHtml(memo.title)}</a><p class="muted small">${escapeHtml(memo.description)}</p></li>`
+  ).join('\n          ');
+  return `\n      <section aria-label="関連するマリアメモ">\n        <h2 class="sec-head">関連するマリアメモ</h2>\n        <ul>\n          ${links}\n        </ul>\n      </section>`;
+}
+
 function imageSection(record) {
   if (!Array.isArray(record.images) || !record.images.length) return '';
   const figures = record.images.map((image) => {
@@ -154,7 +162,7 @@ ${safeJsonLd(jsonLd)}
     <div class="labels">${labels.map(chip).join('')}</div>
 
     <h2 class="sec-head">原観測</h2>
-    <div class="longtext">${escapeText(record.body || '')}</div>${imageSection(record)}${textSection('次元展開', record.dimExpand)}${textSection('整理メモ', record.memo)}${textSection('研究への接続', record.research)}${textSection('関連記録', record.related)}
+    <div class="longtext">${escapeText(record.body || '')}</div>${imageSection(record)}${textSection('次元展開', record.dimExpand)}${textSection('整理メモ', record.memo)}${textSection('研究への接続', record.research)}${textSection('関連記録', record.related)}${relatedMemoSection(record)}
 
     <nav class="static-nav" aria-label="観測記録の前後移動">${navigation}</nav>
     <div class="row-actions detail-actions">

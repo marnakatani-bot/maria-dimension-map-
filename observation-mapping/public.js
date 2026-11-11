@@ -178,6 +178,21 @@
       host.appendChild(el('h3', 'sec-head', item[0]));
       host.appendChild(el('div', 'longtext', item[1]));
     });
+    if (!record.relatedMemos || !record.relatedMemos.length) return;
+    var section = el('section');
+    section.setAttribute('aria-label', '関連するマリアメモ');
+    section.appendChild(el('h3', 'sec-head', '関連するマリアメモ'));
+    var list = el('ul');
+    record.relatedMemos.forEach(function (memo) {
+      var item = el('li');
+      var link = el('a', '', memo.title);
+      link.href = memo.url;
+      item.appendChild(link);
+      item.appendChild(el('p', 'muted small', memo.description));
+      list.appendChild(item);
+    });
+    section.appendChild(list);
+    host.appendChild(section);
   }
 
   function renderImages(record) {
