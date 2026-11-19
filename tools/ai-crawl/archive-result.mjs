@@ -34,7 +34,7 @@ const parent = ref ? await api(`git/commits/${ref.object.sha}`) : null;
 const blob = await api('git/blobs', 'POST', { content, encoding: 'utf-8' });
 const entries = [{ path, mode: '100644', type: 'blob', sha: blob.sha }];
 if (!parent) entries.push({ path: 'README.md', mode: '100644', type: 'blob', content:
-  '# AI crawler observation data\n\nDaily JST aggregates for observations.dimension-map.com. Source and workflow: main branch operations/ai-crawl/. User-Agent identification is spoofable; counts may be sampled or estimated. No inference of model training. Zero means a successful query returned no matching rows, not proof of no traffic. Original daily files are append-only.\n' });
+  '# AI crawler observation data\n\nDaily JST aggregates for observations.dimension-map.com. Source and workflow: main branch tools/ai-crawl/. User-Agent identification is spoofable; counts may be sampled or estimated. No inference of model training. Zero means a successful query returned no matching rows, not proof of no traffic. Original daily files are append-only.\n' });
 const tree = await api('git/trees', 'POST', { ...(parent ? { base_tree: parent.tree.sha } : {}), tree: entries });
 const commit = await api('git/commits', 'POST', { message: `Archive AI crawler aggregates for ${date} JST`,
   tree: tree.sha, parents: parent ? [parent.sha] : [] });

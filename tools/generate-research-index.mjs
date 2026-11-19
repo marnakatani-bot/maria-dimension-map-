@@ -1,6 +1,6 @@
 import fs from 'node:fs';
 const root=new URL('../',import.meta.url),base='https://marnakatani-bot.github.io/maria-dimension-map-/';
-const entries=JSON.parse(fs.readFileSync(new URL('scripts/public-research-paths.json',root),'utf8'));
+const entries=JSON.parse(fs.readFileSync(new URL('tools/public-research-paths.json',root),'utf8'));
 const esc=s=>String(s).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;');
 const fixed=[{path:'project/',label:'意識の次元マッピング・プロジェクト｜7世代先へ',group:'研究プロジェクト'},{path:'observation-mapping/',label:'公開観測アーカイブ｜一次観測の記録',group:'観測記録'}];
 const grouped=new Map();for(const e of [...fixed,...entries]){if(e.path==='research/')continue;if(!grouped.has(e.group))grouped.set(e.group,[]);grouped.get(e.group).push(e)}

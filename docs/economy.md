@@ -196,7 +196,7 @@
 ## 🔗 関連文書・参考理論
 
 **本リポジトリ内**
-- 意識の次元マッピング 対比レポート：`docs/comparison-report.md`
+- 意識の次元マッピング 対比レポート：`docs/archive/comparison-report.md`
 - 意識の次元構造：`docs/consciousness.md`
 
 **参考理論**

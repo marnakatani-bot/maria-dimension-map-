@@ -4,7 +4,7 @@
 
 ## 正本の範囲
 
-定義の正本は、README と docs/ の4ページ（dimensions.md・glossary.md・faq-6d.md・hypotheses.md）とする。docs/ のほかのページは解説、papers/ の論文と過去の資料（CONSCIOUSNESS.md・docs/comparison-report.md）は執筆当時の記録として扱う。
+定義の正本は、README と docs/ の4ページ（dimensions.md・glossary.md・faq-6d.md・hypotheses.md）とする。docs/ のほかのページは解説、papers/ の論文と過去の資料（docs/archive/）は執筆当時の記録として扱う。
 
 ## 定義文の書き方
 

@@ -1,0 +1,6 @@
+# GitHub Pages の設定。移動したページの旧URLを、移動先へ転送する。
+plugins:
+  - jekyll-redirect-from
+
+redirect_from:
+  json: false

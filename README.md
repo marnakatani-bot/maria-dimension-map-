@@ -97,7 +97,7 @@
 | 経済への応用（次元別の経済形態、谷町経済、2段階差異仮説） | [docs/economy.md](docs/economy.md) |
 | 著者の観測記録 | [公開観測アーカイブ](https://marnakatani-bot.github.io/maria-dimension-map-/observation-mapping/) |
 | AIエージェント・検索エンジン向けの仕様、説明用AI Botの構想 | [docs/for-ai.md](docs/for-ai.md)、[docs/cdm-bot-architecture.md](docs/cdm-bot-architecture.md) |
-| 過去の資料（旧定義を含む） | [CONSCIOUSNESS.md](CONSCIOUSNESS.md)（2026年2月）、[docs/comparison-report.md](docs/comparison-report.md)（2026年5月） |
+| 過去の資料（旧定義を含む） | [docs/archive/CONSCIOUSNESS.md](docs/archive/CONSCIOUSNESS.md)（2026年2月）、[docs/archive/comparison-report.md](docs/archive/comparison-report.md)（2026年5月） |
 
 ## 論文
 
@@ -140,7 +140,7 @@ Zenodoで公開している論文の一覧です（正本は各DOIの最新版�
 | 解説・論文 | [docs/](docs/) のほかのページ、[papers/](papers/) | 眼・体験・意識・仏教・経済などの解説、AI向け仕様、論文の保管 |
 | 記録と決まり | [CHANGELOG.md](CHANGELOG.md)、[CONTRIBUTING.md](CONTRIBUTING.md)、[research-dialogues/](research-dialogues/) | 変更履歴、原典の書き方の決まり、論文ができるまでの対話記録 |
 | 公式サイト | index.html、project/、research/、commissioned-research/、observations/、observation-mapping/、seed-crystal/、images/ | [公式サイト](https://marnakatani-bot.github.io/maria-dimension-map-/)の各ページを作るファイル |
-| 運用 | .github/、operations/、scripts/、sitemap.xml など | サイトの生成と計測に使うファイル。読む必要はありません |
+| 運用 | .github/、tools/、_config.yml、sitemap.xml など | サイトの生成と計測に使うファイル。読む必要はありません |
 
 ## 引用とライセンス
 

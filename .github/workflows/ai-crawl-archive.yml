@@ -34,7 +34,7 @@ jobs:
         run: |
           node --input-type=module <<'JS'
           import { appendFileSync } from 'node:fs';
-          import { jstDay } from './operations/ai-crawl/collect-ai-crawls.mjs';
+          import { jstDay } from './tools/ai-crawl/collect-ai-crawls.mjs';
           const date = process.env.INPUT_DATE || new Date(Date.now()+9*3600000-86400000).toISOString().slice(0,10);
           if (jstDay(date)[1] > Date.now()) throw new Error('JST day has not ended');
           appendFileSync(process.env.GITHUB_OUTPUT, `date=${date}\n`);
@@ -44,9 +44,9 @@ jobs:
           CF_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
           CF_ZONE_ID: 111cf321567191ef5f14a8ff8708fc93
           DATE: ${{ steps.day.outputs.date }}
-        run: node operations/ai-crawl/collect-ai-crawls.mjs --date "$DATE" --out export
+        run: node tools/ai-crawl/collect-ai-crawls.mjs --date "$DATE" --out export
       - name: Append immutable daily result to data branch
         env:
           GITHUB_TOKEN: ${{ github.token }}
           DATE: ${{ steps.day.outputs.date }}
-        run: node operations/ai-crawl/archive-result.mjs "$DATE"
+        run: node tools/ai-crawl/archive-result.mjs "$DATE"
