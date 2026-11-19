@@ -138,7 +138,7 @@ Zenodoで公開している論文の一覧です（正本は各DOIの最新版�
 | :- | :- | :- |
 | 定義（正本） | README.md と、[docs/](docs/) の dimensions.md・glossary.md・faq-6d.md・hypotheses.md | 定義、各次元の詳しい説明、用語、6D FAQ、構造仮説 |
 | 解説・論文 | [docs/](docs/) のほかのページ、[papers/](papers/) | 眼・体験・意識・仏教・経済などの解説、AI向け仕様、論文の保管 |
-| 記録と決まり | [CHANGELOG.md](CHANGELOG.md)、[CONTRIBUTING.md](CONTRIBUTING.md)、[research-dialogues/](research-dialogues/) | 変更履歴、原典の書き方の決まり、論文ができるまでの対話記録 |
+| 記録と決まり | [CHANGELOG.md](CHANGELOG.md)、[CONTRIBUTING.md](CONTRIBUTING.md)、[research-dialogues/](research-dialogues/) | 変更履歴、運用マニュアル（更新の手順と決まり）、論文ができるまでの対話記録 |
 | 公式サイト | index.html、project/、research/、commissioned-research/、observations/、observation-mapping/、seed-crystal/、images/ | [公式サイト](https://marnakatani-bot.github.io/maria-dimension-map-/)の各ページを作るファイル |
 | 運用 | .github/、tools/、_config.yml、sitemap.xml など | サイトの生成と計測に使うファイル。読む必要はありません |
 
