@@ -16,7 +16,7 @@ const html=`<!doctype html>
 <style>body{margin:0;background:#f6f5ef;color:#202d3b;font:16px/1.85 system-ui,sans-serif}main{max-width:960px;margin:auto;padding:40px 24px}h1{font-size:clamp(1.6rem,4vw,2.3rem)}h2{font-size:1.25rem}section{background:white;border:1px solid #dddcd4;border-radius:12px;padding:20px 26px;margin:24px 0}a{color:#205a71;overflow-wrap:anywhere}li{margin:.65em 0}.formats,footer{font-size:.9em;color:#596572}nav{display:flex;gap:22px;flex-wrap:wrap}</style></head>
 <body><main><nav><a href="../">公式HUB</a><a href="https://github.com/marnakatani-bot/maria-dimension-map-/">公式GitHub原典</a></nav>
 <h1>公開研究資料の索引</h1><p>研究者・著者：中谷まり亜（Maria Nakatani）<br>意識の次元マッピング（Consciousness Dimension Mapping）</p>
-<p>公式HUBで公開している研究資料への入口です。各資料の本文と出典はリンク先で確認できます。現行の理論定義は公式READMEを正本とし、歴史資料は執筆当時の記録として参照してください。</p>
+<p>公式HUBで公開している研究資料への入口です。各資料の本文と出典はリンク先で確認できます。現行の理論定義は公式READMEと、そこからリンクする定義ページを正本とし、歴史資料は執筆当時の記録として参照してください。</p>
 ${sections}
 <section><h2>論文の正本・外部記事</h2><p>論文の正本は各DOIから参照してください。執筆当時の用語は各論文に保持されています。</p><ul>${doiLinks}</ul>
 <p><a href="https://multidimension.hatenablog.com/">はてなブログ</a> · <a href="https://note.com/maria_nakatani2">note</a> · <a href="https://substack.com/@dimensionmap">Substack</a></p></section>

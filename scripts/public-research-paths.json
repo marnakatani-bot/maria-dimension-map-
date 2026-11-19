@@ -1,6 +1,11 @@
 [
   {"path":"research/","label":"公開研究資料の索引","group":"入口"},
   {"path":"README.md","label":"公式README・現行の定義・次元表","group":"理論原典・解説","source":"README.md"},
+  {"path":"docs/dimensions.html","label":"各次元の詳しい説明（理論の核・各次元の観測視座）","group":"理論原典・解説","source":"docs/dimensions.md"},
+  {"path":"docs/glossary.html","label":"用語集","group":"理論原典・解説","source":"docs/glossary.md"},
+  {"path":"docs/faq-6d.html","label":"6D FAQ｜誤読防止","group":"理論原典・解説","source":"docs/faq-6d.md"},
+  {"path":"docs/hypotheses.html","label":"構造仮説（観測転換・移行・同時配置）","group":"理論原典・解説","source":"docs/hypotheses.md"},
+  {"path":"docs/for-ai.html","label":"AIエージェント向け仕様書","group":"理論原典・解説","source":"docs/for-ai.md"},
   {"path":"docs/consciousness.html","label":"意識の多層的定義","group":"理論原典・解説","source":"docs/consciousness.md"},
   {"path":"docs/experiential.html","label":"体験ベースの理解","group":"理論原典・解説","source":"docs/experiential.md"},
   {"path":"docs/eyes.html","label":"次元の「眼」","group":"理論原典・解説","source":"docs/eyes.md"},
